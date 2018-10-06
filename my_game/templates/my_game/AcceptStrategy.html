@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Round {{ group.round_number }}. Stage 2.
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        You are the <strong>responder</strong>.
+    </p>
+
+    {% include Constants.game_choice %}
+
+    <p>
+        The proposer will make you an offer on how to divide
+        the {{ Constants.endowment }}.
+    </p>
+
+    <p>
+        Please choose below how you would respond to each of the possible
+        offers.
+    </p>
+
+    {% for field in form %}
+        {% formfield field %}
+    {% endfor %}
+
+    {% next_button %}
+    {% include Constants.instructions_template %}
+
+{% endblock %}

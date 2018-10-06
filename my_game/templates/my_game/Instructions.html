@@ -1,0 +1,147 @@
+{% load otree static %}
+
+<div class="instructions well well-lg">
+
+    <h3 class="panel-sub-heading">
+        Instructions
+    </h3>
+
+    <div class="panel-body">
+
+        <p>
+            First, every player will be randomly paired with another player. In
+            other words, you will have a counterpart, but you will not be told
+            who it is.
+            Your identity will also remain hidden from your counterpart.
+        </p>
+
+        <p>
+            The two participants in a pair will have two different roles: the
+            <strong>proposer</strong> and the <strong>responder</strong>.
+            You will be assigned randomly to a role, and it will be displayed
+            on the next page.
+        </p>
+
+        <p>
+            There will be {{ Constants.num_rounds }} rounds of the game.
+            Your role will remain the same for all rounds. However, your
+            counterpart will be chosen randomly each round among the players
+            who have the opposite role.
+        </p>
+
+        <p>
+            In each round, the two of you will together receive
+            {{ Constants.endowment }}. The experiment is about how to divide
+            this amount.
+        </p>
+
+        <p>
+            The game consists of two stages.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Stage 1
+        </h4>
+
+        <p>
+            First the responder makes a choice between two options: <strong>RESPOND</strong>
+            or <strong>ACCEPT</strong>. This choice is <em>conditional</em> on
+            the computer's choice between <strong>INFORMED</strong> or <strong>UNINFORMED</strong>.
+            That means the responder has to choose between <strong>RESPOND</strong>
+            or <strong>ACCEPT</strong> twice: first, for the scenario when the computer chooses
+            <strong>INFORMED</strong> and second, for the other scenario when the computer chooses
+            <strong>UNINFORMED</strong>.
+        </p>
+
+        <p>
+            Then the computer uniformly randomly chooses among six options:
+            <ul style="list-style-type:none">
+                <li>(<strong>INFORMED</strong>,<strong>RESPONDER'S CHOICE</strong>),</li>
+                <li>(<strong>INFORMED</strong>,<strong>RESPOND</strong>),</li>
+                <li>(<strong>INFORMED</strong>,<strong>ACCEPT</strong>),</li>
+                <li>(<strong>UNINFORMED</strong>,<strong>RESPONDER'S CHOICE</strong>),</li>
+                <li>(<strong>UNINFORMED</strong>,<strong>RESPOND</strong>),</li>
+                <li>(<strong>UNINFORMED</strong>,<strong>ACCEPT</strong>).</li>
+            </ul>
+        </p>
+
+        <p>
+            Based on the responder's and the computer's choices, it is decided what type of the
+            game will be played in stage 2, <strong>RESPOND</strong>
+            or <strong>ACCEPT</strong>.
+            <ul>
+                <li>
+                    If the computer chose (<strong>INFORMED</strong>,<strong>RESPONDER'S CHOICE</strong>), then
+                    the type <strong>G</strong> is defined by the responder's choice <em>conditional</em> on
+                    <strong>INFORMED</strong>.
+                </li>
+                <li>
+                    If the computer chose (<strong>UNINFORMED</strong>,<strong>RESPONDER'S CHOICE</strong>), then
+                    the type <strong>G</strong> is defined by the responder's choice <em>conditional</em> on
+                    <strong>UNINFORMED</strong>.
+                </li>
+                <li>
+                    If the computer chose <strong>RESPOND</strong>, then <strong>G</strong>=<strong>RESPOND</strong>.
+                </li>
+                <li>
+                    If the computer chose <strong>ACCEPT</strong>, then <strong>G</strong>=<strong>ACCEPT</strong>.
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            Both players are informed about the type of the game <strong>G</strong>. In addition, if the computer
+            chose <strong>INFORMED</strong>, they both know whether the choice of the game was made by
+            the computer (when the computer chose <strong>RESPOND</strong> or <strong>ACCEPT</strong>)
+            or by the responder (when the computer chose <strong>RESPONDER'S CHOICE</strong>).
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Stage 2
+        </h4>
+
+        <p>
+            The proposer makes an offer to the responder. This offer
+            specifies how to divide the {{ Constants.endowment }} between the
+            two players. The proposer has to choose among the following
+            {{ Constants.offer_choices_count }} options:
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+
+                <li>{{ give }} for the responder (the proposer keeps {{ keep }})</li>
+
+            {% endfor %}
+        </ol>
+
+        <p>
+            If <strong>G</strong>=<strong>RESPOND</strong>, then
+            while the proposer makes the offer, the responder can select
+            which {{ Constants.offer_choices_count }} offers stated above
+            to accept or reject.
+            After the proposer has made the offer, it will be either
+            accepted or rejected according to the responder's choices.
+        </p>
+
+        <p>
+            If <strong>G</strong>=<strong>ACCEPT</strong>, then
+            the offer is accepted automatically.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Payoffs
+        </h4>
+
+        <p>
+            If the offer is accepted, the players will receive a payoff
+            accordingly
+        </p>
+
+        <p>
+            If the offer is rejected, both players will
+            receive {{ Constants.payoff_if_rejected }}
+        </p>
+
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{% load otree static %}
+
+<div>
+
+    {% if group.computer_choice1 == "INFORMED" %}
+    {% if group.computer_choice2 == "RESPONDER'S CHOICE" %}
+    <p>
+        The computer chose (<strong>INFORMED</strong>,<strong>RESPONDER'S CHOICE</strong>).
+    </p>
+    {% if player.id_in_group == 1 %}
+    <p>
+        The responder chose <strong>{{ group.informed_dictator }}</strong>.
+    </p>
+    {% else %}
+    <p>
+        You chose <strong>{{ group.informed_dictator }}</strong>.
+    </p>
+    {% endif %}
+    {% else %}
+    <p>
+        The computer chose (<strong>INFORMED</strong>,<strong>{{ group.computer_choice2 }}</strong>).
+    </p>
+    {% endif %}
+    {% else %}
+    <p>
+        The computer chose <strong>UNINFORMED</strong>.
+    </p>
+    {% if group.computer_choice2 == "RESPONDER'S CHOICE" %}
+    <p>
+        The chosen game is <strong>{{ group.uninformed_dictator }}</strong>.
+    </p>
+    {% else %}
+    <p>
+        The chosen game is <strong>{{ group.computer_choice2 }}</strong>.
+    </p>
+    {% endif %}
+    {% endif %}
+
+</div>

@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+        Round {{ group.round_number }}. Stage 1
+{% endblock %}
+
+{% block content %}
+    <p>
+            You are the <strong>responder</strong>.
+    </p>
+
+    <p>
+        Please make your choice conditional on the computer's choice.
+    </p>
+
+    <p>
+        If the computer chooses <strong>INFORMED</strong>, then your choice is
+        {% formfield group.informed_dictator %}
+    </p>
+
+    <p>
+        If the computer chooses <strong>UNINFORMED</strong>, then your choice is
+        {% formfield group.uninformed_dictator %}
+    </p>
+
+
+    {% next_button %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}
