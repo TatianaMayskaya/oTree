@@ -81,7 +81,7 @@ SESSION_CONFIGS = [
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'RUB'  # 'USD'
 USE_POINTS = True
 
 ROOMS = [
@@ -94,6 +94,11 @@ ROOMS = [
         'name': 'live_demo',
         'display_name': 'Room for live demo (no participant labels)',
     },
+    {
+        'name': 'game_for_two_players',
+        'display_name': 'Game for two players',
+        'participant_label_file': '_rooms/game_for_two_players.txt'
+    }
 ]
 
 
