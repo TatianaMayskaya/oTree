@@ -93,11 +93,14 @@ class Constants(BaseConstants):
     Prisoner_cooperate = 'A1'
     Prisoner_defect = 'A2'
 
+    SurveyPersonal_number = 4
+
     quiz_question = []
     quiz_explanation = []
     survey1_question_1 = []
     survey1_question_2 = []
     survey1_question_3 = []
+    SurveyPersonal_question = []
     if language == 1:
         quiz_question.append('Is it possible that your role (player 1 / player 2) will be changed '
                              'during the experiment?')
@@ -215,6 +218,24 @@ class Constants(BaseConstants):
         label_RiskyUrns = 'Choose one option'
         choice1_RiskyUrns = 'Urn gamble'
         choice2_RiskyUrns = '{} tokens'
+        SurveyPersonal_question.append(['What is your gender?', 'Male', 'Female', 'Other'])
+        SurveyPersonal_question.append('What is your age?')
+        SurveyPersonal_question.append('What is(are) your native language(s)?')
+        SurveyPersonal_question.append('How many siblings do you have?')
+        SurveyPersonal_question.append(
+            'How well does the following statement describe you as a person '
+            '(0 - does not describe me at all; 10 - describes me perfectly)? '
+            '\'Winning a debate matters less to you than making sure no one gets upset.\'')
+        SurveyPersonal_question.append(
+            'Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. '
+            'The top of the ladder represents the best possible life for you and the bottom of the ladder '
+            'represents the worst possible life for you. On which step of the ladder would you say you '
+            'personally feel you stand at this time?')
+        SurveyPersonal_question.append(
+            'Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. '
+            'The top of the ladder represents the best possible life for you and the bottom of the ladder '
+            'represents the worst possible life for you. Just your best guess, on which step fo you think '
+            'you will stand in the future, say about five years from now?')
 
     else:
         quiz_question.append('Возможно ли, что Ваша роль (игрок 1 / игрок 2) изменится в течение эксперимента?')
@@ -343,6 +364,22 @@ class Constants(BaseConstants):
         label_RiskyUrns = 'Выберите одну опцию'
         choice1_RiskyUrns = 'Лотерея'
         choice2_RiskyUrns = '{} жетонов'
+        SurveyPersonal_question.append(['Укажите Ваш пол', 'Мужской', 'Женский', 'Другой'])
+        SurveyPersonal_question.append('Сколько Вам полных лет?')
+        SurveyPersonal_question.append('Какой Ваш родной язык? (укажите все, если их больше одного)')
+        SurveyPersonal_question.append('Сколько у Вас братьев и сестер?')
+        SurveyPersonal_question.append(
+            'В какой мере по шкале от 0 до 10 следующее утверждение Вас характеризует '
+            '(0 - вообще для Вас не характерно; 10 - идеально Вас описывает)? '
+            '\'Выиграть спор для меня менее важно, чем не расстроить других.\'')
+        SurveyPersonal_question.append(
+            'Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 (самая нижняя) до 10. '
+            'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
+            'На какой ступеньке Вы сейчас находитесь?')
+        SurveyPersonal_question.append(
+            'Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 (самая нижняя) до 10. '
+            'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
+            'Как Вы думаете, на какой ступеньке Вы будете находиться через, скажем, пять лет?')
 
     quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
                             quiz_answer_9[4], quiz_answer_10[0]]
@@ -357,6 +394,9 @@ class Constants(BaseConstants):
 
     survey2_questions_count = 4
     survey2_questions_range = range(1, survey2_questions_count + 1, 1)
+
+    survey_personal_count = len(SurveyPersonal_question)
+    survey_personal_range = range(1, survey_personal_count + 1, 1)
 
 
 class Subsession(BaseSubsession):
@@ -772,6 +812,7 @@ class Player(BasePlayer):
         choices=[Constants.Prisoner_cooperate, Constants.Prisoner_defect],
         widget=widgets.RadioSelect
     )
+    Prisoner_payoff = models.IntegerField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -791,7 +832,33 @@ class Player(BasePlayer):
                 }
         }
 
-        self.payoff = payoff_matrix[self.Prisoner_decision][self.other_player().Prisoner_decision]
+        self.Prisoner_payoff = payoff_matrix[self.Prisoner_decision][self.other_player().Prisoner_decision]
+
+    survey_personal_questions_1 = models.StringField(
+        choices=[Constants.SurveyPersonal_question[0][1], Constants.SurveyPersonal_question[0][2],
+                 Constants.SurveyPersonal_question[0][3]],
+        widget=widgets.RadioSelectHorizontal,
+        label=Constants.SurveyPersonal_question[0][0])
+    survey_personal_questions_2 = models.IntegerField(
+        min=0, max=150,
+        label=Constants.SurveyPersonal_question[1])
+    survey_personal_questions_3 = models.StringField(
+        label=Constants.SurveyPersonal_question[2])
+    survey_personal_questions_4 = models.IntegerField(
+        min=0, max=50,
+        label=Constants.SurveyPersonal_question[3])
+    survey_personal_questions_5 = models.IntegerField(
+        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        widget=widgets.RadioSelectHorizontal,
+        label=Constants.SurveyPersonal_question[4])
+    survey_personal_questions_6 = models.IntegerField(
+        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        widget=widgets.RadioSelectHorizontal,
+        label=Constants.SurveyPersonal_question[5])
+    survey_personal_questions_7 = models.IntegerField(
+        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        widget=widgets.RadioSelectHorizontal,
+        label=Constants.SurveyPersonal_question[6])
 
 
 

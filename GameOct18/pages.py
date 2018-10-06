@@ -311,28 +311,41 @@ class PrisonerResults(Page):
         return {
             'my_decision': me.Prisoner_decision,
             'opponent_decision': opponent.Prisoner_decision,
-            'payoff': int(me.payoff)
+            'payoff': me.Prisoner_payoff
         }
 
 
+class SurveyPersonal(Page):
+    form_model = 'player'
+
+    def get_form_fields(self):
+        if self.round_number == 6:
+            return ['survey_personal_questions_{}'.format(i) for i in Constants.survey_personal_range]
+        else:
+            return []
+
+    def is_displayed(self):
+        return self.round_number == 6
+
+
 page_sequence = [
-    Introduction,
-    Quiz,
-    QuizResults,
-    RoleInGame,
-    GameAnnouncement,
-    Offer,
-    GameChoice,
-    Accept,
-    ResultsWaitPage,
-    Results,
-    Survey11,
-    Survey12,
-    Survey13,
-    Survey14,
-    Survey15,
-    Survey16,
-    Survey17,
+    # Introduction,
+    # Quiz,
+    # QuizResults,
+    # RoleInGame,
+    # GameAnnouncement,
+    # Offer,
+    # GameChoice,
+    # Accept,
+    # ResultsWaitPage,
+    # Results,
+    # Survey11,
+    # Survey12,
+    # Survey13,
+    # Survey14,
+    # Survey15,
+    # Survey16,
+    # Survey17,
     Survey2intro
 ]
 
@@ -344,3 +357,4 @@ page_sequence.append(Survey3intro)
 page_sequence.append(Prisoner)
 page_sequence.append(PrisonerWaitPage)
 page_sequence.append(PrisonerResults)
+page_sequence.append(SurveyPersonal)
