@@ -25,7 +25,7 @@ def add_currency(currency_used, num):
 class Constants(BaseConstants):
     name_in_url = 'GameOct18'
     players_per_group = 2
-    num_rounds = 5
+    num_rounds = 6
     language = 2  # 1=EN, 2=RU
     currency_used = 2  # 0=USD, 1=POUNDS, 2=RUBLES
 
