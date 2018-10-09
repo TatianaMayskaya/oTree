@@ -106,8 +106,10 @@ class Constants(BaseConstants):
                              'during the experiment?')
         quiz_question.append('How likely is it that you get the same partner in all three games?')
         quiz_question.append('How many tokens will you get in a game if an offer is rejected?')
-        quiz_question.append('What is the maximum number of tokens you can earn during the experiment?')
-        quiz_question.append('What is the minimum number of tokens you can earn during the experiment?')
+        quiz_question.append('What is the maximum number of tokens you can get during the experiment '
+                             'to exchange for the actual payment?')
+        quiz_question.append('What is the minimum number of tokens you can get during the experiment '
+                             'to exchange for the actual payment?')
         quiz_question.append('In game 1, will player 2 see the offer before or after she makes her move in the game?')
         quiz_question.append('In game 2, does player 2 have to do anything?')
         quiz_question.append('How many decisions player 1 has to make in game 3?')
@@ -225,7 +227,7 @@ class Constants(BaseConstants):
         SurveyPersonal_question.append(
             'How well does the following statement describe you as a person '
             '(0 - does not describe me at all; 10 - describes me perfectly)? '
-            '\'Winning a debate matters less to you than making sure no one gets upset.\'')
+            '\"<i>Winning a debate matters less to you than making sure no one gets upset</i>.\"')
         SurveyPersonal_question.append(
             'Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. '
             'The top of the ladder represents the best possible life for you and the bottom of the ladder '
@@ -243,8 +245,10 @@ class Constants(BaseConstants):
             'Какова вероятность того, что у Вас будет один и тот же участник эксперимента '
             'в качестве партнёра во всей трёх играх?')
         quiz_question.append('Сколько жетонов Вы получите, если предложение игрока 1 будет отклонено?')
-        quiz_question.append('Какое максимальное количество жетонов Вы можете получить в течение эксперимента?')
-        quiz_question.append('Какое минимальное количество жетонов Вы можете получить в течение эксперимента?')
+        quiz_question.append('Какое максимальное количество жетонов Вы можете получить для оплаты в '
+                             'течение эксперимента?')
+        quiz_question.append('Какое минимальное количество жетонов Вы можете получить для оплаты в '
+                             'течение эксперимента?')
         quiz_question.append('В игре 1 игрок 2 видит предложение игрока 1 до или после того, как сделает выбор?')
         quiz_question.append('Должен ли что-то делать игрок 2 в игре 2?')
         quiz_question.append('Сколько решений должен принять игрок 1 в игре 3?')
@@ -371,7 +375,7 @@ class Constants(BaseConstants):
         SurveyPersonal_question.append(
             'В какой мере по шкале от 0 до 10 следующее утверждение Вас характеризует '
             '(0 - вообще для Вас не характерно; 10 - идеально Вас описывает)? '
-            '\'Выиграть спор для меня менее важно, чем не расстроить других.\'')
+            '\"<i>Выиграть спор для меня менее важно, чем не расстроить других.</i>\"')
         SurveyPersonal_question.append(
             'Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 (самая нижняя) до 10. '
             'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
@@ -705,6 +709,7 @@ class Player(BasePlayer):
     survey2_question_RiskyProject1 = models.IntegerField(
         min=0, max=Constants.endowment_RiskyProject1,
         label=Constants.question_RiskyProject1)
+    survey2_RiskyProject1_earned = models.IntegerField()
     survey2_RiskyProject1_left = models.IntegerField()
     survey2_RiskyProject1_success = models.BooleanField()
     survey2_RiskyProject1_payoff = models.IntegerField()
@@ -712,6 +717,7 @@ class Player(BasePlayer):
     survey2_question_RiskyProject2 = models.IntegerField(
         min=0, max=Constants.endowment_RiskyProject2,
         label=Constants.question_RiskyProject2)
+    survey2_RiskyProject2_earned = models.IntegerField()
     survey2_RiskyProject2_left = models.IntegerField()
     survey2_RiskyProject2_success = models.BooleanField()
     survey2_RiskyProject2_payoff = models.IntegerField()
@@ -734,6 +740,7 @@ class Player(BasePlayer):
     survey2_RiskyUrns1_150 = make_survey2_urn(150)
     survey2_RiskyUrns1_sure = models.StringField()
     survey2_RiskyUrns1_choice = models.StringField()
+    survey2_RiskyUrns1_choice_num = models.IntegerField()
     survey2_RiskyUrns1_payoff = models.IntegerField()
 
     survey2_RiskyUrns2_0 = make_survey2_urn(0)
@@ -749,6 +756,7 @@ class Player(BasePlayer):
     survey2_RiskyUrns2_100 = make_survey2_urn(100)
     survey2_RiskyUrns2_sure = models.StringField()
     survey2_RiskyUrns2_choice = models.StringField()
+    survey2_RiskyUrns2_choice_num = models.IntegerField()
     survey2_RiskyUrns2_payoff = models.IntegerField()
 
     survey2_total_payoff = models.IntegerField()
@@ -760,28 +768,26 @@ class Player(BasePlayer):
                 Constants.endowment_RiskyProject1 - self.survey2_question_RiskyProject1
             self.survey2_RiskyProject1_success = random.uniform(0, 100) < Constants.prob_success_RiskyProject1
             if self.survey2_RiskyProject1_success:
-                self.survey2_RiskyProject1_payoff = \
-                    self.survey2_RiskyProject1_left + \
-                    Constants.return_RiskyProject1 * self.survey2_question_RiskyProject1
+                self.survey2_RiskyProject1_earned = Constants.return_RiskyProject1 * self.survey2_question_RiskyProject1
             else:
-                self.survey2_RiskyProject1_payoff = self.survey2_RiskyProject1_left
+                self.survey2_RiskyProject1_earned = 0
+            self.survey2_RiskyProject1_payoff = self.survey2_RiskyProject1_left + self.survey2_RiskyProject1_earned
             self.survey2_total_payoff = self.survey2_total_payoff + self.survey2_RiskyProject1_payoff
         elif num == 2:
             self.survey2_RiskyProject2_left = \
                 Constants.endowment_RiskyProject2 - self.survey2_question_RiskyProject2
             self.survey2_RiskyProject2_success = random.uniform(0, 100) < Constants.prob_success_RiskyProject2
             if self.survey2_RiskyProject2_success:
-                self.survey2_RiskyProject2_payoff = \
-                    self.survey2_RiskyProject2_left + \
-                    Constants.return_RiskyProject2 * self.survey2_question_RiskyProject2
+                self.survey2_RiskyProject2_earned = Constants.return_RiskyProject2 * self.survey2_question_RiskyProject2
             else:
-                self.survey2_RiskyProject2_payoff = self.survey2_RiskyProject2_left
+                self.survey2_RiskyProject2_earned = 0
+            self.survey2_RiskyProject2_payoff = self.survey2_RiskyProject2_left + self.survey2_RiskyProject2_earned
             self.survey2_total_payoff = self.survey2_total_payoff + self.survey2_RiskyProject2_payoff
         elif num == 3:
             sure = random.choice(Constants.Options_RiskyUrns1)
             self.survey2_RiskyUrns1_sure = str(Constants.choice2_RiskyUrns).format(sure)
-            choice = getattr(self, 'survey2_RiskyUrns1_{}'.format(sure))
-            if choice == 1:
+            self.survey2_RiskyUrns1_choice_num = getattr(self, 'survey2_RiskyUrns1_{}'.format(sure))
+            if self.survey2_RiskyUrns1_choice_num == 1:
                 self.survey2_RiskyUrns1_choice = Constants.choice1_RiskyUrns
                 ball = random.randint(1, Constants.LoseBalls_RiskyUrns1 + Constants.WinBalls_RiskyUrns1)
                 if ball > Constants.LoseBalls_RiskyUrns1:
@@ -795,8 +801,8 @@ class Player(BasePlayer):
         else:
             sure = random.choice(Constants.Options_RiskyUrns2)
             self.survey2_RiskyUrns2_sure = str(Constants.choice2_RiskyUrns).format(sure)
-            choice = getattr(self, 'survey2_RiskyUrns2_{}'.format(sure))
-            if choice == 1:
+            self.survey2_RiskyUrns2_choice_num = getattr(self, 'survey2_RiskyUrns2_{}'.format(sure))
+            if self.survey2_RiskyUrns2_choice_num == 1:
                 self.survey2_RiskyUrns2_choice = Constants.choice1_RiskyUrns
                 ball = random.randint(1, Constants.LoseBalls_RiskyUrns2 + Constants.WinBalls_RiskyUrns2)
                 if ball > Constants.LoseBalls_RiskyUrns1:

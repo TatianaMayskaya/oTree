@@ -21,15 +21,15 @@
         </ul>
         {% if player.survey2_RiskyProject1_success %}
             <p>
-                The project turned out to be successful.
+                The project turned out to be successful and generated {{ Constants.survey2_RiskyProject1_earned }} tokens.
             </p>
         {% else %}
             <p>
-                The project turned out to be unsuccessful.
+                The project turned out to be unsuccessful and generated 0 tokens.
             </p>
         {% endif %}
         <p>
-            You earned {{ player.survey2_RiskyProject1_payoff }} tokens.
+            As a result, this question gives you {{ player.survey2_RiskyProject1_payoff }} tokens.
         </p>
     {% else %}
         <p>
@@ -50,15 +50,15 @@
         </ul>
         {% if player.survey2_RiskyProject1_success %}
             <p>
-                Проект оказался успешным.
+                Проект оказался успешным и дал {{ Constants.survey2_RiskyProject1_earned }} жетонов.
             </p>
         {% else %}
             <p>
-                Проект оказался неуспешным.
+                Проект оказался неуспешным и дал 0 жетонов.
             </p>
         {% endif %}
         <p>
-            Вы заработали {{ player.survey2_RiskyProject1_payoff }} жетонов.
+            В результате в этом вопросе Вы получаете {{ player.survey2_RiskyProject1_payoff }} жетонов.
         </p>
     {% endif %}
 

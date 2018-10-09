@@ -16,8 +16,15 @@
         <p>
             You chose: {{ player.survey2_RiskyUrns2_choice }}.
         </p>
+        {% if player.survey2_RiskyUrns1_choice_num == 1 %}
+        {% if player.survey2_RiskyUrns1_payoff > 0 %}
+            <p>The drawn ball is red.</p>
+        {% else %}
+            <p>The drawn ball is black.</p>
+        {% endif %}
+        {% endif %}
         <p>
-            You earned {{ player.survey2_RiskyUrns2_payoff }} tokens.
+            As a result, this question gives you {{ player.survey2_RiskyUrns2_payoff }} tokens.
         </p>
     {% else %}
         <p>
@@ -35,8 +42,15 @@
         <p>
             Вы выбрали: {{ player.survey2_RiskyUrns2_choice }}.
         </p>
+        {% if player.survey2_RiskyUrns1_choice_num == 1 %}
+        {% if player.survey2_RiskyUrns1_payoff > 0 %}
+            <p>Шар оказался красного цвета.</p>
+        {% else %}
+            <p>Шар оказался чёрного цвета.</p>
+        {% endif %}
+        {% endif %}
         <p>
-            Вы заработали {{ player.survey2_RiskyUrns2_payoff }} жетонов.
+            В результате в этом вопросе Вы получаете {{ player.survey2_RiskyUrns2_payoff }} жетонов.
         </p>
     {% endif %}
 
