@@ -521,6 +521,12 @@ def make_survey2_urn(num):
         verbose_name=Constants.label_RiskyUrns
     )
 
+def make_survey_personal(num):
+    return models.IntegerField(
+        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        widget=widgets.RadioSelectHorizontal,
+        label=Constants.SurveyPersonal_question[num-1])
+
 
 class Group(BaseGroup):
     amount_offered = make_primary_field(0)
@@ -883,18 +889,19 @@ class Player(BasePlayer):
     survey_personal_questions_4 = models.IntegerField(
         min=0, max=50,
         label=Constants.SurveyPersonal_question[3])
-    survey_personal_questions_5 = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        widget=widgets.RadioSelectHorizontal,
-        label=Constants.SurveyPersonal_question[4])
-    survey_personal_questions_6 = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        widget=widgets.RadioSelectHorizontal,
-        label=Constants.SurveyPersonal_question[5])
-    survey_personal_questions_7 = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        widget=widgets.RadioSelectHorizontal,
-        label=Constants.SurveyPersonal_question[6])
+    survey_personal_questions_5 = make_survey_personal(5)
+    survey_personal_questions_6 = make_survey_personal(6)
+    survey_personal_questions_7 = make_survey_personal(7)
+    survey_personal_questions_8 = make_survey_personal(8)
+    survey_personal_questions_9 = make_survey_personal(9)
+    survey_personal_questions_10 = make_survey_personal(10)
+    survey_personal_questions_11 = make_survey_personal(11)
+    survey_personal_questions_12 = make_survey_personal(12)
+    survey_personal_questions_13 = make_survey_personal(13)
+    survey_personal_questions_14 = make_survey_personal(14)
+    survey_personal_questions_15 = make_survey_personal(15)
+    survey_personal_questions_16 = make_survey_personal(16)
+    survey_personal_questions_17 = make_survey_personal(17)
 
 
 
