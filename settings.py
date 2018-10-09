@@ -46,25 +46,25 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 1,
     #     'app_sequence': ['quiz'],
     # },
-    {
-        'name': 'prisoner',
-        'display_name': "Prisoner's Dilemma",
-        'num_demo_participants': 2,
-        'app_sequence': ['prisoner', 'payment_info'],
-    },
+    # {
+    #     'name': 'prisoner',
+    #     'display_name': "Prisoner's Dilemma",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['prisoner', 'payment_info'],
+    # },
     # {
     #     'name': 'ultimatum',
     #     'display_name': "Ultimatum (randomized: strategy vs. direct response)",
     #     'num_demo_participants': 2,
     #     'app_sequence': ['ultimatum', 'payment_info'],
     # },
-    {
-        'name': 'ultimatum_strategy',
-        'display_name': "Ultimatum (strategy method treatment)",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum', 'payment_info'],
-        'use_strategy_method': True,
-    },
+    # {
+    #     'name': 'ultimatum_strategy',
+    #     'display_name': "Ultimatum (strategy method treatment)",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['ultimatum', 'payment_info'],
+    #     'use_strategy_method': True,
+    # },
     # {
     #     'name': 'ultimatum_non_strategy',
     #     'display_name': "Ultimatum (direct response treatment)",
@@ -121,7 +121,7 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 
 # Consider '', None, and '0' to be empty/false
-DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
+DEBUG = False  # (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
 
 DEMO_PAGE_INTRO_HTML = """
 Here are various games implemented with 
