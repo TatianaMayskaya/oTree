@@ -104,6 +104,16 @@ ROOMS = [
         'name': 'game_for_two_players',
         'display_name': 'Game for two players',
         'participant_label_file': '_rooms/game_for_two_players.txt'
+    },
+    {
+        'name': 'GameOct18_en_AM',
+        'display_name': 'GameOct18 - test for English version : Alexander Matros',
+        'participant_label_file': '_rooms/GameOct18_4.txt'
+    },
+    {
+        'name': 'GameOct18_ru_AM',
+        'display_name': 'GameOct18 - test for Russian version : Alexander Matros',
+        'participant_label_file': '_rooms/GameOct18_4.txt'
     }
 ]
 
