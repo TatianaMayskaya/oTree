@@ -19,8 +19,8 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['my_game'],
     # },
     {
-        'name': 'GameOct18',
-        'display_name': 'GameOct18',
+        'name': 'GameOct18_ru',
+        'display_name': 'GameOct18_ru',
         'num_demo_participants': 2,
         'app_sequence': ['GameOct18'],
         'language': 2,
@@ -29,6 +29,18 @@ SESSION_CONFIGS = [
             Edit the 'language' parameter to change the language (1=English, 2=Russian)
             and the 'currency_used' parameter to change the currency (0=USD, 1=POUNDS, 2=RUBLES).
             """
+    },
+    {
+        'name': 'GameOct18_en',
+        'display_name': 'GameOct18_en',
+        'num_demo_participants': 2,
+        'app_sequence': ['GameOct18'],
+        'language': 1,
+        'currency_used': 0,
+        'doc': """
+        Edit the 'language' parameter to change the language (1=English, 2=Russian)
+        and the 'currency_used' parameter to change the currency (0=USD, 1=POUNDS, 2=RUBLES).
+        """
     },
     # {
     #     'name': 'public_goods',
