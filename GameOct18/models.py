@@ -26,8 +26,8 @@ class Constants(BaseConstants):
     name_in_url = 'GameOct18'
     players_per_group = 2
     num_rounds = 6
-    language = 2  # 1=EN, 2=RU
-    currency_used = 2  # 0=USD, 1=POUNDS, 2=RUBLES
+    language = self.session.config['language']  # 1=EN, 2=RU
+    currency_used = self.session.config['currency_used']  # 0=USD, 1=POUNDS, 2=RUBLES
 
     if language == 1:
         instructions_template = 'GameOct18/InstructionsEn.html'
