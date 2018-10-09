@@ -3,17 +3,17 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
-            Survey. Part {{ Constants.SurveyPersonal_number }}
+        {% if language == 1 %}
+            Survey. Part {{ SurveyPersonal_number }}
         {% else %}
-            Опрос. Часть {{ Constants.SurveyPersonal_number }}
+            Опрос. Часть {{ SurveyPersonal_number }}
         {% endif %}
 
 {% endblock %}
 
 {% block content %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <p><i>
                 This is the final part of the survey.
                 Tell us a little bit about yourself by answering the questions below.
@@ -27,7 +27,7 @@
     {% formfields %}
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Submit</button>
         {% else %}
             <button name="next">Подтвердить</button>

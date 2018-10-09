@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Instructions
         {% else %}
             Инструкция
@@ -13,9 +13,9 @@
 
 {% block content %}
 
-        {% include Constants.instructions_template %}
+        {% include instructions_template %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <p>
                 The instructions will remain on your screen for future reference.
             </p>
@@ -28,7 +28,7 @@
 
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Start the quiz</button>
         {% else %}
             <button name="next">Начать тест</button>

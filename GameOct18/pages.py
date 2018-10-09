@@ -9,18 +9,30 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
+
 
 class Quiz(Page):
     form_model = 'player'
 
     def get_form_fields(self):
         if self.round_number == 1:
-            return ['quiz_questions_{}'.format(i) for i in Constants.quiz_questions_range]
+            return ['quiz_questions_{}'.format(i) for i in self.subsession.quiz_questions_range]
         else:
             return []
 
     def is_displayed(self):
         return self.round_number == 1
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
 
 
 class QuizResults(Page):
@@ -29,21 +41,37 @@ class QuizResults(Page):
 
     def vars_for_template(self):
         quiz_table = []
-        for p in Constants.quiz_questions_range:
+        for p in self.subsession.quiz_questions_range:
             answer = getattr(self.player, 'quiz_questions_{}'.format(p))
-            quiz_table.append(((Constants.quiz_question[p-1], answer, Constants.quiz_correct_answers[p-1],
-                                Constants.quiz_explanation[p-1])))
-        return {'quiz_table': quiz_table}
+            quiz_table.append(((self.subsession.quiz_question[p-1], answer, self.subsession.quiz_correct_answers[p-1],
+                                self.subsession.quiz_explanation[p-1])))
+        return {'quiz_table': quiz_table,
+                'language': self.subsession.language,
+                'instructions_template': self.subsession.instructions_template,
+                'quiz_questions_count': self.subsession.quiz_questions_count
+                }
 
 
 class RoleInGame(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
+
 
 class GameAnnouncement(Page):
     def is_displayed(self):
         return self.round_number <= 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
 
 
 class Offer(Page):
@@ -58,6 +86,12 @@ class Offer(Page):
     def is_displayed(self):
         return self.player.id_in_group == 1 and self.round_number <= 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
+
 
 class GameChoice(Page):
     form_model = 'group'
@@ -66,24 +100,33 @@ class GameChoice(Page):
     def is_displayed(self):
         return self.player.id_in_group == 2 and self.round_number == 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
+
 
 class Accept(Page):
     form_model = 'group'
 
     def get_form_fields(self):
         if self.round_number == 1 or (self.round_number == 3 and self.group.game_played == 1):
-            return ['response_{}'.format(int(i)) for i in Constants.offer_choices]
+            return ['response_{}'.format(int(i)) for i in self.subsession.offer_choices]
         else:
             return []
 
     def is_displayed(self):
         return self.player.id_in_group == 2 and self.round_number <= 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
+
 
 class ResultsWaitPage(WaitPage):
-    title_text = Constants.wait_page_title
-    body_text = Constants.wait_page_body
-
     def is_displayed(self):
         return self.round_number <= 3
 
@@ -91,10 +134,22 @@ class ResultsWaitPage(WaitPage):
         if self.round_number <= 3:
             self.group.set_payoffs()
 
+    def vars_for_template(self):
+        return {
+            'title_text': self.subsession.wait_page_title,
+            'body_text': self.subsession.wait_page_body
+        }
+
 
 class Results(Page):
     def is_displayed(self):
         return self.round_number == 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'instructions_template': self.subsession.instructions_template
+        }
 
 
 class Survey11(Page):
@@ -102,12 +157,17 @@ class Survey11(Page):
 
     def get_form_fields(self):
         if self.round_number == 3:
-            return ['survey1_questions_1_{}'.format(i) for i in Constants.survey1_questions_1_range]
+            return ['survey1_questions_1_{}'.format(i) for i in self.subsession.survey1_questions_1_range]
         else:
             return []
 
     def is_displayed(self):
         return self.round_number == 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
 
 
 class Survey12(Page):
@@ -115,7 +175,7 @@ class Survey12(Page):
 
     def get_form_fields(self):
         if self.round_number == 3 and self.player.id_in_group == 1:
-            return ['survey1_questions_2_1_response_{}'.format(int(i)) for i in Constants.offer_choices]
+            return ['survey1_questions_2_1_response_{}'.format(int(i)) for i in self.subsession.offer_choices]
         elif self.round_number == 3 and self.player.id_in_group == 2:
             return ['survey1_questions_2_2_amount_offered']
         else:
@@ -123,6 +183,11 @@ class Survey12(Page):
 
     def is_displayed(self):
         return self.round_number == 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
 
 
 class Survey13(Page):
@@ -139,6 +204,11 @@ class Survey13(Page):
     def is_displayed(self):
         return self.round_number == 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
+
 
 class Survey14(Page):
     form_model = 'player'
@@ -146,7 +216,7 @@ class Survey14(Page):
     def get_form_fields(self):
         if self.round_number == 3 and self.player.id_in_group == 1 and \
                 self.player.survey1_questions_3_1_game_played == 1:
-            return ['survey1_questions_4_1_response_{}'.format(int(i)) for i in Constants.offer_choices]
+            return ['survey1_questions_4_1_response_{}'.format(int(i)) for i in self.subsession.offer_choices]
         elif self.round_number == 3 and self.player.id_in_group == 2:
             return ['survey1_questions_4_2_amount_offered_1', 'survey1_questions_4_2_amount_offered_2']
         else:
@@ -155,18 +225,28 @@ class Survey14(Page):
     def is_displayed(self):
         return self.round_number == 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
+
 
 class Survey15(Page):
     form_model = 'player'
 
     def get_form_fields(self):
         if self.round_number == 3:
-            return ['survey1_questions_5_{}'.format(i) for i in Constants.survey1_questions_2_range]
+            return ['survey1_questions_5_{}'.format(i) for i in self.subsession.survey1_questions_2_range]
         else:
             return []
 
     def is_displayed(self):
         return self.round_number == 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
 
 
 class Survey16(Page):
@@ -174,12 +254,17 @@ class Survey16(Page):
 
     def get_form_fields(self):
         if self.round_number == 3:
-            return ['survey1_questions_6_{}'.format(i) for i in Constants.survey1_questions_3_range]
+            return ['survey1_questions_6_{}'.format(i) for i in self.subsession.survey1_questions_3_range]
         else:
             return []
 
     def is_displayed(self):
         return self.round_number == 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
 
 
 class Survey17(Page):
@@ -194,15 +279,25 @@ class Survey17(Page):
     def is_displayed(self):
         return self.round_number == 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
+
 
 class Survey2intro(Page):
     def is_displayed(self):
         return self.round_number == 3
 
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
+
     def before_next_page(self):
         if self.round_number == 3:
             self.participant.vars['order_questions'] = \
-                random.sample(Constants.survey2_questions_range, Constants.survey2_questions_count)
+                random.sample(self.subsession.survey2_questions_range, self.subsession.survey2_questions_count)
             self.player.order_questions = str(self.participant.vars['order_questions'])
             self.participant.vars['question_template'] = []
             self.participant.vars['result_template'] = []
@@ -221,12 +316,12 @@ class Survey2intro(Page):
                 elif i == 3:
                     self.participant.vars['question_template'].append('GameOct18/RiskyUrns1.html')
                     self.participant.vars['result_template'].append('GameOct18/RiskyUrns1Results.html')
-                    lst = ['survey2_RiskyUrns1_{}'.format(j) for j in Constants.Options_RiskyUrns1]
+                    lst = ['survey2_RiskyUrns1_{}'.format(j) for j in self.subsession.Options_RiskyUrns1]
                     self.participant.vars['question_form'].append(lst)
                 else:
                     self.participant.vars['question_template'].append('GameOct18/RiskyUrns2.html')
                     self.participant.vars['result_template'].append('GameOct18/RiskyUrns2Results.html')
-                    lst = ['survey2_RiskyUrns2_{}'.format(j) for j in Constants.Options_RiskyUrns2]
+                    lst = ['survey2_RiskyUrns2_{}'.format(j) for j in self.subsession.Options_RiskyUrns2]
                     self.participant.vars['question_form'].append(lst)
 
 
@@ -243,7 +338,8 @@ class Survey2(Page):
         return self.round_number == 3
 
     def vars_for_template(self):
-        return {'template': self.participant.vars['question_template'][self.participant.vars['question_number']]}
+        return {'template': self.participant.vars['question_template'][self.participant.vars['question_number']],
+                'language': self.subsession.language}
 
     def before_next_page(self):
         if self.round_number == 3:
@@ -255,7 +351,8 @@ class Survey2res(Page):
         return self.round_number == 3
 
     def vars_for_template(self):
-        return {'template': self.participant.vars['result_template'][self.participant.vars['question_number']]}
+        return {'template': self.participant.vars['result_template'][self.participant.vars['question_number']],
+                'language': self.subsession.language}
 
     def before_next_page(self):
         if self.round_number == 3:
@@ -265,6 +362,11 @@ class Survey2res(Page):
 class Survey3intro(Page):
     def is_displayed(self):
         return self.round_number == 3
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language
+        }
 
 
 class Prisoner(Page):
@@ -281,17 +383,15 @@ class Prisoner(Page):
 
     def vars_for_template(self):
         return {
-            'both_cooperate_payoff': Constants.Prisoner_both_cooperate_payoff[self.round_number-4],
-            'both_defect_payoff': Constants.Prisoner_both_defect_payoff[self.round_number-4],
-            'betrayed_payoff': Constants.Prisoner_betrayed_payoff[self.round_number - 4],
-            'betray_payoff': Constants.Prisoner_betray_payoff[self.round_number - 4]
+            'both_cooperate_payoff': self.subsession.Prisoner_both_cooperate_payoff[self.round_number-4],
+            'both_defect_payoff': self.subsession.Prisoner_both_defect_payoff[self.round_number-4],
+            'betrayed_payoff': self.subsession.Prisoner_betrayed_payoff[self.round_number - 4],
+            'betray_payoff': self.subsession.Prisoner_betray_payoff[self.round_number - 4],
+            'language': self.subsession.language
         }
 
 
 class PrisonerWaitPage(WaitPage):
-    title_text = Constants.wait_page_title
-    body_text = Constants.wait_page_body
-
     def is_displayed(self):
         return self.round_number == 4 or self.round_number == 5
 
@@ -299,6 +399,12 @@ class PrisonerWaitPage(WaitPage):
         if self.round_number == 4 or self.round_number == 5:
             for p in self.group.get_players():
                 p.set_prisoner_payoff()
+
+    def vars_for_template(self):
+        return {
+            'title_text': self.subsession.wait_page_title,
+            'body_text': self.subsession.wait_page_body
+        }
 
 
 class PrisonerResults(Page):
@@ -311,7 +417,8 @@ class PrisonerResults(Page):
         return {
             'my_decision': me.Prisoner_decision,
             'opponent_decision': opponent.Prisoner_decision,
-            'payoff': me.Prisoner_payoff
+            'payoff': me.Prisoner_payoff,
+            'language': self.subsession.language
         }
 
 
@@ -320,12 +427,18 @@ class SurveyPersonal(Page):
 
     def get_form_fields(self):
         if self.round_number == 6:
-            return ['survey_personal_questions_{}'.format(i) for i in Constants.survey_personal_range]
+            return ['survey_personal_questions_{}'.format(i) for i in self.subsession.survey_personal_range]
         else:
             return []
 
     def is_displayed(self):
         return self.round_number == 6
+
+    def vars_for_template(self):
+        return {
+            'language': self.subsession.language,
+            'SurveyPersonal_number': self.subsession.SurveyPersonal_number
+        }
 
 
 page_sequence = [
@@ -346,15 +459,18 @@ page_sequence = [
     Survey15,
     Survey16,
     Survey17,
-    Survey2intro
+    Survey2intro,
+    Survey2,
+    Survey2res,
+    Survey2,
+    Survey2res,
+    Survey2,
+    Survey2res,
+    Survey2,
+    Survey2res,
+    Survey3intro,
+    Prisoner,
+    PrisonerWaitPage,
+    PrisonerResults,
+    SurveyPersonal
 ]
-
-for i in Constants.survey2_questions_range:
-    page_sequence.append(Survey2)
-    page_sequence.append(Survey2res)
-
-page_sequence.append(Survey3intro)
-page_sequence.append(Prisoner)
-page_sequence.append(PrisonerWaitPage)
-page_sequence.append(PrisonerResults)
-page_sequence.append(SurveyPersonal)

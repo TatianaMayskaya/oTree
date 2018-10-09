@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Quiz
         {% else %}
             Тест
@@ -16,7 +16,7 @@
     {% formfields %}
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Results of the quiz</button>
         {% else %}
             <button name="next">Результаты теста</button>
@@ -28,13 +28,13 @@
 </p>
 
     <h4>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Instructions
         {% else %}
             Инструкция
         {% endif %}
     </h4>
 
-    {% include Constants.instructions_template %}
+    {% include instructions_template %}
 
 {% endblock %}

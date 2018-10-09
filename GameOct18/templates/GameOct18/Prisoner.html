@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Survey. Part 3
         {% else %}
             Опрос. Часть 3
@@ -13,7 +13,7 @@
 
 {% block content %}
 
-    {% if Constants.language == 1 %}
+    {% if language == 1 %}
         <p>
             You will now play a simple game. You will have to choose one of two actions:
             {{ Constants.Prisoner_cooperate }} or {{ Constants.Prisoner_defect }}.
@@ -53,7 +53,7 @@
             <tr>
                 <th colspan="2" rowspan="2"></th>
                 <th colspan="2">
-                    {% if Constants.language == 1 %}
+                    {% if language == 1 %}
                         Other participant's actions
                     {% else %}
                         Действия другого игрока
@@ -66,7 +66,7 @@
             </tr>
             <tr class="highlight-row-on-hover">
                 <th rowspan="2"><span class="rotate90">
-                    {% if Constants.language == 1 %}
+                    {% if language == 1 %}
                         Your actions
                     {% else %}
                         Ваши действия

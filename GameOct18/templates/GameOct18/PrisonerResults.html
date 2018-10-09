@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Survey. Part 3
         {% else %}
             Опрос. Часть 3
@@ -13,7 +13,7 @@
 
 {% block content %}
 
-    {% if Constants.language == 1 %}
+    {% if language == 1 %}
         <p>
             You chose to play {{ my_decision }}.
         </p>
@@ -36,7 +36,7 @@
     {% endif %}
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Next question</button>
         {% else %}
             <button name="next">Следующий вопрос</button>

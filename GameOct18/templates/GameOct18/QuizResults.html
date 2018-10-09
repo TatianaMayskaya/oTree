@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Quiz results
         {% else %}
             Результаты теста
@@ -14,7 +14,7 @@
 
 {% block content %}
 
-    {% if Constants.language == 1 %}
+    {% if language == 1 %}
 
         <p>
             You answered {{ player.number_correct }} out of {{ Constants.quiz_questions_count }} questions correctly.
@@ -30,7 +30,7 @@
 
         <table class="table">
             <tr>
-                {% if Constants.language == 1 %}
+                {% if language == 1 %}
                     <th>Question</th>
                     <th>Your answer</th>
                     <th>Correct answer</th>
@@ -53,7 +53,7 @@
         </table>
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Start the experiment</button>
         {% else %}
             <button name="next">Начать эксперимент</button>
@@ -65,13 +65,13 @@
 </p>
 
     <h4>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Instructions
         {% else %}
             Инструкция
         {% endif %}
     </h4>
 
-    {% include Constants.instructions_template %}
+    {% include instructions_template %}
 
 {% endblock %}

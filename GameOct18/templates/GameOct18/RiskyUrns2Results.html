@@ -2,16 +2,17 @@
 
 <div>
 
-    {% if Constants.language == 1 %}
+    {% if language == 1 %}
         <p>
-            The urn contains {{ Constants.WinBalls_RiskyUrns2 }} red balls and {{ Constants.LoseBalls_RiskyUrns2 }} black balls.
+            The urn contains {{ Constants.WinBalls_RiskyUrns2 }} red balls and {{ Constants.LoseBalls_RiskyUrns2 }}
+            black balls.
         </p>
         <p>
             The urn gamble pays {{ Constants.WinPayoff_RiskyUrns2 }} tokens if the ball drawn is red
             (and pays 0 otherwise).
         </p>
         <p>
-            We selected: {{ Constants.choice1_RiskyUrns }} vs {{ player.survey2_RiskyUrns2_sure }}.
+            We selected: {{ Constants.choice1_RiskyUrns_en }} vs {{ player.survey2_RiskyUrns2_sure }}.
         </p>
         <p>
             You chose: {{ player.survey2_RiskyUrns2_choice }}.
@@ -37,7 +38,7 @@
             если же чёрного - 0 жетонов.
         </p>
         <p>
-            Мы выбрали: {{ Constants.choice1_RiskyUrns }} или {{ player.survey2_RiskyUrns2_sure }}.
+            Мы выбрали: {{ Constants.choice1_RiskyUrns_ru }} или {{ player.survey2_RiskyUrns2_sure }}.
         </p>
         <p>
             Вы выбрали: {{ player.survey2_RiskyUrns2_choice }}.

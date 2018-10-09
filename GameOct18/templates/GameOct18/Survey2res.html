@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Survey. Part 2
         {% else %}
             Опрос. Часть 2
@@ -15,7 +15,7 @@
 
     {% include template %}
 
-    {% if Constants.language == 1 %}
+    {% if language == 1 %}
         <p>
             Your total earnings so far is {{ player.survey2_total_payoff }} tokens.
         </p>
@@ -26,7 +26,7 @@
     {% endif %}
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Next question</button>
         {% else %}
             <button name="next">Следующий вопрос</button>

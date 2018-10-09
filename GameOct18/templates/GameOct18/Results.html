@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Results
         {% else %}
             Результаты
@@ -13,7 +13,7 @@
 
 {% block content %}
 
-    {% if Constants.language == 1 %}
+    {% if language == 1 %}
         <p>
             You were player {{ player.id_in_group }}
         </p>
@@ -104,7 +104,7 @@
     {% endif %}
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Start the survey</button>
         {% else %}
             <button name="next">Начать опрос</button>
@@ -116,14 +116,14 @@
 </p>
 
     <h4>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Instructions
         {% else %}
             Инструкция
         {% endif %}
     </h4>
 
-    {% include Constants.instructions_template %}
+    {% include instructions_template %}
 
 {% endblock %}
 

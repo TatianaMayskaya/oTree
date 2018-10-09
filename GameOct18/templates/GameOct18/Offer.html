@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Game {{ group.round_number }}
         {% else %}
             Игра {{ group.round_number }}
@@ -13,7 +13,7 @@
 
 {% block content %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <p>
                 You are player {{ player.id_in_group }}
             </p>
@@ -25,7 +25,7 @@
 
         {% if group.round_number == 3 %}
 
-            {% if Constants.language == 1 %}
+            {% if language == 1 %}
 
                 <p>
                     While player 2 is deciding on which game to play, please choose how many tokens
@@ -62,7 +62,7 @@
 
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Submit</button>
         {% else %}
             <button name="next">Подтвердить</button>
@@ -74,13 +74,13 @@
 </p>
 
     <h4>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Instructions
         {% else %}
             Инструкция
         {% endif %}
     </h4>
 
-    {% include Constants.instructions_template %}
+    {% include instructions_template %}
 
 {% endblock %}

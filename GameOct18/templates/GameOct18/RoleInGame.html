@@ -3,7 +3,7 @@
 
 {% block title %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Your role
         {% else %}
             Ваша роль
@@ -14,7 +14,7 @@
 
 {% block content %}
 
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <h1>
                 <center>You are player {{ player.id_in_group }}</center>
             </h1>
@@ -28,7 +28,7 @@
         {% endif %}
 
     <div>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             <button name="next">Next</button>
         {% else %}
             <button name="next">Дальше</button>
@@ -40,7 +40,7 @@
 </p>
 
     <h4>
-        {% if Constants.language == 1 %}
+        {% if language == 1 %}
             Instructions
         {% else %}
             Инструкция
