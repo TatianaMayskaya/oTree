@@ -349,12 +349,12 @@ page_sequence = [
     Survey2intro
 ]
 
-for i in Constants.survey2_questions_range:
-    page_sequence.append(Survey2)
-    page_sequence.append(Survey2res)
+# for i in Constants.survey2_questions_range:
+#     page_sequence.append(Survey2)
+#     page_sequence.append(Survey2res)
 
-page_sequence.append(Survey3intro)
-page_sequence.append(Prisoner)
-page_sequence.append(PrisonerWaitPage)
-page_sequence.append(PrisonerResults)
+# page_sequence.append(Survey3intro)
+# page_sequence.append(Prisoner)
+# page_sequence.append(PrisonerWaitPage)
+# page_sequence.append(PrisonerResults)
 page_sequence.append(SurveyPersonal)

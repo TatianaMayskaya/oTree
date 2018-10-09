@@ -222,12 +222,29 @@ class Constants(BaseConstants):
         choice2_RiskyUrns = '{} tokens'
         SurveyPersonal_question.append(['What is your gender?', 'Male', 'Female', 'Other'])
         SurveyPersonal_question.append('What is your age?')
+        SurveyPersonal_question.append('What is your main field of study (your major)?')
         SurveyPersonal_question.append('What is(are) your native language(s)?')
         SurveyPersonal_question.append('How many siblings do you have?')
-        SurveyPersonal_question.append(
-            'How well does the following statement describe you as a person '
-            '(0 - does not describe me at all; 10 - describes me perfectly)? '
-            '\"<i>Winning a debate matters less to you than making sure no one gets upset</i>.\"')
+        preambul = 'How well does the following statement describe you as a person ' \
+                   '(0 - does not describe me at all; 10 - describes me perfectly)? '
+        SurveyPersonal_question.append(preambul + '\"Winning a debate matters less to you than making sure '
+                                                  'no one gets upset.\"')
+        SurveyPersonal_question.append(preambul + '\"You do not mind being at the center of attention.\"')
+        SurveyPersonal_question.append(preambul + '\"If someone does not respond to your e-mail quickly, you start '
+                                                  'worrying if you said something wrong.\"')
+        SurveyPersonal_question.append(preambul + '\"You do not let other people influence your actions\".')
+        SurveyPersonal_question.append(preambul + '\"If you had a business, you would find it very difficult to fire '
+                                                  'loyal but underperforming employees.\"')
+        SurveyPersonal_question.append(preambul + '\"Logic is usually more important than heart when it comes '
+                                                  'to making important decisions.\"')
+        SurveyPersonal_question.append(preambul + '\"Keeping your options open is more important than having '
+                                                  'a to-do list.\"')
+        SurveyPersonal_question.append(preambul + '\"You think that everyone\'s views should be respected regardless '
+                                                  'of whether they are supported by facts or not.\"')
+        SurveyPersonal_question.append(preambul + '\"You feel more energetic after spending time talking to '
+                                                  'somebody.\"')
+        SurveyPersonal_question.append(preambul + '\"You believe that it is more rewarding to be respected '
+                                                  'by others than to be powerful.\"')
         SurveyPersonal_question.append(
             'Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. '
             'The top of the ladder represents the best possible life for you and the bottom of the ladder '
@@ -370,12 +387,25 @@ class Constants(BaseConstants):
         choice2_RiskyUrns = '{} жетонов'
         SurveyPersonal_question.append(['Укажите Ваш пол', 'Мужской', 'Женский', 'Другой'])
         SurveyPersonal_question.append('Сколько Вам полных лет?')
+        SurveyPersonal_question.append('Какая у Вас специальность (на каком факультете Вы учитесь?')
         SurveyPersonal_question.append('Какой Ваш родной язык? (укажите все, если их больше одного)')
         SurveyPersonal_question.append('Сколько у Вас братьев и сестер?')
-        SurveyPersonal_question.append(
-            'В какой мере по шкале от 0 до 10 следующее утверждение Вас характеризует '
-            '(0 - вообще для Вас не характерно; 10 - идеально Вас описывает)? '
-            '\"<i>Выиграть спор для меня менее важно, чем не расстроить других.</i>\"')
+        preambul = 'В какой мере по шкале от 0 до 10 следующее утверждение Вас характеризует ' \
+                   '(0 - вообще для Вас не характерно; 10 - идеально Вас описывает)? '
+        SurveyPersonal_question.append(preambul + '\"Выиграть спор для меня менее важно, чем не расстроить других\".')
+        SurveyPersonal_question.append(preambul + '\"Вы совсем не против оказаться в центре внимания\".')
+        SurveyPersonal_question.append(preambul + '\"Если кто-то достаточно быстро не отвечает на Ваши электронные '
+                                                  'письма, Вы начинаете волноваться о том, что сказали что-то не то\".')
+        SurveyPersonal_question.append(preambul + '\"Вы не даёте другим людям влиять на Ваши действия\".')
+        SurveyPersonal_question.append(preambul + '\"Если бы у Вас был бизнес, Вам бы было морально очень сложно '
+                                                  'уволить лояльных сотрудников, не справляющихся с работой\".')
+        SurveyPersonal_question.append(preambul + '\"Когда надо принять важное решение, разум важнее чувств\".')
+        SurveyPersonal_question.append(preambul + '\"Лучше иметь свободу выбора, чем чёткий план действий\".')
+        SurveyPersonal_question.append(preambul + '\"Мнение каждого достойно уважения, вне зависимости от того, '
+                                                  'подкреплено оно фактами или нет\".')
+        SurveyPersonal_question.append(preambul + '\"Вы чувствуйте себя лучше после того, как пообщались '
+                                                  'с кем-нибудь\".')
+        SurveyPersonal_question.append(preambul + '\"Лучше иметь уважение других, чем власть над ними\".')
         SurveyPersonal_question.append(
             'Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 (самая нижняя) до 10. '
             'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
