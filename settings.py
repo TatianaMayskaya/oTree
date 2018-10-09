@@ -19,10 +19,16 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['my_game'],
     # },
     {
-        'name': 'GameOct18',
-        'display_name': 'GameOct18',
+        'name': 'GameOct18_ru',
+        'display_name': 'GameOct18_ru',
         'num_demo_participants': 2,
         'app_sequence': ['GameOct18'],
+    },
+    {
+        'name': 'GameOct18_en',
+        'display_name': 'GameOct18_en',
+        'num_demo_participants': 2,
+        'app_sequence': ['GameOct18_copy'],
     },
     # {
     #     'name': 'public_goods',
