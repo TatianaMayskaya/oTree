@@ -211,21 +211,21 @@ class Survey2intro(Page):
             self.player.survey2_total_payoff = 0
             for i in self.participant.vars['order_questions']:
                 if i == 1:
-                    self.participant.vars['question_template'].append('GameOct18/RiskyProject1.html')
-                    self.participant.vars['result_template'].append('GameOct18/RiskyProject1Results.html')
+                    self.participant.vars['question_template'].append('GameOct18_copy/RiskyProject1.html')
+                    self.participant.vars['result_template'].append('GameOct18_copy/RiskyProject1Results.html')
                     self.participant.vars['question_form'].append(['survey2_question_RiskyProject1'])
                 elif i == 2:
-                    self.participant.vars['question_template'].append('GameOct18/RiskyProject2.html')
-                    self.participant.vars['result_template'].append('GameOct18/RiskyProject2Results.html')
+                    self.participant.vars['question_template'].append('GameOct18_copy/RiskyProject2.html')
+                    self.participant.vars['result_template'].append('GameOct18_copy/RiskyProject2Results.html')
                     self.participant.vars['question_form'].append(['survey2_question_RiskyProject2'])
                 elif i == 3:
-                    self.participant.vars['question_template'].append('GameOct18/RiskyUrns1.html')
-                    self.participant.vars['result_template'].append('GameOct18/RiskyUrns1Results.html')
+                    self.participant.vars['question_template'].append('GameOct18_copy/RiskyUrns1.html')
+                    self.participant.vars['result_template'].append('GameOct18_copy/RiskyUrns1Results.html')
                     lst = ['survey2_RiskyUrns1_{}'.format(j) for j in Constants.Options_RiskyUrns1]
                     self.participant.vars['question_form'].append(lst)
                 else:
-                    self.participant.vars['question_template'].append('GameOct18/RiskyUrns2.html')
-                    self.participant.vars['result_template'].append('GameOct18/RiskyUrns2Results.html')
+                    self.participant.vars['question_template'].append('GameOct18_copy/RiskyUrns2.html')
+                    self.participant.vars['result_template'].append('GameOct18_copy/RiskyUrns2Results.html')
                     lst = ['survey2_RiskyUrns2_{}'.format(j) for j in Constants.Options_RiskyUrns2]
                     self.participant.vars['question_form'].append(lst)
 

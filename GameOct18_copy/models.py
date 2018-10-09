@@ -30,11 +30,11 @@ class Constants(BaseConstants):
     currency_used = 0  # 0=USD, 1=POUNDS, 2=RUBLES
 
     if language == 1:
-        instructions_template = 'GameOct18/InstructionsEn.html'
+        instructions_template = 'GameOct18_copy/InstructionsEn.html'
         wait_page_title = 'Please wait'
         wait_page_body = 'Waiting for the other participants'
     else:
-        instructions_template = 'GameOct18/InstructionsRus.html'
+        instructions_template = 'GameOct18_copy/InstructionsRus.html'
         wait_page_title = 'Пожалуйста, подождите'
         wait_page_body = 'Не все участники ещё закончили игру'
 
