@@ -23,7 +23,7 @@ def add_currency(currency_used, num):
 
 
 class Constants(BaseConstants):
-    name_in_url = 'GameOct18'
+    name_in_url = 'GameOct18_copy'
     players_per_group = 2
     num_rounds = 6
     language = 1  # 1=EN, 2=RU
