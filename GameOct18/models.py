@@ -95,48 +95,48 @@ class Constants(BaseConstants):
 
     SurveyPersonal_number = 4
 
-    quiz_question = []
-    quiz_explanation = []
+    # quiz_question = []
+    # quiz_explanation = []
     survey1_question_1 = []
     survey1_question_2 = []
     survey1_question_3 = []
     SurveyPersonal_question = []
     if language == 1:
-        quiz_question.append('Is it possible that your role (player 1 / player 2) will be changed '
-                             'during the experiment?')
-        quiz_question.append('How likely is it that you get the same partner in all three games?')
-        quiz_question.append('How many tokens will you get in a game if an offer is rejected?')
-        quiz_question.append('What is the maximum number of tokens you can get during the experiment '
-                             'to exchange for the actual payment?')
-        quiz_question.append('What is the minimum number of tokens you can get during the experiment '
-                             'to exchange for the actual payment?')
-        quiz_question.append('In game 1, will player 2 see the offer before or after she makes her move in the game?')
-        quiz_question.append('In game 2, does player 2 have to do anything?')
-        quiz_question.append('How many decisions player 1 has to make in game 3?')
-        quiz_question.append('How many decisions player 2 has to make in game 3?')
-        quiz_question.append('In game 3, can player 1 make an offer conditional on player 2\'s choice of the game?')
-        quiz_answer_1 = ['Yes', 'No', 'I do not know']
-        quiz_answer_2 = ['Your partner is the same in all three games',
-                         'Your partner is chosen randomly at the beginning of each game', 'I do not know']
-        quiz_answer_6 = ['Before', 'After', 'I do not know']
-        quiz_answer_7 = ['Yes', 'No', 'I do not know']
-        quiz_answer_9 = ['1', '2', '3', '1 or 2 depending on the first decision',
-                         '1 or 12 depending on the first decision', 'I do not know']
-        quiz_answer_10 = ['Yes', 'No', 'I do not know']
-        quiz_explanation.append('Your role remains the same throughout the whole experiment')
-        quiz_explanation.append('Most likely, you will get a new partner for each game')
-        quiz_explanation.append(
-            'The answer does not depend on your role, both player 1 and player 2 get 0 tokens in case of rejection')
-        quiz_explanation.append(
-            'You get paid from only one randomly chosen game, at most you can get 100 tokens from one game')
-        quiz_explanation.append('The minimum payment in one game is 0 tokens')
-        quiz_explanation.append('Player 2 has to make 11 conditional decisions, for each of 11 possible offers')
-        quiz_explanation.append('Both players\' payoffs are fully determined by the proposer\'s actions')
-        quiz_explanation.append(
-            'First, how much to offer if player 2 chose game 1. Second, how much to offer is player 2 chose game 2')
-        quiz_explanation.append(
-            'If player 2 chose game 1, he has to make 11 conditional decisions, for each of 11 possible offers')
-        quiz_explanation.append('The fact that player 1 makes two choices means exactly that')
+        # quiz_question.append('Is it possible that your role (player 1 / player 2) will be changed '
+        #                      'during the experiment?')
+        # quiz_question.append('How likely is it that you get the same partner in all three games?')
+        # quiz_question.append('How many tokens will you get in a game if an offer is rejected?')
+        # quiz_question.append('What is the maximum number of tokens you can get during the experiment '
+        #                      'to exchange for the actual payment?')
+        # quiz_question.append('What is the minimum number of tokens you can get during the experiment '
+        #                      'to exchange for the actual payment?')
+        # quiz_question.append('In game 1, will player 2 see the offer before or after she makes her move in the game?')
+        # quiz_question.append('In game 2, does player 2 have to do anything?')
+        # quiz_question.append('How many decisions player 1 has to make in game 3?')
+        # quiz_question.append('How many decisions player 2 has to make in game 3?')
+        # quiz_question.append('In game 3, can player 1 make an offer conditional on player 2\'s choice of the game?')
+        # quiz_answer_1 = ['Yes', 'No', 'I do not know']
+        # quiz_answer_2 = ['Your partner is the same in all three games',
+        #                  'Your partner is chosen randomly at the beginning of each game', 'I do not know']
+        # quiz_answer_6 = ['Before', 'After', 'I do not know']
+        # quiz_answer_7 = ['Yes', 'No', 'I do not know']
+        # quiz_answer_9 = ['1', '2', '3', '1 or 2 depending on the first decision',
+        #                  '1 or 12 depending on the first decision', 'I do not know']
+        # quiz_answer_10 = ['Yes', 'No', 'I do not know']
+        # quiz_explanation.append('Your role remains the same throughout the whole experiment')
+        # quiz_explanation.append('Most likely, you will get a new partner for each game')
+        # quiz_explanation.append(
+        #     'The answer does not depend on your role, both player 1 and player 2 get 0 tokens in case of rejection')
+        # quiz_explanation.append(
+        #     'You get paid from only one randomly chosen game, at most you can get 100 tokens from one game')
+        # quiz_explanation.append('The minimum payment in one game is 0 tokens')
+        # quiz_explanation.append('Player 2 has to make 11 conditional decisions, for each of 11 possible offers')
+        # quiz_explanation.append('Both players\' payoffs are fully determined by the proposer\'s actions')
+        # quiz_explanation.append(
+        #     'First, how much to offer if player 2 chose game 1. Second, how much to offer is player 2 chose game 2')
+        # quiz_explanation.append(
+        #     'If player 2 chose game 1, he has to make 11 conditional decisions, for each of 11 possible offers')
+        # quiz_explanation.append('The fact that player 1 makes two choices means exactly that')
         survey1_question_1.append('Explain your logic for game 1')
         survey1_question_1.append('Explain your logic for game 2')
         survey1_question_1.append('Explain your logic for game 3')
@@ -257,45 +257,45 @@ class Constants(BaseConstants):
             'you will stand in the future, say about five years from now?')
 
     else:
-        quiz_question.append('Возможно ли, что Ваша роль (игрок 1 / игрок 2) изменится в течение эксперимента?')
-        quiz_question.append(
-            'Какова вероятность того, что у Вас будет один и тот же участник эксперимента '
-            'в качестве партнёра во всей трёх играх?')
-        quiz_question.append('Сколько жетонов Вы получите, если предложение игрока 1 будет отклонено?')
-        quiz_question.append('Какое максимальное количество жетонов Вы можете получить для оплаты в '
-                             'течение эксперимента?')
-        quiz_question.append('Какое минимальное количество жетонов Вы можете получить для оплаты в '
-                             'течение эксперимента?')
-        quiz_question.append('В игре 1 игрок 2 видит предложение игрока 1 до или после того, как сделает выбор?')
-        quiz_question.append('Должен ли что-то делать игрок 2 в игре 2?')
-        quiz_question.append('Сколько решений должен принять игрок 1 в игре 3?')
-        quiz_question.append('Сколько решений должен принять игрок 2 в игре 3?')
-        quiz_question.append('Во время игры 3 может ли игрок 1 предложить разное количество жетонов игроку 2, '
-                             'в зависимости от того, какую игру выбрал игрок 2?')
-        quiz_answer_1 = ['Да', 'Нет', 'Не знаю']
-        quiz_answer_2 = ['Ваш партнёр не меняется',
-                         'Ваш партнёр будет выбираться случайным образом перед каждой игрой', 'Не знаю']
-        quiz_answer_6 = ['До', 'После', 'Не знаю']
-        quiz_answer_7 = ['Да', 'Нет', 'Не знаю']
-        quiz_answer_9 = ['1', '2', '3', '1 или 2 в зависимости от первого решения',
-                         '1 или 12 в зависимости от первого решения', 'Не знаю']
-        quiz_answer_10 = ['Да', 'Нет', 'Не знаю']
-        quiz_explanation.append('Ваша роль останется неизменной в течение всего эксперимента')
-        quiz_explanation.append('Скорее всего у Вас будет новый партнёр в каждой следующей игре')
-        quiz_explanation.append(
-            'Ответ не зависит от Вашей роли, оба игрока получают 0 жетонов в случае отказа от предложения')
-        quiz_explanation.append(
-            'Только одна из трёх игр будет случайно выбрана для оплаты, а в каждой игре можно получить '
-            'самое большее 100 жетонов')
-        quiz_explanation.append('В каждой игре минимальная выплата - 0 жетонов')
-        quiz_explanation.append('Игроку 2 предстоит сделать 11 выборов, для всех возможных решений игрока 1')
-        quiz_explanation.append('Что получат оба игрока - решать только игроку 1')
-        quiz_explanation.append(
-            'Во-первых, игрок 1 должен решить сколько предложить игроку 2, если игрок 2 выберет игру 1. '
-            'Во-вторых, игрок 1 должен решить сколько предложить игроку 2, если игрок 2 выберет игру 2')
-        quiz_explanation.append('Если игрок 2 выбрал игру 2, он должен сделать еще 11 выборов, '
-                                'по одному для каждого возможного предложения игрока 1')
-        quiz_explanation.append('Тот факт, что игрок 1 делает два выбора, означает ровно это')
+        # quiz_question.append('Возможно ли, что Ваша роль (игрок 1 / игрок 2) изменится в течение эксперимента?')
+        # quiz_question.append(
+        #     'Какова вероятность того, что у Вас будет один и тот же участник эксперимента '
+        #     'в качестве партнёра во всей трёх играх?')
+        # quiz_question.append('Сколько жетонов Вы получите, если предложение игрока 1 будет отклонено?')
+        # quiz_question.append('Какое максимальное количество жетонов Вы можете получить для оплаты в '
+        #                      'течение эксперимента?')
+        # quiz_question.append('Какое минимальное количество жетонов Вы можете получить для оплаты в '
+        #                      'течение эксперимента?')
+        # quiz_question.append('В игре 1 игрок 2 видит предложение игрока 1 до или после того, как сделает выбор?')
+        # quiz_question.append('Должен ли что-то делать игрок 2 в игре 2?')
+        # quiz_question.append('Сколько решений должен принять игрок 1 в игре 3?')
+        # quiz_question.append('Сколько решений должен принять игрок 2 в игре 3?')
+        # quiz_question.append('Во время игры 3 может ли игрок 1 предложить разное количество жетонов игроку 2, '
+        #                      'в зависимости от того, какую игру выбрал игрок 2?')
+        # quiz_answer_1 = ['Да', 'Нет', 'Не знаю']
+        # quiz_answer_2 = ['Ваш партнёр не меняется',
+        #                  'Ваш партнёр будет выбираться случайным образом перед каждой игрой', 'Не знаю']
+        # quiz_answer_6 = ['До', 'После', 'Не знаю']
+        # quiz_answer_7 = ['Да', 'Нет', 'Не знаю']
+        # quiz_answer_9 = ['1', '2', '3', '1 или 2 в зависимости от первого решения',
+        #                  '1 или 12 в зависимости от первого решения', 'Не знаю']
+        # quiz_answer_10 = ['Да', 'Нет', 'Не знаю']
+        # quiz_explanation.append('Ваша роль останется неизменной в течение всего эксперимента')
+        # quiz_explanation.append('Скорее всего у Вас будет новый партнёр в каждой следующей игре')
+        # quiz_explanation.append(
+        #     'Ответ не зависит от Вашей роли, оба игрока получают 0 жетонов в случае отказа от предложения')
+        # quiz_explanation.append(
+        #     'Только одна из трёх игр будет случайно выбрана для оплаты, а в каждой игре можно получить '
+        #     'самое большее 100 жетонов')
+        # quiz_explanation.append('В каждой игре минимальная выплата - 0 жетонов')
+        # quiz_explanation.append('Игроку 2 предстоит сделать 11 выборов, для всех возможных решений игрока 1')
+        # quiz_explanation.append('Что получат оба игрока - решать только игроку 1')
+        # quiz_explanation.append(
+        #     'Во-первых, игрок 1 должен решить сколько предложить игроку 2, если игрок 2 выберет игру 1. '
+        #     'Во-вторых, игрок 1 должен решить сколько предложить игроку 2, если игрок 2 выберет игру 2')
+        # quiz_explanation.append('Если игрок 2 выбрал игру 2, он должен сделать еще 11 выборов, '
+        #                         'по одному для каждого возможного предложения игрока 1')
+        # quiz_explanation.append('Тот факт, что игрок 1 делает два выбора, означает ровно это')
         survey1_question_1.append('Объясните Вашу логику в игре 1')
         survey1_question_1.append('Объясните Вашу логику в игре 2')
         survey1_question_1.append('Объясните Вашу логику в игре 3')
@@ -422,8 +422,8 @@ class Constants(BaseConstants):
         with open('GameOct18/quiz_ru.csv', encoding='utf-8') as quiz_file:
             quiz_file_list = list(csv.DictReader(quiz_file))
 
-    quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
-                            quiz_answer_9[4], quiz_answer_10[0]]
+    # quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
+    #                         quiz_answer_9[4], quiz_answer_10[0]]
     quiz_questions_count = len(quiz_file_list)
     quiz_questions_range = range(1, quiz_questions_count + 1, 1)
     survey1_questions_1_count = len(survey1_question_1)
