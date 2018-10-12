@@ -652,6 +652,7 @@ class Player(BasePlayer):
     quiz_questions_10 = make_quiz_question(10, 'String', 3)
 
     def check_correct(self, p):
+        print(Constants.quiz_file_list)
         answer = str(getattr(self, 'quiz_questions_{}'.format(p)))
         return answer == Constants.quiz_file_list[p-1]['solution']
 
