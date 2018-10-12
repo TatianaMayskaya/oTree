@@ -424,7 +424,7 @@ class Constants(BaseConstants):
 
     quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
                             quiz_answer_9[4], quiz_answer_10[0]]
-    quiz_questions_count = len(quiz_file_list)
+    quiz_questions_count = len(quiz_file_list)-1
     quiz_questions_range = range(1, quiz_questions_count + 1, 1)
     survey1_questions_1_count = len(survey1_question_1)
     survey1_questions_1_range = range(1, survey1_questions_1_count + 1, 1)
