@@ -419,8 +419,8 @@ class Constants(BaseConstants):
         with open('GameOct18/quiz_en.csv') as quiz_file:
             quiz_file_list = list(csv.DictReader(quiz_file))
     else:
-        with open('GameOct18/quiz_ru.csv', encoding='windows-1251') as quiz_file:
-            quiz_file_list = list(csv.DictReader(quiz_file))
+        with open('GameOct18/quiz_ru.txt') as quiz_file:
+            quiz_file_list = list(csv.DictReader(quiz_file, delimiter='\t'))
 
     quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
                             quiz_answer_9[4], quiz_answer_10[0]]
