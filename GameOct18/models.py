@@ -100,78 +100,6 @@ class Constants(BaseConstants):
     survey1_question_3 = []
     SurveyPersonal_question = []
     if language == 1:
-        survey1_question_1.append('Explain your logic for game 1')
-        survey1_question_1.append('Explain your logic for game 2')
-        survey1_question_1.append('Explain your logic for game 3')
-        survey1_question_2.append(
-            'Player 2 should always accept any offer, even 0 tokens. Any other behavior is just stupid.')
-        survey1_question_2.append(
-            'Player 2 should always accept any positive offer, though '
-            'she might reasonably decline the offer of 0 tokens. Any other behavior is just stupid.')
-        survey1_question_2.append('Player 2 would normally reject low offers. '
-                                  'Most people accept an offer of at least 30 tokens.')
-        survey1_question_2.append('Player 2 should reject anything below 50 tokens.')
-        survey1_question_2.append('Player 1 should give 50 tokens in any game, aiming for a fair division.')
-        survey1_question_2.append(
-            'Player 1 has moral right to offer 0 tokens in game 2. There is no shame in doing it.')
-        survey1_question_2.append('In game 3, player 1 should give more to player 2 who chose game 1.')
-        survey1_question_2.append('In game 3, player 1 should give more to player 2 who chose game 2.')
-        survey1_question_2.append('In game 3, the choice of game 1 is a sign of non-cooperative behavior.')
-        survey1_question_2.append(
-            'Player 1 should give more to player 2 in game 1 if player 2 chose to play that game (as in game 3), '
-            'as this indicates that player 2 would more likely reject low offers.')
-        survey1_question_2.append(
-            'Player 1 should give less to player 2 in game 1 if player 2 chose to play that game (as in game 3), '
-            'to punish player 2.')
-        survey1_question_2.append(
-            'Player 1 should give more to player 2 in game 2 if player 2 chose to play that game (as in game 3), '
-            'to reward player 2 for her cooperative behavior.')
-        survey1_question_2.append(
-            'Player 1 should give less to player 2 in game 2 if player 2 chose to play that game (as in game 3), '
-            'as this indicates that player 2 understands that the power lies with player 1 in this experiment and '
-            'player 1 has moral right to offer very little (or even nothing).')
-        survey1_question_2.append('Player 2 should choose game 1 because it makes no sense to voluntarily '
-                                  'giving up on the opportunity to reject offers.')
-        survey1_question_2.append(
-            'Player 2 should choose game 1 because she would receive a higher offer by using this strategy.')
-        survey1_question_2.append(
-            'Player 2 should choose game 2 because he would receive a higher offer by using this strategy.')
-        survey1_question_2.append('Player 2 should choose game 2 to signal her trust to player 1.')
-        survey1_question_2.append(
-            'Player 2 should choose game 2 because it makes no sense to reject offers and everybody understand it.')
-        survey1_question_2.append(
-            'Player 2 should be more agreeable (accept more offers) in game 1 if he chose to play that game.')
-        survey1_question_2.append(
-            'Player 2 should be less agreeable (accept less offers) in game 1 if he chose to play that game.')
-        survey1_question_2.append(
-            'Player 2 should be more agreeable (accept more offers) in game 1 if she chose to play that game '
-            'because she already have exercised some control over the situation.')
-        survey1_question_2.append(
-            'Player 2 should be less agreeable (accept less offers) in game 1 if she chose to play that game '
-            'because by choosing game 1 she warned player 1 of her intent to reject low offers.')
-        survey1_question_2.append('Player 2 should expect to get more in game 3 than in game 1.')
-        survey1_question_2.append('Player 2 should expect to get less in game 3 than in game 1.')
-        survey1_question_2.append('Player 2 should expect to get more in game 3 than in game 2.')
-        survey1_question_2.append('Player 2 should expect to get less in game 3 than in game 2.')
-        survey1_question_2.append(
-            'When playing game 1, it does not make any difference for player 1 whether player 2 chose to play '
-            'that game (as in game 3) or it was the computer\'s choice (as in game 1).')
-        survey1_question_2.append(
-            'When playing game 2, it does not make any difference for player 1 whether player 2 chose to play '
-            'that game (as in game 3) or it was the computer\'s choice (as in game 2).')
-        survey1_question_3.append(
-            'Any amount player 1 offers to player 2 is doubled in size: if player 1 gives x tokens out of 100 tokens '
-            'to player 2 and the offer is accepted, then player 2 gets 2*x tokens, while player 1 gets 100-x tokens.')
-        survey1_question_3.append(
-            'Any amount player 1 offers to player 2 is halved: if player 1 gives x tokens out of 100 tokens '
-            'to player 2 and the offer is accepted, then player 2 gets x/2 tokens, while player 1 gets 100-x tokens.')
-        survey1_question_3.append(
-            'In game 3, when player 2 chooses game 1 player 1 gets 100 tokens to divide (same as before). '
-            'However, when player 2 chooses game 2 player 1 gets 200 tokens to divide.')
-        survey1_question_3.append(
-            'In game 3, when player 2 chooses game 1 player 1 gets 200 tokens to divide; '
-            'when player 2 chooses game 2 player 1 gets 100 tokens to divide.')
-        survey1_question_4 = ['Type in any comments you have about the experiment.']
         question_RiskyProject1 = 'Please choose how many tokens you want to invest in the risky project. ' \
                                  'Note that you can pick any number between 0 and ' +\
                                  str(endowment_RiskyProject1) + ', including 0 or ' + \
@@ -183,121 +111,8 @@ class Constants(BaseConstants):
         label_RiskyUrns = 'Choose one option'
         choice1_RiskyUrns = 'Urn gamble'
         choice2_RiskyUrns = '{} tokens'
-        SurveyPersonal_question.append(['What is your gender?', 'Male', 'Female', 'Other'])
-        SurveyPersonal_question.append('What is your age?')
-        SurveyPersonal_question.append('What is your main field of study (your major)?')
-        SurveyPersonal_question.append('What is(are) your native language(s)?')
-        SurveyPersonal_question.append('How many siblings do you have?')
-        preambul = 'How well does the following statement describe you as a person ' \
-                   '(0 - does not describe me at all; 10 - describes me perfectly)? '
-        SurveyPersonal_question.append(preambul + '\"Winning a debate matters less to you than making sure '
-                                                  'no one gets upset.\"')
-        SurveyPersonal_question.append(preambul + '\"You do not mind being at the center of attention.\"')
-        SurveyPersonal_question.append(preambul + '\"If someone does not respond to your e-mail quickly, you start '
-                                                  'worrying if you said something wrong.\"')
-        SurveyPersonal_question.append(preambul + '\"You do not let other people influence your actions\".')
-        SurveyPersonal_question.append(preambul + '\"If you had a business, you would find it very difficult to fire '
-                                                  'loyal but underperforming employees.\"')
-        SurveyPersonal_question.append(preambul + '\"Logic is usually more important than heart when it comes '
-                                                  'to making important decisions.\"')
-        SurveyPersonal_question.append(preambul + '\"Keeping your options open is more important than having '
-                                                  'a to-do list.\"')
-        SurveyPersonal_question.append(preambul + '\"You think that everyone\'s views should be respected regardless '
-                                                  'of whether they are supported by facts or not.\"')
-        SurveyPersonal_question.append(preambul + '\"You feel more energetic after spending time talking to '
-                                                  'somebody.\"')
-        SurveyPersonal_question.append(preambul + '\"You believe that it is more rewarding to be respected '
-                                                  'by others than to be powerful.\"')
-        SurveyPersonal_question.append(
-            'Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. '
-            'The top of the ladder represents the best possible life for you and the bottom of the ladder '
-            'represents the worst possible life for you. On which step of the ladder would you say you '
-            'personally feel you stand at this time?')
-        SurveyPersonal_question.append(
-            'Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. '
-            'The top of the ladder represents the best possible life for you and the bottom of the ladder '
-            'represents the worst possible life for you. Just your best guess, on which step fo you think '
-            'you will stand in the future, say about five years from now?')
 
     else:
-        survey1_question_1.append('Объясните Вашу логику в игре 1')
-        survey1_question_1.append('Объясните Вашу логику в игре 2')
-        survey1_question_1.append('Объясните Вашу логику в игре 3')
-        survey1_question_2.append(
-            'Игроку 2 следует всегда принимать любое предложение, даже если игрок 1 предложил ему 0 жетонов. '
-            'Любое другое поведение просто глупо.')
-        survey1_question_2.append(
-            'Игроку 2 следует всегда принимать любое предложение, кроме, возможно, того случая, '
-            'когда игрок 1 предлагает 0 жетонов. Любое другое поведение просто глупо.')
-        survey1_question_2.append('Отвергать маленькие предложения - достаточно типичное поведение для игрока 2. '
-                                  'Большинство людей принимают предложения в 30 жетонов и более.')
-        survey1_question_2.append('Игроку 2 следует отвергнуть любые предложение, которые меньше 50 жетонов.')
-        survey1_question_2.append(
-            'Игроку 1 следует предложить 50 жетонов игроку 2, потому что только это является справедливым дележом.')
-        survey1_question_2.append(
-            'Игрок 1 имеет полное моральное право предложить 0 жетонов в игре 2. Ничего зазорного в этом нет.')
-        survey1_question_2.append('В игре 3 игроку 1 следует дать больше игроку 2, если тот выбрал игру 1.')
-        survey1_question_2.append('В игре 3 игроку 1 следует дать больше игроку 2, если тот выбрал игру 2.')
-        survey1_question_2.append('Выбор игры 1 - признак некооперативного поведения.')
-        survey1_question_2.append(
-            'Игроку 1 следует дать больше игроку 2 в игре 1 в том случае, если тот выбрал эту игру сам (как в игре 3), '
-            'так как такой выбор означает, что игрок 2 откажется от маленьких предложений с большей вероятностью.')
-        survey1_question_2.append(
-            'Игроку 1 следует дать меньше игроку 2 в игре 1 в том случае, если тот выбрал эту игру сам (как в игре 3), '
-            'из-за желания наказать игрока 2.')
-        survey1_question_2.append(
-            'Игроку 1 следует дать больше игроку 2 в игре 2 в том случае, если тот выбрал эту игру сам (как в игре 3), '
-            'чтобы наградить игрока 2 за кооперативное поведение.')
-        survey1_question_2.append(
-            'Игроку 1 следует дать меньше игроку 2 в игре 2 в том случае, если тот выбрал эту игру сам (как в игре 3), '
-            'так как такой выбор означает, что игрок 2 понимает, что в этом эксперименте вся власть на стороне '
-            'игрока 1, и игрок 1 имеет полное моральное право предложить очень мало (или даже вообще ничего).')
-        survey1_question_2.append('Игроку 2 следует выбрать игру 1, так как добровольно отказаться от возможности '
-                                  'отвергнуть преложение - просто глупо.')
-        survey1_question_2.append(
-            'Игроку 2 следует выбрать игру 1, так как такая стратегия ведёт к более высокому предложению.')
-        survey1_question_2.append(
-            'Игроку 2 следует выбрать игру 2, так как такая стратегия ведёт к более высокому предложению.')
-        survey1_question_2.append(
-            'Игроку 2 следует выбрать игру 2, продемонстрировав таким образом игроку 1 своё доверие.')
-        survey1_question_2.append(
-            'Игроку 2 следует выбрать игру 2, потому что глупо отвергать любые предложения, и все это понимают.')
-        survey1_question_2.append(
-            'Игроку 2 следует быть более сговорчивым (принимать больше предложений) в игре 1 в том случае, '
-            'если он сам выбрал эту игру.')
-        survey1_question_2.append(
-            'Игроку 2 следует быть менее сговорчивым (принимать меньше предложений) в игре 1 в том случае, '
-            'если он сам выбрал эту игру.')
-        survey1_question_2.append(
-            'Игроку 2 следует быть более сговорчивым (принимать больше предложений) в игре 1 в том случае, '
-            'если он сам выбрал эту игру, так как он уже в какой-то мере повлиял на ситуацию.')
-        survey1_question_2.append(
-            'Игроку 2 следует быть менее сговорчивым (принимать меньше предложений) в игре 1 в том случае, '
-            'если он сам выбрал эту игру, так как таким выбором он фактически предупредил игрока 1 о своём '
-            'намерении отвергнуть достаточно низкие предложения.')
-        survey1_question_2.append('Обычно игрок 2 получает больше в игре 3, чем в игре 1.')
-        survey1_question_2.append('Обычно игрок 2 получает меньше в игре 3, чем в игре 1.')
-        survey1_question_2.append('Обычно игрок 2 получает больше в игре 3, чем в игре 2.')
-        survey1_question_2.append('Обычно игрок 2 получает меньше в игре 3, чем в игре 2.')
-        survey1_question_2.append(
-            'Когда игрок 1 решает, что предложить игроку 2 в игре 1, для него не важно, была ли эта игра выбрана '
-            'игроком 2 (как в игре 3) или же компьютером (как в игре 1).')
-        survey1_question_2.append(
-            'Когда игрок 1 решает, что предложить игроку 2 в игре 2, для него не важно, была ли эта игра выбрана '
-            'игроком 2 (как в игре 3) или же компьютером (как в игре 2).')
-        survey1_question_3.append(
-            'Любая сумма, предложенная игроком 1 игроку 2, увеличивается в два раза: если игрок 1 предложит x жетонов '
-            'из 100 и игрок 2 согласится, игрок 2 получает 2*x жетонов, в то время как игрок 1 получает 100-x жетонов.')
-        survey1_question_3.append(
-            'Любая сумма, предложенная игроком 1 игроку 2, делится на два: если игрок 1 предложит x жетонов '
-            'из 100 и игрок 2 согласится, игрок 2 получает x/2 жетонов, в то время как игрок 1 получает 100-x жетонов.')
-        survey1_question_3.append(
-            'Когда игрок 2 выбирает игру 1 в игре 3, игрок 1 делит 100 жетонов (как и раньше). '
-            'Однако, когда игрок 2 выбирает игру 2, игрок 1 делит 200 жетонов.')
-        survey1_question_3.append(
-            'Когда игрок 2 выбирает игру 1 в игре 3, игрок 1 делит 200 жетонов; '
-            'когда игрок 2 выбирает игру 2, игрок 1 делит 100 жетонов.')
-        survey1_question_4 = ['Если у Вас есть дополнительные комментарии, напишите их здесь.']
         question_RiskyProject1 = 'Пожалуйста, выберите, сколько жетонов Вы проинвестируете в рискованный проект. ' \
                                  'Вы можете выбрать любое число от 0 до ' + \
                                  str(endowment_RiskyProject1) + ', включая 0 и ' + \
@@ -309,35 +124,6 @@ class Constants(BaseConstants):
         label_RiskyUrns = 'Выберите одну опцию'
         choice1_RiskyUrns = 'Лотерея'
         choice2_RiskyUrns = '{} жетонов'
-        SurveyPersonal_question.append(['Укажите Ваш пол', 'Мужской', 'Женский', 'Другой'])
-        SurveyPersonal_question.append('Сколько Вам полных лет?')
-        SurveyPersonal_question.append('Какая у Вас специальность (на каком факультете Вы учитесь?')
-        SurveyPersonal_question.append('Какой Ваш родной язык? (укажите все, если их больше одного)')
-        SurveyPersonal_question.append('Сколько у Вас братьев и сестер?')
-        preambul = 'В какой мере по шкале от 0 до 10 следующее утверждение Вас характеризует ' \
-                   '(0 - вообще для Вас не характерно; 10 - идеально Вас описывает)? '
-        SurveyPersonal_question.append(preambul + '\"Выиграть спор для меня менее важно, чем не расстроить других\".')
-        SurveyPersonal_question.append(preambul + '\"Вы совсем не против оказаться в центре внимания\".')
-        SurveyPersonal_question.append(preambul + '\"Если кто-то достаточно быстро не отвечает на Ваши электронные '
-                                                  'письма, Вы начинаете волноваться о том, что сказали что-то не то\".')
-        SurveyPersonal_question.append(preambul + '\"Вы не даёте другим людям влиять на Ваши действия\".')
-        SurveyPersonal_question.append(preambul + '\"Если бы у Вас был бизнес, Вам бы было морально очень сложно '
-                                                  'уволить лояльных сотрудников, не справляющихся с работой\".')
-        SurveyPersonal_question.append(preambul + '\"Когда надо принять важное решение, разум важнее чувств\".')
-        SurveyPersonal_question.append(preambul + '\"Лучше иметь свободу выбора, чем чёткий план действий\".')
-        SurveyPersonal_question.append(preambul + '\"Мнение каждого достойно уважения, вне зависимости от того, '
-                                                  'подкреплено оно фактами или нет\".')
-        SurveyPersonal_question.append(preambul + '\"Вы чувствуйте себя лучше после того, как пообщались '
-                                                  'с кем-нибудь\".')
-        SurveyPersonal_question.append(preambul + '\"Лучше иметь уважение других, чем власть над ними\".')
-        SurveyPersonal_question.append(
-            'Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 (самая нижняя) до 10. '
-            'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
-            'На какой ступеньке Вы сейчас находитесь?')
-        SurveyPersonal_question.append(
-            'Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 (самая нижняя) до 10. '
-            'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
-            'Как Вы думаете, на какой ступеньке Вы будете находиться через, скажем, пять лет?')
 
     if language == 1:
         with open('GameOct18/quiz_en.csv') as quiz_file:
@@ -358,16 +144,16 @@ class Constants(BaseConstants):
     survey1_question_4 = []
     SurveyPersonal_question = []
     for i in range(0, len(survey_list), 1):
-        if survey_list[i]['survey'] == 1:
+        if survey_list[i]['survey'] == '1':
             survey1_question_1.append(survey_list[i]['question'])
-        elif survey_list[i]['survey'] == 2:
+        elif survey_list[i]['survey'] == '2':
             survey1_question_2.append(survey_list[i]['question'])
-        elif survey_list[i]['survey'] == 3:
+        elif survey_list[i]['survey'] == '3':
             survey1_question_3.append(survey_list[i]['question'])
-        elif survey_list[i]['survey'] == 4:
+        elif survey_list[i]['survey'] == '4':
             survey1_question_4.append(survey_list[i]['question'])
         else:
-            if not survey_list[i]['choice1']:
+            if survey_list[i]['choice1']:
                 SurveyPersonal_question.append([survey_list[i]['question'], survey_list[i]['choice1'],
                                                 survey_list[i]['choice2'], survey_list[i]['choice3']])
             else:
