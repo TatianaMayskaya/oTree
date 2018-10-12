@@ -602,6 +602,30 @@ class Group(BaseGroup):
                 p.set_final_payoff()
 
 
+def make_quiz_question(num, model_format, choices_num):
+    if model_format == 'String' and choices_num == 3:
+        return models.StringField(
+            choices=[Constants.quiz_file_list[num-1]['choice1'], Constants.quiz_file_list[num-1]['choice2'],
+                     Constants.quiz_file_list[num-1]['choice3']],
+            label=Constants.quiz_file_list[num-1]['question'],
+            widget=widgets.RadioSelectHorizontal
+        )
+    elif model_format == 'String' and choices_num == 6:
+        return models.StringField(
+            choices=[Constants.quiz_file_list[num - 1]['choice1'], Constants.quiz_file_list[num - 1]['choice2'],
+                     Constants.quiz_file_list[num - 1]['choice3'], Constants.quiz_file_list[num - 1]['choice4'],
+                     Constants.quiz_file_list[num - 1]['choice5'], Constants.quiz_file_list[num - 1]['choice6']],
+            label=Constants.quiz_file_list[num - 1]['question'],
+            widget=widgets.RadioSelectHorizontal
+        )
+    elif model_format == 'Integer':
+        return models.IntegerField(
+            label=Constants.quiz_file_list[num - 1]['question']
+        )
+    else:
+        return []
+
+
 class Player(BasePlayer):
     amount_offered_G1 = models.IntegerField()
     amount_offered_G2 = models.IntegerField()
@@ -616,53 +640,20 @@ class Player(BasePlayer):
     payoff_game = models.IntegerField()
     payoff_text = models.StringField()
 
-    quiz_questions_1 = models.StringField(
-        choices=[Constants.quiz_file_list[0]['choice1'], Constants.quiz_file_list[0]['choice2'],
-                 Constants.quiz_file_list[0]['choice3']],  #Constants.quiz_answer_1,
-        label=Constants.quiz_file_list[0]['question'],  #Constants.quiz_question[0],
-        widget=widgets.RadioSelectHorizontal
-    )
-    quiz_questions_2 = models.StringField(
-        choices=Constants.quiz_answer_2,
-        label=Constants.quiz_question[1],
-        widget=widgets.RadioSelectHorizontal
-    )
-    quiz_questions_3 = models.IntegerField(
-        label=Constants.quiz_question[2],
-    )
-    quiz_questions_4 = models.IntegerField(
-        label=Constants.quiz_question[3],
-    )
-    quiz_questions_5 = models.IntegerField(
-        label=Constants.quiz_question[4],
-    )
-    quiz_questions_6 = models.StringField(
-        choices=Constants.quiz_answer_6,
-        label=Constants.quiz_question[5],
-        widget=widgets.RadioSelectHorizontal
-    )
-    quiz_questions_7 = models.StringField(
-        choices=Constants.quiz_answer_7,
-        label=Constants.quiz_question[6],
-        widget=widgets.RadioSelectHorizontal
-    )
-    quiz_questions_8 = models.IntegerField(
-        label=Constants.quiz_question[7],
-    )
-    quiz_questions_9 = models.StringField(
-        choices=Constants.quiz_answer_9,
-        label=Constants.quiz_question[8],
-        widget=widgets.RadioSelectHorizontal
-    )
-    quiz_questions_10 = models.StringField(
-        choices=Constants.quiz_answer_10,
-        label=Constants.quiz_question[9],
-        widget=widgets.RadioSelectHorizontal
-    )
+    quiz_questions_1 = make_quiz_question(1, 'String', 3)
+    quiz_questions_2 = make_quiz_question(2, 'String', 3)
+    quiz_questions_3 = make_quiz_question(3, 'Integer', 0)
+    quiz_questions_4 = make_quiz_question(4, 'Integer', 0)
+    quiz_questions_5 = make_quiz_question(5, 'Integer', 0)
+    quiz_questions_6 = make_quiz_question(6, 'String', 3)
+    quiz_questions_7 = make_quiz_question(7, 'String', 3)
+    quiz_questions_8 = make_quiz_question(8, 'Integer', 0)
+    quiz_questions_9 = make_quiz_question(9, 'String', 6)
+    quiz_questions_10 = make_quiz_question(10, 'String', 3)
 
     def check_correct(self, p):
         answer = getattr(self, 'quiz_questions_{}'.format(p))
-        return answer == Constants.quiz_correct_answers[p-1]
+        return answer == Constants.quiz_file_list[p-1]['solution']  #Constants.quiz_correct_answers[p-1]
 
     def number_correct(self):
         n = 0
