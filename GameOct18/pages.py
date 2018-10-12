@@ -31,8 +31,9 @@ class QuizResults(Page):
         quiz_table = []
         for p in Constants.quiz_questions_range:
             answer = getattr(self.player, 'quiz_questions_{}'.format(p))
-            quiz_table.append(((Constants.quiz_question[p-1], answer, Constants.quiz_correct_answers[p-1],
-                                Constants.quiz_explanation[p-1])))
+            quiz_table.append(((Constants.quiz_file_list[p - 1]['question'], answer,
+                                Constants.quiz_file_list[p-1]['solution'],  # Constants.quiz_correct_answers[p-1],
+                                Constants.quiz_file_list[p - 1]['explanation'])))  # Constants.quiz_explanation[p-1])))
         return {'quiz_table': quiz_table}
 
 

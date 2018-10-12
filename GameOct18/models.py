@@ -424,7 +424,7 @@ class Constants(BaseConstants):
 
     quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
                             quiz_answer_9[4], quiz_answer_10[0]]
-    quiz_questions_count = len(quiz_question)
+    quiz_questions_count = len(quiz_file_list)
     quiz_questions_range = range(1, quiz_questions_count + 1, 1)
     survey1_questions_1_count = len(survey1_question_1)
     survey1_questions_1_range = range(1, survey1_questions_1_count + 1, 1)
@@ -652,8 +652,8 @@ class Player(BasePlayer):
     quiz_questions_10 = make_quiz_question(10, 'String', 3)
 
     def check_correct(self, p):
-        answer = getattr(self, 'quiz_questions_{}'.format(p))
-        return answer == Constants.quiz_file_list[p-1]['solution']  #Constants.quiz_correct_answers[p-1]
+        answer = str(getattr(self, 'quiz_questions_{}'.format(p)))
+        return answer == Constants.quiz_file_list[p-1]['solution']
 
     def number_correct(self):
         n = 0
