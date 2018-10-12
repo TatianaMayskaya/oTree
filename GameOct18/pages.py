@@ -154,7 +154,9 @@ class Survey14(Page):
             return []
 
     def is_displayed(self):
-        return self.round_number == 3
+        return self.round_number == 3 and \
+               (self.player.id_in_group == 2 or (self.player.id_in_group == 1 and
+                                                 self.player.survey1_questions_3_1_game_played == 1))
 
 
 class Survey15(Page):

@@ -1,0 +1,54 @@
+survey,id,question,choice1,choice2,choice3,,
+1,1,Explain your logic for game 1,,,,,
+1,2,Explain your logic for game 2,,,,,
+1,3,Explain your logic for game 3,,,,,
+2,1,"Player 2 should always accept any offer, even 0 tokens. Any other behavior is just stupid.",,,,,
+2,2,"Player 2 should always accept any positive offer, though she might reasonably decline the offer of 0 tokens. Any other behavior is just stupid.",,,,,
+2,3,Player 2 would normally reject low offers. Most people accept an offer of at least 30 tokens.,,,,,
+2,4,Player 2 should reject anything below 50 tokens.,,,,,
+2,5,"Player 1 should give 50 tokens in any game, aiming for a fair division.",,,,,
+2,6,Player 1 has moral right to offer 0 tokens in game 2. There is no shame in doing it.,,,,,
+2,7,"In game 3, player 1 should give more to player 2 who chose game 1.",,,,,
+2,8,"In game 3, player 1 should give more to player 2 who chose game 2.",,,,,
+2,9,"In game 3, the choice of game 1 is a sign of non-cooperative behavior.",,,,,
+2,10,"Player 1 should give more to player 2 in game 1 if player 2 chose to play that game (as in game 3), as this indicates that player 2 would more likely reject low offers.",,,,,
+2,11,"Player 1 should give less to player 2 in game 1 if player 2 chose to play that game (as in game 3), to punish player 2.",,,,,
+2,12,"Player 1 should give more to player 2 in game 2 if player 2 chose to play that game (as in game 3), to reward player 2 for her cooperative behavior.",,,,,
+2,13,"Player 1 should give less to player 2 in game 2 if player 2 chose to play that game (as in game 3), as this indicates that player 2 understands that the power lies with player 1 in this experiment and player 1 has moral right to offer very little (or even nothing).",,,,,
+2,14,Player 2 should choose game 1 because it makes no sense to voluntarily giving up on the opportunity to reject offers.,,,,,
+2,15,Player 2 should choose game 1 because she would receive a higher offer by using this strategy.,,,,,
+2,16,Player 2 should choose game 2 because he would receive a higher offer by using this strategy.,,,,,
+2,17,Player 2 should choose game 2 to signal her trust to player 1.,,,,,
+2,18,Player 2 should choose game 2 because it makes no sense to reject offers and everybody understand it.,,,,,
+2,19,Player 2 should be more agreeable (accept more offers) in game 1 if he chose to play that game.,,,,,
+2,20,Player 2 should be less agreeable (accept less offers) in game 1 if he chose to play that game.,,,,,
+2,21,Player 2 should be more agreeable (accept more offers) in game 1 if she chose to play that game because she already have exercised some control over the situation.,,,,,
+2,22,Player 2 should be less agreeable (accept less offers) in game 1 if she chose to play that game because by choosing game 1 she warned player 1 of her intent to reject low offers.,,,,,
+2,23,Player 2 should expect to get more in game 3 than in game 1.,,,,,
+2,24,Player 2 should expect to get less in game 3 than in game 1.,,,,,
+2,25,Player 2 should expect to get more in game 3 than in game 2.,,,,,
+2,26,Player 2 should expect to get less in game 3 than in game 2.,,,,,
+2,27,"When playing game 1, it does not make any difference for player 1 whether player 2 chose to play that game (as in game 3) or it was the computer's choice (as in game 1).",,,,,
+2,28,"When playing game 2, it does not make any difference for player 1 whether player 2 chose to play that game (as in game 3) or it was the computer's choice (as in game 2).",,,,,
+3,1,"Any amount player 1 offers to player 2 is doubled in size: if player 1 gives x tokens out of 100 tokens to player 2 and the offer is accepted, then player 2 gets 2*x tokens, while player 1 gets 100-x tokens.",,,,,
+3,2,"Any amount player 1 offers to player 2 is halved: if player 1 gives x tokens out of 100 tokens to player 2 and the offer is accepted, then player 2 gets x/2 tokens, while player 1 gets 100-x tokens.",,,,,
+3,3,"In game 3, when player 2 chooses game 1 player 1 gets 100 tokens to divide (same as before). However, when player 2 chooses game 2 player 1 gets 200 tokens to divide.",,,,,
+3,4,"In game 3, when player 2 chooses game 1 player 1 gets 200 tokens to divide; when player 2 chooses game 2 player 1 gets 100 tokens to divide.",,,,,
+4,1,Type in any comments you have about the experiment.,,,,,
+5,1,What is your gender?,Male,Female,Other,,
+5,2,What is your age?,,,,,
+5,3,What is your main field of study (your major)?,,,,,
+5,4,What is(are) your native language(s)?,,,,,
+5,5,How many siblings do you have?,,,,,
+5,6,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""Winning a debate matters less to you than making sure no one gets upset.""",,,,How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ,"""Winning a debate matters less to you than making sure no one gets upset."""
+5,7,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""You do not mind being at the center of attention.""",,,,,"""You do not mind being at the center of attention."""
+5,8,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""If someone does not respond to your e-mail quickly, you start worrying if you said something wrong.""",,,,,"""If someone does not respond to your e-mail quickly, you start worrying if you said something wrong."""
+5,9,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""You do not let other people influence your actions.""",,,,,"""You do not let other people influence your actions."""
+5,10,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""If you had a business, you would find it very difficult to fire loyal but underperforming employees.""",,,,,"""If you had a business, you would find it very difficult to fire loyal but underperforming employees."""
+5,11,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""Logic is usually more important than heart when it comes to making important decisions.""",,,,,"""Logic is usually more important than heart when it comes to making important decisions."""
+5,12,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""Keeping your options open is more important than having a to-do list.""",,,,,"""Keeping your options open is more important than having a to-do list."""
+5,13,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""You think that everyone's views should be respected regardless of whether they are supported by facts or not.""",,,,,"""You think that everyone's views should be respected regardless of whether they are supported by facts or not."""
+5,14,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""You feel more energetic after spending time talking to somebody.""",,,,,"""You feel more energetic after spending time talking to somebody."""
+5,15,"How well does the following statement describe you as a person (0 - does not describe me at all; 10 - describes me perfectly)? ""You believe that it is more rewarding to be respected by others than to be powerful.""",,,,,"""You believe that it is more rewarding to be respected by others than to be powerful."""
+5,16,"Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. The top of the ladder represents the best possible life for you and the bottom of the ladder represents the worst possible life for you. On which step of the ladder would you say you personally feel you stand at this time?",,,,,
+5,17,"Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. The top of the ladder represents the best possible life for you and the bottom of the ladder represents the worst possible life for you. Just your best guess, on which step fo you think you will stand in the future, say about five years from now?",,,,,
