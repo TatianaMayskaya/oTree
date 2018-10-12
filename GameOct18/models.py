@@ -3,7 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 
-import random
+import random, csv
 
 
 author = 'Your name here'
@@ -415,6 +415,13 @@ class Constants(BaseConstants):
             'Самая верхняя ступенька символизирует самую лучшую жизнь, а самая нижняя - самую худшую. '
             'Как Вы думаете, на какой ступеньке Вы будете находиться через, скажем, пять лет?')
 
+    if language == 1:
+        with open('GameOct18/quiz_en.csv') as quiz_file:
+            quiz_file_list = list(csv.DictReader(quiz_file))
+    else:
+        with open('GameOct18/quiz_ru.csv') as quiz_file:
+            quiz_file_list = list(csv.DictReader(quiz_file))
+
     quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
                             quiz_answer_9[4], quiz_answer_10[0]]
     quiz_questions_count = len(quiz_question)
@@ -521,6 +528,7 @@ def make_survey2_urn(num):
         verbose_name=Constants.label_RiskyUrns
     )
 
+
 def make_survey_personal(num):
     return models.IntegerField(
         choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -609,8 +617,9 @@ class Player(BasePlayer):
     payoff_text = models.StringField()
 
     quiz_questions_1 = models.StringField(
-        choices=Constants.quiz_answer_1,
-        label=Constants.quiz_question[0],
+        choices=[Constants.quiz_file_list[0]['choice1'], Constants.quiz_file_list[0]['choice2'],
+                 Constants.quiz_file_list[0]['choice3']],  #Constants.quiz_answer_1,
+        label=Constants.quiz_file_list[0]['question'],  #Constants.quiz_question[0],
         widget=widgets.RadioSelectHorizontal
     )
     quiz_questions_2 = models.StringField(
