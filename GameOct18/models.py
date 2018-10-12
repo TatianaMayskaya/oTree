@@ -419,7 +419,7 @@ class Constants(BaseConstants):
         with open('GameOct18/quiz_en.csv') as quiz_file:
             quiz_file_list = list(csv.DictReader(quiz_file))
     else:
-        with open('GameOct18/quiz_ru.csv') as quiz_file:
+        with open('GameOct18/quiz_ru.csv', encoding='utf-8') as quiz_file:
             quiz_file_list = list(csv.DictReader(quiz_file))
 
     quiz_correct_answers = [quiz_answer_1[1], quiz_answer_2[1], 0, 100, 0, quiz_answer_6[1], quiz_answer_7[1], 2,
