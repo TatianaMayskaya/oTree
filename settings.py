@@ -115,6 +115,21 @@ ROOMS = [
         'name': 'GameOct18_ru_AM',
         'display_name': 'GameOct18 - test for Russian version : Alexander Matros',
         'participant_label_file': '_rooms/GameOct18_4.txt'
+    },
+    {
+        'name': 'GameOct18_ru_16',
+        'display_name': 'GameOct18 - for maximum 16 participants',
+        'participant_label_file': '_rooms/GameOct18_16.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20_room1',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 1',
+        'participant_label_file': '_rooms/GameOct18_20.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20_room2',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 2',
+        'participant_label_file': '_rooms/GameOct18_20.txt'
     }
 ]
 
