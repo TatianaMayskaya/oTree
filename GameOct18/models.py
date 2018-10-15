@@ -19,13 +19,16 @@ def add_currency(currency_used, num):
     elif currency_used == 1:
         return '£' + str(num)
     else:
-        return str(num) + ' рублей'
+        if num != 1:
+            return str(num) + ' рублей'
+        else:
+            return str(num) + ' рубль'
 
 
 class Constants(BaseConstants):
     name_in_url = 'GameOct18'
     players_per_group = 2
-    num_rounds = 6
+    num_rounds = 5
     language = 2  # 1=EN, 2=RU
     currency_used = 2  # 0=USD, 1=POUNDS, 2=RUBLES
 
@@ -41,14 +44,18 @@ class Constants(BaseConstants):
     if currency_used == 0:
         show_up = 5
         rate = 0.2
+        rate_survey = 0.02
     elif currency_used == 1:
         show_up = 3
         rate = 0.2
+        rate_survey = 0.02
     else:
         show_up = 200
         rate = 10
+        rate_survey = 1
     show_up_text = add_currency(currency_used, show_up)
     rate_text = add_currency(currency_used, rate)
+    rate_survey_text = add_currency(currency_used, rate_survey)
 
     endowment = 100
     payoff_if_rejected = 0
@@ -68,28 +75,24 @@ class Constants(BaseConstants):
         else:
             offer_options_in_words.append((give, 'Игрок 2 получает {} жетонов (у Вас останется {} жетонов)'.format(give, keep)))
 
-    endowment_RiskyProject1 = 200
-    prob_success_RiskyProject1 = 50
-    return_RiskyProject1 = 2
-    endowment_RiskyProject2 = 100
-    prob_success_RiskyProject2 = 35
-    return_RiskyProject2 = 3
+    endowment_RiskyProject = [100, 100]
+    invest_increment = 10
+    invest_options_RiskyProject1 = range(0, endowment_RiskyProject[0] + invest_increment, invest_increment)
+    prob_success_RiskyProject = [50, 35]
+    return_RiskyProject = [2, 3]
+    invest_options_RiskyProject2 = range(0, endowment_RiskyProject[1] + invest_increment, invest_increment)
 
-    LoseBalls_RiskyUrns1 = 15
-    WinBalls_RiskyUrns1 = 15
-    WinPayoff_RiskyUrns1 = 150
-    Step_RiskyUrns1 = 10
-    Options_RiskyUrns1 = range(0, WinPayoff_RiskyUrns1 + Step_RiskyUrns1, Step_RiskyUrns1)
-    LoseBalls_RiskyUrns2 = 10
-    WinBalls_RiskyUrns2 = 10
-    WinPayoff_RiskyUrns2 = 100
-    Step_RiskyUrns2 = 10
-    Options_RiskyUrns2 = range(0, WinPayoff_RiskyUrns2 + Step_RiskyUrns2, Step_RiskyUrns2)
+    LoseBalls_RiskyUrns = [15, 10]
+    WinBalls_RiskyUrns = [15, 10]
+    WinPayoff_RiskyUrns = [150, 100]
+    Step_RiskyUrns = [10, 10]
+    Options_RiskyUrns1 = range(0, WinPayoff_RiskyUrns[0] + Step_RiskyUrns[0], Step_RiskyUrns[0])
+    Options_RiskyUrns2 = range(0, WinPayoff_RiskyUrns[1] + Step_RiskyUrns[1], Step_RiskyUrns[1])
 
-    Prisoner_both_cooperate_payoff = [95, 80]
-    Prisoner_both_defect_payoff = [62, 50]
-    Prisoner_betrayed_payoff = [31, 24]
-    Prisoner_betray_payoff = [120, 100]
+    Prisoner_both_cooperate_payoff = [300, 200]  # [95, 80]
+    Prisoner_both_defect_payoff = [200, 100]  # [62, 50]
+    Prisoner_betrayed_payoff = [100, 0]  # [31, 24]
+    Prisoner_betray_payoff = [400, 300]  # [120, 100]
     Prisoner_cooperate = 'A1'
     Prisoner_defect = 'A2'
 
@@ -100,27 +103,13 @@ class Constants(BaseConstants):
     survey1_question_3 = []
     SurveyPersonal_question = []
     if language == 1:
-        question_RiskyProject1 = 'Please choose how many tokens you want to invest in the risky project. ' \
-                                 'Note that you can pick any number between 0 and ' +\
-                                 str(endowment_RiskyProject1) + ', including 0 or ' + \
-                                 str(endowment_RiskyProject1)
-        question_RiskyProject2 = 'Please choose how many tokens you want to invest in the risky project. ' \
-                                 'Note that you can pick any number between 0 and ' +\
-                                 str(endowment_RiskyProject2) + ', including 0 or ' + \
-                                 str(endowment_RiskyProject2)
+        question_RiskyProject = 'Please choose how many tokens you want to invest in the risky project.'
         label_RiskyUrns = 'Choose one option'
         choice1_RiskyUrns = 'Urn gamble'
         choice2_RiskyUrns = '{} tokens'
 
     else:
-        question_RiskyProject1 = 'Пожалуйста, выберите, сколько жетонов Вы проинвестируете в рискованный проект. ' \
-                                 'Вы можете выбрать любое число от 0 до ' + \
-                                 str(endowment_RiskyProject1) + ', включая 0 и ' + \
-                                 str(endowment_RiskyProject1)
-        question_RiskyProject2 = 'Пожалуйста, выберите, сколько жетонов Вы проинвестируете в рискованный проект. ' \
-                                 'Вы можете выбрать любое число от 0 до ' + \
-                                 str(endowment_RiskyProject2) + ', включая 0 и ' + \
-                                 str(endowment_RiskyProject2)
+        question_RiskyProject = 'Пожалуйста, выберите, сколько жетонов Вы проинвестируете в рискованный проект.'
         label_RiskyUrns = 'Выберите одну опцию'
         choice1_RiskyUrns = 'Лотерея'
         choice2_RiskyUrns = '{} жетонов'
@@ -384,7 +373,6 @@ class Player(BasePlayer):
     quiz_questions_10 = make_quiz_question(10, 'String', 3)
 
     def check_correct(self, p):
-        print(Constants.quiz_file_list)
         answer = str(getattr(self, 'quiz_questions_{}'.format(p)))
         return answer == Constants.quiz_file_list[p-1]['solution']
 
@@ -476,124 +464,142 @@ class Player(BasePlayer):
     order_questions = models.StringField()
 
     survey2_question_RiskyProject1 = models.IntegerField(
-        min=0, max=Constants.endowment_RiskyProject1,
-        label=Constants.question_RiskyProject1)
+        choices=Constants.invest_options_RiskyProject1,
+        label=Constants.question_RiskyProject)
     survey2_RiskyProject1_earned = models.IntegerField()
     survey2_RiskyProject1_left = models.IntegerField()
     survey2_RiskyProject1_success = models.BooleanField()
     survey2_RiskyProject1_payoff = models.IntegerField()
 
     survey2_question_RiskyProject2 = models.IntegerField(
-        min=0, max=Constants.endowment_RiskyProject2,
-        label=Constants.question_RiskyProject2)
+        choices=Constants.invest_options_RiskyProject2,
+        label=Constants.question_RiskyProject)
     survey2_RiskyProject2_earned = models.IntegerField()
     survey2_RiskyProject2_left = models.IntegerField()
     survey2_RiskyProject2_success = models.BooleanField()
     survey2_RiskyProject2_payoff = models.IntegerField()
 
-    survey2_RiskyUrns1_0 = make_survey2_urn(0)
-    survey2_RiskyUrns1_10 = make_survey2_urn(10)
-    survey2_RiskyUrns1_20 = make_survey2_urn(20)
-    survey2_RiskyUrns1_30 = make_survey2_urn(30)
-    survey2_RiskyUrns1_40 = make_survey2_urn(40)
-    survey2_RiskyUrns1_50 = make_survey2_urn(50)
-    survey2_RiskyUrns1_60 = make_survey2_urn(60)
-    survey2_RiskyUrns1_70 = make_survey2_urn(70)
-    survey2_RiskyUrns1_80 = make_survey2_urn(80)
-    survey2_RiskyUrns1_90 = make_survey2_urn(90)
-    survey2_RiskyUrns1_100 = make_survey2_urn(100)
-    survey2_RiskyUrns1_110 = make_survey2_urn(110)
-    survey2_RiskyUrns1_120 = make_survey2_urn(120)
-    survey2_RiskyUrns1_130 = make_survey2_urn(130)
-    survey2_RiskyUrns1_140 = make_survey2_urn(140)
-    survey2_RiskyUrns1_150 = make_survey2_urn(150)
+    survey2_RiskyUrns1_0 = make_survey2_urn(Constants.Options_RiskyUrns1[0])
+    survey2_RiskyUrns1_10 = make_survey2_urn(Constants.Options_RiskyUrns1[1])
+    survey2_RiskyUrns1_20 = make_survey2_urn(Constants.Options_RiskyUrns1[2])
+    survey2_RiskyUrns1_30 = make_survey2_urn(Constants.Options_RiskyUrns1[3])
+    survey2_RiskyUrns1_40 = make_survey2_urn(Constants.Options_RiskyUrns1[4])
+    survey2_RiskyUrns1_50 = make_survey2_urn(Constants.Options_RiskyUrns1[5])
+    survey2_RiskyUrns1_60 = make_survey2_urn(Constants.Options_RiskyUrns1[6])
+    survey2_RiskyUrns1_70 = make_survey2_urn(Constants.Options_RiskyUrns1[7])
+    survey2_RiskyUrns1_80 = make_survey2_urn(Constants.Options_RiskyUrns1[8])
+    survey2_RiskyUrns1_90 = make_survey2_urn(Constants.Options_RiskyUrns1[9])
+    survey2_RiskyUrns1_100 = make_survey2_urn(Constants.Options_RiskyUrns1[10])
+    survey2_RiskyUrns1_110 = make_survey2_urn(Constants.Options_RiskyUrns1[11])
+    survey2_RiskyUrns1_120 = make_survey2_urn(Constants.Options_RiskyUrns1[12])
+    survey2_RiskyUrns1_130 = make_survey2_urn(Constants.Options_RiskyUrns1[13])
+    survey2_RiskyUrns1_140 = make_survey2_urn(Constants.Options_RiskyUrns1[14])
+    survey2_RiskyUrns1_150 = make_survey2_urn(Constants.Options_RiskyUrns1[15])
     survey2_RiskyUrns1_sure = models.StringField()
     survey2_RiskyUrns1_choice = models.StringField()
     survey2_RiskyUrns1_choice_num = models.IntegerField()
     survey2_RiskyUrns1_payoff = models.IntegerField()
 
-    survey2_RiskyUrns2_0 = make_survey2_urn(0)
-    survey2_RiskyUrns2_10 = make_survey2_urn(10)
-    survey2_RiskyUrns2_20 = make_survey2_urn(20)
-    survey2_RiskyUrns2_30 = make_survey2_urn(30)
-    survey2_RiskyUrns2_40 = make_survey2_urn(40)
-    survey2_RiskyUrns2_50 = make_survey2_urn(50)
-    survey2_RiskyUrns2_60 = make_survey2_urn(60)
-    survey2_RiskyUrns2_70 = make_survey2_urn(70)
-    survey2_RiskyUrns2_80 = make_survey2_urn(80)
-    survey2_RiskyUrns2_90 = make_survey2_urn(90)
-    survey2_RiskyUrns2_100 = make_survey2_urn(100)
+    survey2_RiskyUrns2_0 = make_survey2_urn(Constants.Options_RiskyUrns2[0])
+    survey2_RiskyUrns2_10 = make_survey2_urn(Constants.Options_RiskyUrns2[1])
+    survey2_RiskyUrns2_20 = make_survey2_urn(Constants.Options_RiskyUrns2[2])
+    survey2_RiskyUrns2_30 = make_survey2_urn(Constants.Options_RiskyUrns2[3])
+    survey2_RiskyUrns2_40 = make_survey2_urn(Constants.Options_RiskyUrns2[4])
+    survey2_RiskyUrns2_50 = make_survey2_urn(Constants.Options_RiskyUrns2[5])
+    survey2_RiskyUrns2_60 = make_survey2_urn(Constants.Options_RiskyUrns2[6])
+    survey2_RiskyUrns2_70 = make_survey2_urn(Constants.Options_RiskyUrns2[7])
+    survey2_RiskyUrns2_80 = make_survey2_urn(Constants.Options_RiskyUrns2[8])
+    survey2_RiskyUrns2_90 = make_survey2_urn(Constants.Options_RiskyUrns2[9])
+    survey2_RiskyUrns2_100 = make_survey2_urn(Constants.Options_RiskyUrns2[10])
     survey2_RiskyUrns2_sure = models.StringField()
     survey2_RiskyUrns2_choice = models.StringField()
     survey2_RiskyUrns2_choice_num = models.IntegerField()
     survey2_RiskyUrns2_payoff = models.IntegerField()
 
-    survey2_total_payoff = models.IntegerField()
+    survey2_payment_question_in_order_for_subject = models.IntegerField()
+    survey2_payment_question_in_internal_order = models.IntegerField()
+    survey2_payoff = models.IntegerField()
+    survey2_payoff_text = models.StringField()
 
     def get_payoff_survey2(self):
         num = self.participant.vars['order_questions'][self.participant.vars['question_number']]
-        if num == 1:
-            self.survey2_RiskyProject1_left = \
-                Constants.endowment_RiskyProject1 - self.survey2_question_RiskyProject1
-            self.survey2_RiskyProject1_success = random.uniform(0, 100) < Constants.prob_success_RiskyProject1
-            if self.survey2_RiskyProject1_success:
-                self.survey2_RiskyProject1_earned = Constants.return_RiskyProject1 * self.survey2_question_RiskyProject1
+        if num == 1 or num == 2:
+            if num == 1:
+                invested = self.survey2_question_RiskyProject1
             else:
-                self.survey2_RiskyProject1_earned = 0
-            self.survey2_RiskyProject1_payoff = self.survey2_RiskyProject1_left + self.survey2_RiskyProject1_earned
-            self.survey2_total_payoff = self.survey2_total_payoff + self.survey2_RiskyProject1_payoff
-        elif num == 2:
-            self.survey2_RiskyProject2_left = \
-                Constants.endowment_RiskyProject2 - self.survey2_question_RiskyProject2
-            self.survey2_RiskyProject2_success = random.uniform(0, 100) < Constants.prob_success_RiskyProject2
-            if self.survey2_RiskyProject2_success:
-                self.survey2_RiskyProject2_earned = Constants.return_RiskyProject2 * self.survey2_question_RiskyProject2
+                invested = self.survey2_question_RiskyProject2
+            left = Constants.endowment_RiskyProject[num-1] - invested
+            success = random.uniform(0, 100) < Constants.prob_success_RiskyProject[num-1]
+            if success:
+                earned = Constants.return_RiskyProject[num-1] * invested
             else:
-                self.survey2_RiskyProject2_earned = 0
-            self.survey2_RiskyProject2_payoff = self.survey2_RiskyProject2_left + self.survey2_RiskyProject2_earned
-            self.survey2_total_payoff = self.survey2_total_payoff + self.survey2_RiskyProject2_payoff
-        elif num == 3:
-            sure = random.choice(Constants.Options_RiskyUrns1)
-            self.survey2_RiskyUrns1_sure = str(Constants.choice2_RiskyUrns).format(sure)
-            self.survey2_RiskyUrns1_choice_num = getattr(self, 'survey2_RiskyUrns1_{}'.format(sure))
-            if self.survey2_RiskyUrns1_choice_num == 1:
-                self.survey2_RiskyUrns1_choice = Constants.choice1_RiskyUrns
-                ball = random.randint(1, Constants.LoseBalls_RiskyUrns1 + Constants.WinBalls_RiskyUrns1)
-                if ball > Constants.LoseBalls_RiskyUrns1:
-                    self.survey2_RiskyUrns1_payoff = Constants.WinPayoff_RiskyUrns1
-                else:
-                    self.survey2_RiskyUrns1_payoff = 0
+                earned = 0
+            if num == 1:
+                self.survey2_RiskyProject1_left = left
+                self.survey2_RiskyProject1_success = success
+                self.survey2_RiskyProject1_earned = earned
+                self.survey2_RiskyProject1_payoff = left + earned
             else:
-                self.survey2_RiskyUrns1_choice = self.survey2_RiskyUrns1_sure
-                self.survey2_RiskyUrns1_payoff = sure
-            self.survey2_total_payoff = self.survey2_total_payoff + self.survey2_RiskyUrns1_payoff
+                self.survey2_RiskyProject2_left = left
+                self.survey2_RiskyProject2_success = success
+                self.survey2_RiskyProject2_earned = earned
+                self.survey2_RiskyProject2_payoff = left + earned
         else:
-            sure = random.choice(Constants.Options_RiskyUrns2)
-            self.survey2_RiskyUrns2_sure = str(Constants.choice2_RiskyUrns).format(sure)
-            self.survey2_RiskyUrns2_choice_num = getattr(self, 'survey2_RiskyUrns2_{}'.format(sure))
-            if self.survey2_RiskyUrns2_choice_num == 1:
-                self.survey2_RiskyUrns2_choice = Constants.choice1_RiskyUrns
-                ball = random.randint(1, Constants.LoseBalls_RiskyUrns2 + Constants.WinBalls_RiskyUrns2)
-                if ball > Constants.LoseBalls_RiskyUrns1:
-                    self.survey2_RiskyUrns2_payoff = Constants.WinPayoff_RiskyUrns2
-                else:
-                    self.survey2_RiskyUrns2_payoff = 0
+            if num == 3:
+                sure = random.choice(Constants.Options_RiskyUrns1)
             else:
-                self.survey2_RiskyUrns2_choice = self.survey2_RiskyUrns2_sure
-                self.survey2_RiskyUrns2_payoff = sure
-            self.survey2_total_payoff = self.survey2_total_payoff + self.survey2_RiskyUrns2_payoff
+                sure = random.choice(Constants.Options_RiskyUrns2)
+            sure_text = str(Constants.choice2_RiskyUrns).format(sure)
+            choice_num = getattr(self, 'survey2_RiskyUrns{}_{}'.format(num-2, sure))
+            if choice_num == 1:
+                choice = Constants.choice1_RiskyUrns
+                ball = random.randint(1, Constants.LoseBalls_RiskyUrns[num-3] + Constants.WinBalls_RiskyUrns[num-3])
+                if ball > Constants.LoseBalls_RiskyUrns[num-3]:
+                    pay_off = Constants.WinPayoff_RiskyUrns[num-3]
+                else:
+                    pay_off = 0
+            else:
+                choice = sure_text
+                pay_off = sure
+            if num == 3:
+                self.survey2_RiskyUrns1_sure = sure_text
+                self.survey2_RiskyUrns1_choice_num = choice_num
+                self.survey2_RiskyUrns1_choice = choice
+                self.survey2_RiskyUrns1_payoff = pay_off
+            else:
+                self.survey2_RiskyUrns2_sure = sure_text
+                self.survey2_RiskyUrns2_choice_num = choice_num
+                self.survey2_RiskyUrns2_choice = choice
+                self.survey2_RiskyUrns2_payoff = pay_off
+        if self.participant.vars['question_number'] == Constants.survey2_questions_count - 1:
+            self.survey2_payment_question_in_order_for_subject = random.choice(Constants.survey2_questions_range)
+            self.survey2_payment_question_in_internal_order = \
+                self.participant.vars['order_questions'][self.survey2_payment_question_in_order_for_subject - 1]
+            if self.survey2_payment_question_in_internal_order == 1:
+                self.survey2_payoff = self.survey2_RiskyProject1_payoff
+            elif self.survey2_payment_question_in_internal_order == 2:
+                self.survey2_payoff = self.survey2_RiskyProject2_payoff
+            elif self.survey2_payment_question_in_internal_order == 3:
+                self.survey2_payoff = self.survey2_RiskyUrns1_payoff
+            else:
+                self.survey2_payoff = self.survey2_RiskyUrns2_payoff
+            self.survey2_payoff = self.survey2_payoff * Constants.rate_survey
+            self.payoff = self.payoff + self.survey2_payoff
+            self.survey2_payoff_text = add_currency(Constants.currency_used, int(self.survey2_payoff))
 
     Prisoner_decision = models.StringField(
         choices=[Constants.Prisoner_cooperate, Constants.Prisoner_defect],
         widget=widgets.RadioSelect
     )
     Prisoner_payoff = models.IntegerField()
+    survey3_payment_question = models.IntegerField()
+    survey3_payoff = models.IntegerField()
+    survey3_payoff_text = models.StringField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
 
     def set_prisoner_payoff(self):
-
         payoff_matrix = {
             Constants.Prisoner_cooperate:
                 {
@@ -606,8 +612,14 @@ class Player(BasePlayer):
                     Constants.Prisoner_defect: Constants.Prisoner_both_defect_payoff[self.round_number-4]
                 }
         }
-
         self.Prisoner_payoff = payoff_matrix[self.Prisoner_decision][self.other_player().Prisoner_decision]
+        self.participant.vars['prisoner_payoffs'].append(self.Prisoner_payoff)
+
+    def set_final_prisoner_payoff(self):
+        self.survey3_payment_question = random.randint(1, len(self.participant.vars['prisoner_payoffs']))
+        self.survey3_payoff = int(self.participant.vars['prisoner_payoffs'][self.survey3_payment_question - 1])
+        self.payoff = self.payoff + self.survey3_payoff
+        self.survey3_payoff_text = add_currency(Constants.currency_used, int(self.survey3_payoff))
 
     survey_personal_questions_1 = models.StringField(
         choices=[Constants.SurveyPersonal_question[0][1], Constants.SurveyPersonal_question[0][2],

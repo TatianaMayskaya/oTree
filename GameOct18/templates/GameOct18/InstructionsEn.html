@@ -35,8 +35,10 @@
 
         <p>
             Player 1 makes an offer to player 2. This offer specifies how to divide the {{ Constants.endowment }} tokens
-            between the two players. This goes as follows. Player 1 will see the following
-            {{ Constants.offer_choices_count }} options:
+            between the two players. This goes as follows.
+        </p>
+        <p>
+            Player 1 will see the following {{ Constants.offer_choices_count }} options:
         </p>
 
         <ol>
@@ -48,7 +50,7 @@
         </ol>
 
         <p>
-            Player 1 has to choose exactly one option by clicking on the radio button next to it
+            Player 1 has to choose exactly one option by clicking on the button next to it
             (the program will not allow the player to choose more than one option or continue the
             game without choosing any). Player 1 can change his / her choice as many times as she / he wants:
             when a different option is chosen, the other one is automatically became unmarked.
@@ -59,6 +61,8 @@
         <p>
             While player 1 decides on the offer, player 2 should select which
             {{ Constants.offer_choices_count }} offers stated above to accept or reject. This goes as follows.
+        </p>
+        <p>
             Player 2 will see the following {{ Constants.offer_choices_count }} options:
         </p>
 
@@ -71,7 +75,7 @@
         </ol>
 
         <p>
-            For each option, there will be two radio buttons marked as <strong>"Accept"</strong> and <strong>"Reject."</strong>
+            For each option, there will be two buttons marked as <strong>"Accept"</strong> and <strong>"Reject."</strong>
             Exactly one button must be clicked for each option. Again, player 2 can
             change his / her choice as many times as she / he wants:
             when a different option is chosen, the other one is automatically became unmarked.
@@ -100,8 +104,10 @@
 
         <p>
             Player 1 makes an offer to player 2. This offer specifies how to divide the {{ Constants.endowment }} tokens
-            between the two players. This goes as follows. Player 1 will see the following
-            {{ Constants.offer_choices_count }} options:
+            between the two players. This goes as follows.
+        </p>
+        <p>
+            Player 1 will see the following {{ Constants.offer_choices_count }} options:
         </p>
 
         <ol>
@@ -113,7 +119,7 @@
         </ol>
 
         <p>
-            Player 1 has to choose exactly one option by clicking on the radio button next to it
+            Player 1 has to choose exactly one option by clicking on the button next to it
             (the program will not allow the player to choose more than one option or continue the
             game without choosing any). Player 1 can change his / her choice as many times as she / he wants:
             when a different option is chosen, the other one is automatically became unmarked.
@@ -148,7 +154,7 @@
         </p>
 
         <p>
-            Player 2 will see two radio buttons marked as <strong>"Game 1"</strong> and <strong>"Game 2."</strong>
+            Player 2 will see two buttons marked as <strong>"Game 1"</strong> and <strong>"Game 2."</strong>
             After selecting the game, player 2 should click on "Submit" button at the left bottom
             corner of the screen.
         </p>
@@ -166,10 +172,14 @@
         </ol>
 
         <p>
-            For each option, there will be two radio buttons marked as "Accept" and "Reject."
+            For each option, there will be two buttons marked as "Accept" and "Reject."
             Exactly one button must be clicked for each option.
             When all {{ Constants.offer_choices_count }} decisions are made, player 2 should click on
             "Submit" button at the left bottom corner of the screen.
+        </p>
+
+        <p>
+            If player 2 chose game 2, player 1's offer is accepted automatically and therefore there is nothing else to choose.
         </p>
 
         <p>
@@ -213,9 +223,9 @@
 
         <ol type="I">
             <li>
-                After reading the instructions, each of you receives a small quiz that checks your understanding of
-                these instructions. You will be asked to answer all questions in this quiz. Then your answers will
-                be checked, and all mistakes are explained.
+                After reading the instructions, each of you receive a small quiz that checks your understanding of
+                these instructions. You will be asked to answer all questions in the quiz. Then your answers will
+                be checked, and all mistakes will be explained.
                 Your payment does not depend how well you perform on this quiz. The only purpose of this quiz is
                 to eliminate any confusion you might have about the experimental design.
             </li>
@@ -287,8 +297,8 @@
                 </ol>
             </li>
             <li>
-                After completing the experiment, you will be asked to answer a few more questions which
-                will <strong>not affect</strong> your final payment.
+                After completing the experiment, you will be asked to answer a few more questions.
+                You will be paid for some of them as well.
             </li>
         </ol>
 
@@ -297,7 +307,9 @@
         </h4>
 
         <p>
-            <center> {{ Constants.show_up_text }} + (tokens earned in the game chosen for payment) * {{ Constants.rate_text }}</center>
+            <center> {{ Constants.show_up_text }} +
+            (tokens earned in the game chosen for payment) * {{ Constants.rate_text }} +
+            (tokens earned after the experiment during the survey) * {{ Constants.rate_survey_text }}</center>
         </p>
 
     </div>

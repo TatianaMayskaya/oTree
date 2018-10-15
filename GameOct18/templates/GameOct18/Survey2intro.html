@@ -16,16 +16,17 @@
     {% if Constants.language == 1 %}
         <p>
             Part 2 of the survey contains questions that are unrelated to the experiment.
-            Some of them are formulated in a way that implies some payment afterwards.
-            Though you are not actually be paid for these questions, please provide your answer as if
-            you were getting paid. You will observe how many tokens you would have earned after each question.
+            They are all implied some payment (in tokens).
+            You will observe how many tokens you earned after each question.
+            You will be paid for one randomly chosen question at the rate 1 token = {{ Constants.rate_survey_text }}.
         </p>
     {% else %}
         <p>
             Вопросы во второй части опроса не связаны с самим экспериментом напрямую.
-            Некоторые из них сформулированы так, как будто Вас ожидает выплата в конце.
-            Хотя это и не так (мы не платим за эту часть опроса), пожалуйста, отвечайте так,
-            как будто Вас действительно ожидает выплата. После каждого вопроса Вы увидите, сколько бы Вы заработали.
+            В каждом из них можно выиграть некоторое количество жетонов.
+            После каждого вопроса Вы увидите, сколько жетонов Вы получили за этот вопрос.
+            В результате компьютер выберет случайным образом один вопрос, и Вы получите деньги за этот вопрос по курсу
+            1 жетон = {{ Constants.rate_survey_text }}.
         </p>
     {% endif %}
 

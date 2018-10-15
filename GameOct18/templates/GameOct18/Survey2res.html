@@ -15,16 +15,6 @@
 
     {% include template %}
 
-    {% if Constants.language == 1 %}
-        <p>
-            Your total earnings so far is {{ player.survey2_total_payoff }} tokens.
-        </p>
-    {% else %}
-        <p>
-            Ваш общий выигрыш на данный момент составляет {{ player.survey2_total_payoff }} жетонов.
-        </p>
-    {% endif %}
-
     <div>
         {% if Constants.language == 1 %}
             <button name="next">Next question</button>

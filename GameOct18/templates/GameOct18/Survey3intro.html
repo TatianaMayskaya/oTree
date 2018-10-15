@@ -16,12 +16,15 @@
     {% if Constants.language == 1 %}
         <p>
             In part 3, each question is a game where you have a counterpart.
-            Therefore, for each question you will be randomly paired with another participant.
+            Therefore, for <strong>each</strong> question you will be randomly paired with another participant.
+            You will be paid for one randomly chosen question at the rate 1 token = {{ Constants.rate_survey_text }}.
         </p>
     {% else %}
         <p>
             Вопросы в третьей части опроса - это игры с двумя участниками.
-            Поэтому перед каждой такой игрой всех участников поделят на пары случайным образом.
+            Поэтому перед <strong>каждой</strong> такой игрой всех участников поделят на пары случайным образом.
+            В результате компьютер выберет случайным образом одну игру, и Вы получите деньги за эту игру по курсу
+            1 жетон = {{ Constants.rate_survey_text }}.
         </p>
     {% endif %}
 

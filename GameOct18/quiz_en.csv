@@ -1,9 +1,9 @@
 id,question,choice1,choice2,choice3,choice4,choice5,choice6,solution,explanation
 1,Is it possible that your role (player 1 / player 2) will be changed during the experiment?,Yes,No,I do not know,,,,No,Your role remains the same throughout the whole experiment
-2,How likely is it that you get the same partner in all three games?,Your partner is the same in all three games,Your partner is chosen randomly at the beginning of each game,I do not know,,,,Your partner is chosen randomly at the beginning of each game,"Most likely, you will get a new partner for each game"
+2,How likely would you get the same partner in all three games?,Your partner is the same in all three games,Your partner is chosen randomly at the beginning of each game,I do not know,,,,Your partner is chosen randomly at the beginning of each game,"Most likely, you will get a new partner for each game"
 3,How many tokens will you get in a game if an offer is rejected?,,,,,,,0,"The answer does not depend on your role, both player 1 and player 2 get 0 tokens in case of rejection"
-4,What is the maximum number of tokens you can get during the experiment to exchange for the actual payment?,,,,,,,100,"You get paid from only one randomly chosen game, at most you can get 100 tokens from one game"
-5,What is the minimum number of tokens you can get during the experiment to exchange for the actual payment?,,,,,,,0,The minimum payment in one game is 0 tokens
+4,What is the maximum number of tokens you can get during the experiment to exchange for the actual payment (not counting the survey)?,,,,,,,100,"You get paid from only one randomly chosen game, at most you can get 100 tokens from one game"
+5,What is the minimum number of tokens you can get during the experiment to exchange for the actual payment (not counting the survey)?,,,,,,,0,The minimum payment in one game is 0 tokens
 6,"In game 1, will player 2 see the offer before or after she makes her move in the game?",Before,After,I do not know,,,,After,"Player 2 has to make 11 conditional decisions, for each of 11 possible offers"
 7,"In game 2, does player 2 have to do anything?",Yes,No,I do not know,,,,No,Both players' payoffs are fully determined by the proposer's actions
 8,How many decisions player 1 has to make in game 3?,,,,,,,2,"First, how much to offer if player 2 chose game 1. Second, how much to offer is player 2 chose game 2"

@@ -23,13 +23,14 @@ SESSION_CONFIGS = [
         'display_name': 'GameOct18_ru',
         'num_demo_participants': 2,
         'app_sequence': ['GameOct18'],
+        'use_browser_bots': False
     },
-    {
-        'name': 'GameOct18_en',
-        'display_name': 'GameOct18_en',
-        'num_demo_participants': 2,
-        'app_sequence': ['GameOct18_copy'],
-    },
+    # {
+    #     'name': 'GameOct18_en',
+    #     'display_name': 'GameOct18_en',
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['GameOct18_copy'],
+    # },
     # {
     #     'name': 'public_goods',
     #     'display_name': "Public Goods",

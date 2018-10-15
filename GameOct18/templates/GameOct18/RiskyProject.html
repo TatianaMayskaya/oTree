@@ -1,0 +1,42 @@
+{% load otree static %}
+
+<div>
+
+    {% if Constants.language == 1 %}
+        <p>
+            You can invest in a risky project if you would like.
+            You can invest up to {{ endowment }} tokens, or you can choose to keep them.
+        </p>
+        <p>
+            The risky project has a {{ prob }}% chance of success.
+        </p>
+        <ul>
+            <li>
+                If the project is successful, you will receive
+                {{ return }} times the amount you chose to invest.
+            </li>
+            <li>
+                If the project is unsuccessful, you will lose the amount invested.
+            </li>
+        </ul>
+    {% else %}
+        <p>
+            В Вашем распоряжении есть {{ endowment }} жетонов и есть возможность
+            проинвестировать в рискованный проект.
+        </p>
+        <p>
+            Вероятность успеха этого проекта - {{ prob }}%.
+        </p>
+        <ul>
+            <li>
+                В случае успеха Вы получаете в {{ return }} раза больше того,
+                что Вы проинвестировали.
+            </li>
+            <li>
+                В случае неуспеха Вы всё проинвестированное теряете.
+            </li>
+        </ul>
+    {% endif %}
+
+
+</div>
