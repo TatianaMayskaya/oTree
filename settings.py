@@ -152,14 +152,14 @@ ROOMS = [
         'participant_label_file': '_rooms/GameOct18_20.txt'
     },
     {
-        'name': 'GameOct18_ru_20z_room1',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 1 (labels: zi)',
-        'participant_label_file': '_rooms/GameOct18_20z.txt'
+        'name': 'GameOct18_ru_30z_room1',
+        'display_name': 'GameOct18 - for maximum 30 participants : room 1 (labels: zi)',
+        'participant_label_file': '_rooms/GameOct18_30z.txt'
     },
     {
-        'name': 'GameOct18_ru_20z_room2',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 2 (labels: zi)',
-        'participant_label_file': '_rooms/GameOct18_20z.txt'
+        'name': 'GameOct18_ru_30z_room2',
+        'display_name': 'GameOct18 - for maximum 30 participants : room 2 (labels: zi)',
+        'participant_label_file': '_rooms/GameOct18_30z.txt'
     },
 ]
 
