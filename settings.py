@@ -123,14 +123,44 @@ ROOMS = [
     },
     {
         'name': 'GameOct18_ru_20_room1',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 1',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 1 (labels: Pi)',
         'participant_label_file': '_rooms/GameOct18_20.txt'
     },
     {
         'name': 'GameOct18_ru_20_room2',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 2',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 2 (labels: Pi)',
         'participant_label_file': '_rooms/GameOct18_20.txt'
-    }
+    },
+    {
+        'name': 'GameOct18_ru_20_room3',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 3 (labels: Pi)',
+        'participant_label_file': '_rooms/GameOct18_20.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20_room4',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 4 (labels: Pi)',
+        'participant_label_file': '_rooms/GameOct18_20.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20_room5',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 5 (labels: Pi)',
+        'participant_label_file': '_rooms/GameOct18_20.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20_room6',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 6 (labels: Pi)',
+        'participant_label_file': '_rooms/GameOct18_20.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20z_room1',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 1 (labels: zi)',
+        'participant_label_file': '_rooms/GameOct18_20z.txt'
+    },
+    {
+        'name': 'GameOct18_ru_20z_room2',
+        'display_name': 'GameOct18 - for maximum 20 participants : room 2 (labels: zi)',
+        'participant_label_file': '_rooms/GameOct18_20z.txt'
+    },
 ]
 
 

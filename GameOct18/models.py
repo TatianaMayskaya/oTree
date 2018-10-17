@@ -631,10 +631,11 @@ class Player(BasePlayer):
         label=Constants.SurveyPersonal_question[1])
     survey_personal_questions_3 = models.StringField(
         label=Constants.SurveyPersonal_question[2])
-    survey_personal_questions_4 = models.IntegerField(
-        min=0, max=50,
+    survey_personal_questions_4 = models.StringField(
         label=Constants.SurveyPersonal_question[3])
-    survey_personal_questions_5 = make_survey_personal(5)
+    survey_personal_questions_5 = models.IntegerField(
+        min=0, max=50,
+        label=Constants.SurveyPersonal_question[4])
     survey_personal_questions_6 = make_survey_personal(6)
     survey_personal_questions_7 = make_survey_personal(7)
     survey_personal_questions_8 = make_survey_personal(8)
