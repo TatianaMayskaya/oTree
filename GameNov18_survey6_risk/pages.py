@@ -192,9 +192,7 @@ class RiskyUrns(Page):
         return self.participant.vars['questions_order'][self.round_number - 1] > 2
 
     def vars_for_template(self):
-        print(self.participant.vars['questions_order'])
         num = self.participant.vars['questions_order'][self.round_number - 1]
-        print(num)
         return {'language': self.session.config['language'],
                 'lose_balls': Constants.LoseBalls_RiskyUrns[num - 3],
                 'win_balls': Constants.WinBalls_RiskyUrns[num - 3],
