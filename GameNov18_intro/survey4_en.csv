@@ -1,0 +1,7 @@
+id,question
+1,"Any amount player 1 offers to player 2 is doubled in size: if player 1 gives x tokens out of 100 tokens to player 2 and the offer is accepted, then player 2 gets 2*x tokens, while player 1 gets 100-x tokens."
+2,"Any amount player 1 offers to player 2 is halved: if player 1 gives x tokens out of 100 tokens to player 2 and the offer is accepted, then player 2 gets x/2 tokens, while player 1 gets 100-x tokens."
+3,"In game 3, when player 2 chooses game 1 player 1 gets 100 tokens to divide (same as before). However, when player 2 chooses game 2 player 1 gets 200 tokens to divide."
+4,"In game 3, when player 2 chooses game 1 player 1 gets 200 tokens to divide; when player 2 chooses game 2 player 1 gets 100 tokens to divide."
+5,"In game 3, player 1 is forced to offer the same as in games 1 and 2 correspondingly. In other words, player 1 does not know whether a given game was chosen by player 2 or the computer."
+6,"The rejection does not affect player 1's payment: Whenever an offer x is rejected, player 2 gets 0 tokens while player 1 gets 100-x tokens."

@@ -1,0 +1,164 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+    $(function () {
+        $('.otree-modal-main-button').on('click',function(){
+            if ({{ group.round_number }} <= 2){
+                if ($('#id_amount_offered').val()==''){
+                    {% if language == 1 %}
+                    var msg = 'Please enter a number';
+                    {% else %}
+                    var msg = 'Пожалуйста, введите число';
+                    {% endif %}
+                }
+                else if ($('#id_amount_offered').val()<0){
+                    {% if language == 1 %}
+                    var msg = 'Value must be greater than or equal to 0';
+                    {% else %}
+                    var msg = 'Значение должно быть больше или равно 0';
+                    {% endif %}
+                }
+                else if ($('#id_amount_offered').val()>{{ endowment }}){
+                    {% if language == 1 %}
+                    var msg = 'Value must be less than or equal to {{ endowment }}';
+                    {% else %}
+                    var msg = 'Значение должно быть меньше или равно {{ endowment }}';
+                    {% endif %}
+                }
+                else if ({{ group.round_number }} == 1){
+                    var pay = {{ endowment }} - $('#id_amount_offered').val();
+                    {% if language == 1 %}
+                    var msg = 'You chose to offer ' + $('#id_amount_offered').val() + ' tokens to player 2. '
+                        + 'If he accepts your offer, you will get ' + pay + ' tokens. '
+                        + 'If he rejects your offer, you will get {{ payoff_if_rejected }} tokens.';
+                    {% else %}
+                    var msg = 'Вы предложили ' + $('#id_amount_offered').val() + ' жетонов игроку 2. '
+                        + 'Если он примет Ваше предложение, Вы получите ' + pay + ' жетонов. '
+                        + 'Если он откажется, Вы получите {{ payoff_if_rejected }} жетонов.';
+                    {% endif %}
+                }
+                else {
+                    var pay = {{ endowment }} - $('#id_amount_offered').val();
+                    {% if language == 1 %}
+                    var msg = 'You chose to offer ' + $('#id_amount_offered').val() + ' tokens to player 2. '
+                        + 'You will get ' + pay + ' tokens in this game.';
+                    {% else %}
+                    var msg = 'Вы предложили ' + $('#id_amount_offered').val() + ' жетонов игроку 2. '
+                        + 'Вы получите ' + pay + ' жетонов в этой игре.';
+                    {% endif %}
+                }
+            }
+            else {
+                if (($('#id_amount_offered_1').val()=='') || ($('#id_amount_offered_2').val()=='')){
+                    {% if language == 1 %}
+                    var msg = 'Please enter a number';
+                    {% else %}
+                    var msg = 'Пожалуйста, введите число';
+                    {% endif %}
+                }
+                else if (($('#id_amount_offered_1').val()<0) || ($('#id_amount_offered_2').val()<0)){
+                    {% if language == 1 %}
+                    var msg = 'Value must be greater than or equal to 0';
+                    {% else %}
+                    var msg = 'Значение должно быть больше или равно 0';
+                    {% endif %}
+                }
+                else if (($('#id_amount_offered_1').val()>{{ endowment }}) || ($('#id_amount_offered_2').val()>{{ endowment }})){
+                    {% if language == 1 %}
+                    var msg = 'Value must be less than or equal to {{ endowment }}';
+                    {% else %}
+                    var msg = 'Значение должно быть меньше или равно {{ endowment }}';
+                    {% endif %}
+                }
+                else {
+                    var pay1 = {{ endowment }} - $('#id_amount_offered_1').val();
+                    var pay2 = {{ endowment }} - $('#id_amount_offered_2').val();
+                    {% if language == 1 %}
+                    var msg = 'You chose to offer ' + $('#id_amount_offered_1').val() + ' and '
+                        + $('#id_amount_offered_2').val() + ' tokens in game 3. '
+                        + 'If player 2 chooses game 1 and accepts ' + $('#id_amount_offered_1').val() + ' tokens, '
+                        + 'you will get ' + pay1 + ' tokens. If player 2 chooses game 1 and rejects '
+                        + $('#id_amount_offered_1').val() + ' tokens, you will get {{ payoff_if_rejected }} tokens. '
+                        + 'If player 2 chooses game 2, you will get ' + pay2 + ' tokens.';
+                    {% else %}
+                    var msg = 'Вы предложили ' + $('#id_amount_offered_1').val() + ' и '
+                        + $('#id_amount_offered_2').val() + ' жетонов в игре 3. '
+                        + 'Если игрок 2 выберет игру 1 и примет ' + $('#id_amount_offered_1').val() + ' жетонов, '
+                        + 'Вы получите ' + pay1 + ' жетонов. Если игрок 2 выберет игру 1 и откажется от '
+                        + $('#id_amount_offered_1').val() + ' жетонов, Вы получите {{ payoff_if_rejected }} жетонов. '
+                        + 'Если игрок 2 выберет игру 2, Вы получите ' + pay2 + ' жетонов.';
+                    {% endif %}
+                }
+            }
+            $('.otree-modal-message').text(msg);
+        })
+    })
+    </script>
+{% endblock %}
+
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey. Part 2. Game {{ group.round_number }}
+        {% else %}
+            Опрос. Часть 2. Игра {{ group.round_number }}
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% if language == 1 %}
+            <p>
+                You are player {{ role }}
+            </p>
+        {% else %}
+            <p>
+                Вы игрок {{ role }}
+            </p>
+        {% endif %}
+
+        {% if group.round_number == 3 %}
+
+            {% if language == 1 %}
+
+                <p>
+                    Please choose how many tokens to give to player 2 for each of two games.
+                </p>
+
+            {% else %}
+
+                <p>
+                    Пожалуйста, решите, сколько жетонов Вы хотите предложить игроку 2 в каждой из игр.
+                </p>
+
+            {% endif %}
+
+            <table class="table">
+                <td>
+                    {% formfield group.amount_offered_1 label = offer1_label %}
+                    {% formfield group.amount_offered_2 label = offer2_label %}
+                </td>
+            </table>
+
+        {% else %}
+
+            {% formfield group.amount_offered label = offer0_label %}
+
+        {% endif %}
+
+
+
+    <div>
+        {% if language == 1 %}
+            {% confirm_button title='' yes_button='Submit' no_button='Change the choice' main_button='Submit' %}
+        {% else %}
+            {% confirm_button title='' yes_button='Подтвердить' no_button='Изменить выбор' main_button='Подтвердить' %}
+        {% endif %}
+    </div>
+
+{% endblock %}

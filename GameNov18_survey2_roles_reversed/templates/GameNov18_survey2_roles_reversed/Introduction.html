@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey. Part 2.
+        {% else %}
+            Опрос. Часть 2.
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+        {% if language == 1 %}
+            <p>
+                In this part of the survey we ask you to provide your <strong>hypothetical</strong> answers in
+                games 1, 2, and 3, had you been <strong>player {{ role }}</strong> in the experiment.
+                You will <strong>not</strong> be paid.
+            </p>
+        {% else %}
+            <p>
+                В этой части опроса от Вас потребуется дать <strong>гипотетические</strong> ответы в играх 1, 2 и 3
+                в случае, если бы Вы были <strong>игроком {{ role }}</strong> в эксперименте.
+                Эта часть опроса <strong>не</strong> оплачивается.
+            </p>
+
+        {% endif %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next</button>
+        {% else %}
+            <button name="next">Дальше</button>
+        {% endif %}
+    </div>
+
+{% endblock %}
