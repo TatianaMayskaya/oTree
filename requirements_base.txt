@@ -13,7 +13,7 @@ honcho==0.7.1
 huey==1.10.2
 IPy==0.83
 msgpack-python==0.4.8
-otree==2.1.20
+otree==2.1.25
 otree-boto2-shim==0.3.2
 otree-core==0.0.0b1
 otree-save-the-change==1.1.3
