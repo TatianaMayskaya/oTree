@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Your role
+        {% else %}
+            Ваша роль
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+        {% if Constants.language == 1 %}
+            <h1>
+                <center>You are player {{ player.id_in_group }}</center>
+            </h1>
+
+        {% else %}
+
+            <h1>
+                <center>Вы игрок {{ player.id_in_group }}</center>
+            </h1>
+
+        {% endif %}
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Next</button>
+        {% else %}
+            <button name="next">Дальше</button>
+        {% endif %}
+    </div>
+
+<!--<p>
+
+</p>
+
+    <h4>
+        {% if Constants.language == 1 %}
+            Instructions
+        {% else %}
+            Инструкция
+        {% endif %}
+    </h4>
+
+    {% include Constants.instructions_template %}-->
+
+{% endblock %}

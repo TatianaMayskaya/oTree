@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+        {% if language == 1 %}
+            Survey. Part 8. Question {{ player.round_number }} of {{ Constants.num_rounds }}
+        {% else %}
+            Опрос. Часть 8. Вопрос {{ player.round_number }} из {{ Constants.num_rounds }}
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% if language == 1 %}
+        {% if player.role == 'A' %}
+            <p>
+                You chose to send participant B {{ sent_amount_text }}.
+                Participant B returned {{ sent_back_amount_text }}.
+            </p>
+            <p>
+                You were initially endowed with {{ endowment }} tokens,
+                chose to send {{ sent_amount_text }},
+                received {{ sent_back_amount_text }}.
+                Thus you now have:
+                {{ endowment }}-{{ sent_amount }}+{{ sent_back_amount }}=<strong>{{ payoff_text }}</strong>.
+            </p>
+        {% else %}
+            <p>
+                Participant A sent you {{ sent_amount_text }}.
+                This amount was multiplied by {{ multiplier }} so you received {{ multiplied_amount_text }}.
+                You chose to return {{ sent_back_amount_text }}.
+            </p>
+            <p>
+                You received {{ multiplied_amount_text }},
+                chose to return {{ sent_back_amount_text }}.
+                Thus you now have:
+                ({{ multiplied_amount }})-({{ sent_back_amount }})=<strong>{{ payoff_text }}</strong>.
+            </p>
+        {% endif %}
+    {% else %}
+        {% if player.role == 'A' %}
+            <p>
+                Вы выбрали послать {{ sent_amount_text }} участнику B.
+                Участник B возвратил {{ sent_back_amount_text }}.
+            </p>
+            <p>
+                Изначально у Вас было {{ endowment }} жетонов,
+                Вы послали {{ sent_amount_text }},
+                получили {{ sent_back_amount_text }}.
+                В итоге у Вас теперь:
+                {{ endowment }}-{{ sent_amount }}+{{ sent_back_amount }}=<strong>{{ payoff_text }}</strong>.
+            </p>
+        {% else %}
+            <p>
+                Участник A послал Вам {{ sent_amount_text }}.
+                Эта сумма была умножена на {{ multiplier }}, и Вы получили {{ multiplied_amount_text }}.
+                Вы выбрали возвратить {{ sent_back_amount_text }}.
+            </p>
+            <p>
+                Вы получили {{ multiplied_amount_text }},
+                возвратили {{ sent_back_amount_text }}.
+                В итоге у Вас теперь:
+                ({{ multiplied_amount }})-({{ sent_back_amount }})=<strong>{{ payoff_text }}</strong>.
+            </p>
+        {% endif %}
+    {% endif %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next question</button>
+        {% else %}
+            <button name="next">Следующий вопрос</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

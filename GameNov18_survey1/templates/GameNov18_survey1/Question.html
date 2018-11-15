@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey. Part 1. Question {{ player.round_number }} of {{ Constants.num_rounds }}
+        {% else %}
+            Опрос. Часть 1. Вопрос {{ player.round_number }} из {{ Constants.num_rounds }}
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.submitted_answer label=player.question %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Continue</button>
+        {% else %}
+            <button name="next">Продолжить</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

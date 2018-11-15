@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Survey. Part {{ Constants.SurveyPersonal_number }}
+        {% else %}
+            Опрос. Часть {{ Constants.SurveyPersonal_number }}
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% if Constants.language == 1 %}
+            <p><i>
+                This is the final part of the survey.
+                Tell us a little bit about yourself by answering the questions below.
+            </i></p>
+        {% else %}
+            <p><i>
+                Это последняя часть опроса. Расскажите немного о себе, ответив на вопросы, приведённые ниже.
+            </i></p>
+        {% endif %}
+
+    {% formfields %}
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Submit</button>
+        {% else %}
+            <button name="next">Подтвердить</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

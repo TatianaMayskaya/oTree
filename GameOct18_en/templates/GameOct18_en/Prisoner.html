@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Survey. Part 3
+        {% else %}
+            Опрос. Часть 3
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if Constants.language == 1 %}
+        <p>
+            You will now play a simple game. You will have to choose one of two actions:
+            {{ Constants.Prisoner_cooperate }} or {{ Constants.Prisoner_defect }}.
+            Your partner will choose between the same two actions.
+        </p>
+        <p>
+            If both of you choose {{ Constants.Prisoner_cooperate }}, then you both get {{ both_cooperate_payoff }} tokens.
+            If both of you choose {{ Constants.Prisoner_defect }}, then you both get {{ both_defect_payoff }} tokens.
+            If you pick {{ Constants.Prisoner_cooperate }} and the person you are matched with picked {{ Constants.Prisoner_defect }}, you get {{ betrayed_payoff }} tokens
+            and the other person would get {{ betray_payoff }} tokens.
+            If you pick {{ Constants.Prisoner_defect }} and the person you are matched with picked {{ Constants.Prisoner_cooperate }}, you get {{ betray_payoff }} tokens
+            and the other person would get {{ betrayed_payoff }} tokens.
+        </p>
+        <p>
+            Please click on the action you choose to play:
+        </p>
+    {% else %}
+        <p>
+            Давайте сыграем в следующую игру. Вам надо выбрать одно из двух действий: {{ Constants.Prisoner_cooperate }} или {{ Constants.Prisoner_defect }}.
+            Ваш напарник выбирает из тех же двух действий.
+        </p>
+        <p>
+            Если вы оба выберите {{ Constants.Prisoner_cooperate }}, тогда каждый из вас получит {{ both_cooperate_payoff }} жетонов.
+            Если вы оба выберите {{ Constants.Prisoner_defect }}, тогда каждый из вас получит {{ both_defect_payoff }} жетонов.
+            Если Вы выберите {{ Constants.Prisoner_cooperate }}, а Ваш напарник выберет {{ Constants.Prisoner_defect }}, то Вы получите {{ betrayed_payoff }} жетонов,
+            а Ваш напарник - {{ betray_payoff }} жетонов.
+            И наоборот, если Вы выберите {{ Constants.Prisoner_defect }}, а Ваш напарник выберет {{ Constants.Prisoner_cooperate }}, то Вы получите {{ betray_payoff }} жетонов,
+            а Ваш напарник - {{ betrayed_payoff }} жетонов.
+        </p>
+        <p>
+            Пожалуйста, нажмите на действие, которое Вы хотите выбрать:
+        </p>
+    {% endif %}
+
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">
+                    {% if Constants.language == 1 %}
+                        Other participant's actions
+                    {% else %}
+                        Действия другого игрока
+                    {% endif %}
+                </th>
+            </tr>
+            <tr>
+                <th>{{ Constants.Prisoner_cooperate }}</th>
+                <th>{{ Constants.Prisoner_defect }}</th>
+            </tr>
+            <tr class="highlight-row-on-hover">
+                <th rowspan="2"><span class="rotate90">
+                    {% if Constants.language == 1 %}
+                        Your actions
+                    {% else %}
+                        Ваши действия
+                    {% endif %}
+                </span></th>
+                <td><button name="Prisoner_decision" value={{ Constants.Prisoner_cooperate }} class="btn btn-primary btn-large">{{ Constants.Prisoner_cooperate }}</button></td>
+                <td><strong>{{ both_cooperate_payoff }}</strong>, {{ both_cooperate_payoff }}</td>
+                <td><strong>{{ betrayed_payoff }}</strong>, {{ betray_payoff }}</td>
+            </tr>
+            <tr class="highlight-row-on-hover">
+                <td><button name="Prisoner_decision" value={{ Constants.Prisoner_defect }} class="btn btn-primary btn-large">{{ Constants.Prisoner_defect }}</button></td>
+                <td><strong>{{ betray_payoff }}</strong>, {{ betrayed_payoff }}</td>
+                <td><strong>{{ both_defect_payoff }}</strong>, {{ both_defect_payoff }}</td>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}

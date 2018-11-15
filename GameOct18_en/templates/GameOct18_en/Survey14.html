@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Survey. Part 1
+        {% else %}
+            Опрос. Часть 1
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if Constants.language == 1 %}
+        {% if player.id_in_group == 1 %}
+            <p>You indicated that you would have chosen game 1 in game 3 if you had been player 2 in this experiment.
+                What offers would you have accepted / rejected in this case?</p>
+        {% else %}
+            <p>If you had been player 1 in this experiment, what would you have chosen in game 3?</p>
+        {% endif %}
+    {% else %}
+        {% if player.id_in_group == 1 %}
+            <p>Вы указали, что Вы бы выбрали игру 1 в игре 3, если бы Вы были на месте игрока 2 в этом эксперименте.
+                Какие бы предложения Вы бы приняли / отклонили в этом случае?</p>
+        {% else %}
+            <p>Если бы Вы были игроком 1 в этом эксперименте, что бы Вы выбрали в игре 3?</p>
+        {% endif %}
+    {% endif %}
+
+    {% formfields %}
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Continue</button>
+        {% else %}
+            <button name="next">Продолжить</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

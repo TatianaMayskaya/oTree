@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Instructions
+        {% else %}
+            Инструкция
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% include instructions_template %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Start the quiz</button>
+        {% else %}
+            <button name="next">Начать тест</button>
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}

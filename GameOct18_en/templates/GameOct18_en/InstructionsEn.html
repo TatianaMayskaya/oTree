@@ -1,0 +1,316 @@
+{% load otree static %}
+
+<div class="instructions well well-lg">
+
+    <div class="panel-body">
+
+        <p>
+            First, every participant will be randomly paired with another participant.
+            In other words, you will have a counterpart, but you will not be told who it is.
+            Your identity will also remain hidden from your counterpart.
+        </p>
+
+        <p>
+            The two participants in a pair will have two different roles:
+            <strong>player 1</strong> and <strong>player 2</strong>.
+            You will be assigned randomly to a role, and it will be displayed at the beginning of the experiment.
+            Your role will remain constant during the whole experiment.
+        </p>
+
+        <p>
+            The experiment consists of 3 games. Once again, your role will remain the same for all games.
+            However, your counterpart will be chosen <strong>randomly</strong> for each game.
+            Since the roles remain the same, your counterpart will be chosen
+            among the participants who have the opposite role.
+        </p>
+
+        <p>
+            In each game, the two of you will together receive {{ Constants.endowment }} tokens
+            and you have to decide how to divide this amount. The difference in games is in the rules.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Game 1
+        </h4>
+
+        <p>
+            Player 1 makes an offer to player 2. This offer specifies how to divide the {{ Constants.endowment }} tokens
+            between the two players. This goes as follows.
+        </p>
+        <p>
+            Player 1 will see the following {{ Constants.offer_choices_count }} options:
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+
+                <li> Player 2 gets {{ give }} tokens (you keep {{ keep }} tokens)</li>
+
+            {% endfor %}
+        </ol>
+
+        <p>
+            Player 1 has to choose exactly one option by clicking on the button next to it
+            (the program will not allow the player to choose more than one option or continue the
+            game without choosing any). Player 1 can change his / her choice as many times as she / he wants:
+            when a different option is chosen, the other one is automatically became unmarked.
+            When the final choice is made, player 1 should click on "Submit" button at the left bottom
+            corner of the screen.
+        </p>
+
+        <p>
+            While player 1 decides on the offer, player 2 should select which
+            {{ Constants.offer_choices_count }} offers stated above to accept or reject. This goes as follows.
+        </p>
+        <p>
+            Player 2 will see the following {{ Constants.offer_choices_count }} options:
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+
+                <li> You get {{ give }} tokens (player 1 keeps {{ keep }} tokens)</li>
+
+            {% endfor %}
+        </ol>
+
+        <p>
+            For each option, there will be two buttons marked as <strong>"Accept"</strong> and <strong>"Reject."</strong>
+            Exactly one button must be clicked for each option. Again, player 2 can
+            change his / her choice as many times as she / he wants:
+            when a different option is chosen, the other one is automatically became unmarked.
+            When all {{ Constants.offer_choices_count }} decisions are made, player 2 should click on
+            "Submit" button at the left bottom corner of the screen.
+        </p>
+
+        <p>
+            The payoff in this game is defined as follows. If player 1's offer is accepted by player 2,
+            the players receive their payoffs according to this offer. If player 1's offer is rejected by player 2,
+            <strong>both players receive {{ Constants.payoff_if_rejected }}</strong> tokens.
+        </p>
+
+        <p>
+            When all participants in the experiment made their choices in game 1, game 2 starts.
+            You will see your payoff from game 1 at the end of the experiment, that is, at the end of game 3.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Game 2
+        </h4>
+
+        <p>
+            Player 1's screen in game 2 looks exactly the same as in game 1. However, player 2's screen is different.
+        </p>
+
+        <p>
+            Player 1 makes an offer to player 2. This offer specifies how to divide the {{ Constants.endowment }} tokens
+            between the two players. This goes as follows.
+        </p>
+        <p>
+            Player 1 will see the following {{ Constants.offer_choices_count }} options:
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+
+                <li> Player 2 gets {{ give }} tokens (you keep {{ keep }} tokens)</li>
+
+            {% endfor %}
+        </ol>
+
+        <p>
+            Player 1 has to choose exactly one option by clicking on the button next to it
+            (the program will not allow the player to choose more than one option or continue the
+            game without choosing any). Player 1 can change his / her choice as many times as she / he wants:
+            when a different option is chosen, the other one is automatically became unmarked.
+            When the final choice is made, player 1 should click on "Submit" button at the left bottom
+            corner of the screen.
+        </p>
+
+        <p>
+            So far, everything is the same as in game 1. Here comes the difference between two games.
+        </p>
+
+        <p>
+            Player 2 does not make any choice in game 2.
+            Any offer player 1 made is <strong>accepted automatically</strong>.
+        </p>
+
+        <p>
+            The payoff in this game is defined according to player 1's offer.
+        </p>
+
+        <p>
+            When all participant with player 1 role made their choices in game 2, game 3 starts.
+            You will see your payoff from game 2 at the end of the experiment, that is, at the end of game 3.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Game 3
+        </h4>
+
+        <p>
+            Player 2 has to choose which game to play, game 1 or game 2.
+        </p>
+
+        <p>
+            Player 2 will see two buttons marked as <strong>"Game 1"</strong> and <strong>"Game 2."</strong>
+            After selecting the game, player 2 should click on "Submit" button at the left bottom
+            corner of the screen.
+        </p>
+
+        <p>
+            If player 2 chose game 1, the next screen is displayed {{ Constants.offer_choices_count }} options:
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+
+                <li> You get {{ give }} tokens (player 1 keeps {{ keep }} tokens)</li>
+
+            {% endfor %}
+        </ol>
+
+        <p>
+            For each option, there will be two buttons marked as "Accept" and "Reject."
+            Exactly one button must be clicked for each option.
+            When all {{ Constants.offer_choices_count }} decisions are made, player 2 should click on
+            "Submit" button at the left bottom corner of the screen.
+        </p>
+
+        <p>
+            If player 2 chose game 2, player 1's offer is accepted automatically and therefore there is nothing else to choose.
+        </p>
+
+        <p>
+            While player 2 decides on the game (and on acceptance decisions if game 1 is chosen),
+            player 1 should decide how much to give to player 2 for each game.
+        </p>
+
+        <p>
+            Player 1 will see two lists, with {{ Constants.offer_choices_count }} options each:
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+
+                <li> Player 2 gets {{ give }} tokens (you keep {{ keep }} tokens)</li>
+
+            {% endfor %}
+        </ol>
+
+        <p>
+            List 1 corresponds to game 1, list 2 corresponds to game 2.
+            That means player 1 has to choose among {{ Constants.offer_choices_count }} options <strong>twice</strong>:
+            in the first list, player 1 chooses how much to give to player 2 if player 2 chooses game 1;
+            in the second list, player 1 chooses how much to give to player 2 if player 2 chooses game 2.
+        </p>
+
+        <p>
+            The payoff in this game is defined as follows. If player 2 chose game 1 and player 1's offer from list 1 is accepted by player 2,
+            the players receive their payoffs according to this offer. If player 2 chose game 1 and player 1's offer from list 1 is rejected by player 2,
+            both players receive {{ Constants.payoff_if_rejected }} tokens. If player 2 chose game 2, the players receive their payoffs according to player 1's offer from list 2.
+        </p>
+
+        <p>
+            When all participants in the experiment made their choices in game 3,
+            you will see your payoff from all three games.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Timeline of the experiment
+        </h4>
+
+        <ol type="I">
+            <li>
+                After reading the instructions, each of you receive a small quiz that checks your understanding of
+                these instructions. You will be asked to answer all questions in the quiz. Then your answers will
+                be checked, and all mistakes will be explained.
+                Your payment does not depend how well you perform on this quiz. The only purpose of this quiz is
+                to eliminate any confusion you might have about the experimental design.
+            </li>
+            <li>
+                Then the experiment starts.
+                <ol>
+                    <li>
+                        Every participant will be randomly paired with another participant.
+                        You will <strong>not</strong> see who is paired with whom.
+                        Therefore, you do not know who your counterpart is.
+                    </li>
+                    <li>
+                        You are told whether you are player 1 or player 2. This assignment will never change.
+                    </li>
+                    <li>
+                        Game 1 starts. Depending on your role:
+                        <ul>
+                            <li>
+                                Player 1: Choose how much to offer to player 2.
+                            </li>
+                            <li>
+                                Player 2: For each of {{ Constants.offer_choices_count }} options,
+                                decide whether to accept the offer or reject it.
+                            </li>
+                        </ul>
+                        You will observe your payoff from game 1 at the end of the experiment.
+                    </li>
+                    <li>
+                        Game 2 starts. Your new counterpart is chosen randomly among the participants
+                        who have the opposite role.
+                    </li>
+                    <li>
+                        Depending on your role:
+                        <ul>
+                            <li>
+                                Player 1: Choose how much to offer to player 2.
+                            </li>
+                            <li>
+                                Player 2: Do nothing.
+                            </li>
+                        </ul>
+                        You will observe your payoff from game 2 at the end of the experiment.
+                    </li>
+                    <li>
+                        Game 3 starts. Your new counterpart is chosen randomly among the participants
+                        who have the opposite role.
+                    </li>
+                    <li>
+                        Depending on your role:
+                        <ul>
+                            <li>
+                                Player 1: For each of two games, choose how much to offer to player 2.
+                            </li>
+                            <li>
+                                Player 2: Choose between two games, game 1 and game 2.
+                                If you choose game 1, you should also indicate your response to the first offer:
+                                For each of 11 options, decide whether to accept the offer or reject it.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        You observe your payoff from game 1, game 2, and game 3 separately.
+                    </li>
+                    <li>
+                        For each participant, the program chooses randomly (with equal probability) what game
+                        should be taken for the actual payment. In other words, exactly one of three games will
+                        be chosen to determine how much you get from this experiment.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                After completing the experiment, you will be asked to answer a few more questions.
+                You will be paid for some of them as well.
+            </li>
+        </ol>
+
+        <h4 class="panel-sub-heading">
+            Your final payment:
+        </h4>
+
+        <p>
+            <center> {{ Constants.show_up_text }} +
+            (tokens earned in the game chosen for payment) * {{ Constants.rate_text }} +
+            (tokens earned after the experiment during the survey) * {{ Constants.rate_survey_text }}</center>
+        </p>
+
+    </div>
+</div>

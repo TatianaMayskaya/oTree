@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Survey. Part 2
+        {% else %}
+            Опрос. Часть 2
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% include template %}
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Next question</button>
+        {% else %}
+            <button name="next">Следующий вопрос</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

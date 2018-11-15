@@ -1,0 +1,58 @@
+{% load otree static %}
+
+<div>
+
+    {% if Constants.language == 1 %}
+        <p>
+            The urn contains {{ Constants.WinBalls_RiskyUrns2 }} red balls and {{ Constants.LoseBalls_RiskyUrns2 }} black balls.
+        </p>
+        <p>
+            The urn gamble pays {{ Constants.WinPayoff_RiskyUrns2 }} tokens if the ball drawn is red
+            (and pays 0 otherwise).
+        </p>
+        <p>
+            We selected: {{ Constants.choice1_RiskyUrns }} vs {{ player.survey2_RiskyUrns2_sure }}.
+        </p>
+        <p>
+            You chose: {{ player.survey2_RiskyUrns2_choice }}.
+        </p>
+        {% if player.survey2_RiskyUrns1_choice_num == 1 %}
+        {% if player.survey2_RiskyUrns1_payoff > 0 %}
+            <p>The drawn ball is red.</p>
+        {% else %}
+            <p>The drawn ball is black.</p>
+        {% endif %}
+        {% endif %}
+        <p>
+            As a result, this question gives you {{ player.survey2_RiskyUrns2_payoff }} tokens.
+        </p>
+    {% else %}
+        <p>
+            В урне {{ Constants.WinBalls_RiskyUrns2 }} красных шаров и
+            {{ Constants.LoseBalls_RiskyUrns2 }} чёрных шаров.
+        </p>
+        <p>
+            Лотерея такова. Мы случайным образом вытянем один шар из урны.
+            Если этот шар оказался красного цвета, Вы получаете {{ Constants.WinPayoff_RiskyUrns2 }} жетонов,
+            если же чёрного - 0 жетонов.
+        </p>
+        <p>
+            Мы выбрали: {{ Constants.choice1_RiskyUrns }} или {{ player.survey2_RiskyUrns2_sure }}.
+        </p>
+        <p>
+            Вы выбрали: {{ player.survey2_RiskyUrns2_choice }}.
+        </p>
+        {% if player.survey2_RiskyUrns1_choice_num == 1 %}
+        {% if player.survey2_RiskyUrns1_payoff > 0 %}
+            <p>Шар оказался красного цвета.</p>
+        {% else %}
+            <p>Шар оказался чёрного цвета.</p>
+        {% endif %}
+        {% endif %}
+        <p>
+            В результате в этом вопросе Вы получаете {{ player.survey2_RiskyUrns2_payoff }} жетонов.
+        </p>
+    {% endif %}
+
+
+</div>

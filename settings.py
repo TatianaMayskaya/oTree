@@ -25,12 +25,37 @@ SESSION_CONFIGS = [
         'app_sequence': ['GameOct18'],
         'use_browser_bots': False
     },
-    # {
-    #     'name': 'GameOct18_en',
-    #     'display_name': 'GameOct18_en',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['GameOct18_copy'],
-    # },
+    {
+        'name': 'GameOct18_en',
+        'display_name': 'GameOct18_en',
+        'num_demo_participants': 2,
+        'app_sequence': ['GameOct18_en'],
+    },
+    {
+        'name': 'GameNov18',
+        'display_name': 'GameNov18',
+        'num_demo_participants': 2,
+        'app_sequence': ['GameNov18_intro',
+                         'GameNov18_main',
+                         'GameNov18_survey1',
+                         'GameNov18_survey2_roles_reversed',
+                         'GameNov18_survey3_opinion',
+                         'GameNov18_survey4',
+                         'GameNov18_survey5_comments',
+                         'GameNov18_survey6_risk',
+                         'GameNov18_survey7_prisoner',
+                         #'GameNov18_survey8_trust',
+                         'GameNov18_survey9_personal',
+                         'final_screen'
+                         ],
+        'use_browser_bots': True,
+        'language': 1,  # 1=EN, 2=RU
+        'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
+        'doc': """
+        Edit the 'language' and 'currency_used' parameter to change 
+        the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES)
+        """
+    }
     # {
     #     'name': 'public_goods',
     #     'display_name': "Public Goods",
@@ -88,7 +113,7 @@ SESSION_CONFIGS = [
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'RUB'  # 'USD'
+REAL_WORLD_CURRENCY_CODE = 'USD'  # 'USD', 'RUB'
 USE_POINTS = True
 
 ROOMS = [
@@ -195,7 +220,7 @@ source, and you can modify them as you wish.
 SECRET_KEY = '-zix68refu)(#smaxr$n%3hz$4an1%=m_=8th@l7&2@*3-(xrd'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['otree', 'otree_tools']
 
 # inactive session configs
 ### {

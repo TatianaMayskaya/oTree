@@ -1,0 +1,130 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Results
+        {% else %}
+            Результаты
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if Constants.language == 1 %}
+        <p>
+            You were player {{ player.id_in_group }}
+        </p>
+        <ul style="list-style-type:none">
+            <li>
+                Game 1:
+                <ul style="list-style-type:none">
+                    <li>Amount offered: {{ player.amount_offered_G1 }} </li>
+                    {% if player.offer_accepted_G1 %}
+                        <li>The offer was accepted</li>
+                    {% else %}
+                        <li>The offer was rejected</li>
+                    {% endif %}
+                    <li>Your payoff in game 1: {{ player.payoff_G1 }} </li>
+                </ul>
+            </li>
+            <li>
+                Game 2:
+                <ul style="list-style-type:none">
+                    <li>Amount offered: {{ player.amount_offered_G2 }} </li>
+                    <li>Your payoff in game 2: {{ player.payoff_G2 }} </li>
+                </ul>
+            </li>
+            <li>
+                Game 3:
+                <ul style="list-style-type:none">
+                    <li>Game chosen: game {{ player.game_chosen }} </li>
+                    {% if player.game_chosen == 1 %}
+                        <li>Amount offered: {{ player.amount_offered_G3_G1 }} </li>
+                        {% if player.offer_accepted_G3_G1 %}
+                            <li>The offer was accepted</li>
+                        {% else %}
+                            <li>The offer was rejected</li>
+                        {% endif %}
+                    {% else %}
+                        <li>Amount offered: {{ player.amount_offered_G3_G2 }} </li>
+                    {% endif %}
+                    <li>Your payoff in game 3: {{ player.payoff_G3 }} </li>
+                </ul>
+            </li>
+            <li>Game chosen for the payment: game {{ player.payoff_game }} </li>
+            <li>Your final payment: {{ player.payoff_text }} </li>
+        </ul>
+    {% else %}
+        <p>
+            Вы были игроком {{ player.id_in_group }}
+        </p>
+        <ul style="list-style-type:none">
+            <li>
+                Игра 1:
+                <ul style="list-style-type:none">
+                    <li>Сколько было предложено: {{ player.amount_offered_G1 }} </li>
+                    {% if player.offer_accepted_G1 %}
+                        <li>Предложение было принято</li>
+                    {% else %}
+                        <li>Предложение было отклонено</li>
+                    {% endif %}
+                    <li>Ваш выигрыш в игре 1: {{ player.payoff_G1 }} </li>
+                </ul>
+            </li>
+            <li>
+                Игра 2:
+                <ul style="list-style-type:none">
+                    <li>Сколько было предложено: {{ player.amount_offered_G2 }} </li>
+                    <li>Ваш выигрыш в игре 2: {{ player.payoff_G2 }} </li>
+                </ul>
+            </li>
+            <li>
+                Игра 3:
+                <ul style="list-style-type:none">
+                    <li>Выбранная игра: игра {{ player.game_chosen }} </li>
+                    {% if player.game_chosen == 1 %}
+                        <li>Сколько было предложено: {{ player.amount_offered_G3_G1 }} </li>
+                        {% if player.offer_accepted_G3_G1 %}
+                            <li>Предложение было принято</li>
+                        {% else %}
+                            <li>Предложение было отклонено</li>
+                        {% endif %}
+                    {% else %}
+                        <li>Сколько было предложено: {{ player.amount_offered_G3_G2 }} </li>
+                    {% endif %}
+                    <li>Ваш выигрыш в игре 3: {{ player.payoff_G3 }} </li>
+                </ul>
+            </li>
+            <li>Игра, выбранная для оплаты: игра {{ player.payoff_game }} </li>
+            <li>Сколько денег Вы получите: {{ player.payoff_text }} </li>
+        </ul>
+    {% endif %}
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Start the survey</button>
+        {% else %}
+            <button name="next">Начать опрос</button>
+        {% endif %}
+    </div>
+
+<!--<p>
+
+</p>
+
+    <h4>
+        {% if Constants.language == 1 %}
+            Instructions
+        {% else %}
+            Инструкция
+        {% endif %}
+    </h4>
+
+    {% include Constants.instructions_template %}-->
+
+{% endblock %}
+
+

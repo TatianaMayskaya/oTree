@@ -1,0 +1,92 @@
+{% load otree static %}
+
+<div>
+
+    {% if Constants.language == 1 %}
+        {% if urn_num == 1 %}
+            <p>
+                The urn contains {{ lose_balls }} red balls and {{ win_balls }} black balls.
+            </p>
+            <p>
+                The urn gamble pays {{ win_payoff }} tokens if the ball drawn is black (and pays 0 otherwise).
+            </p>
+        {% else %}
+            <p>
+                The urn contains {{ win_balls }} red balls and {{ lose_balls }} black balls.
+            </p>
+            <p>
+                The urn gamble pays {{ win_payoff }} tokens if the ball drawn is red (and pays 0 otherwise).
+            </p>
+        {% endif %}
+        <p>
+            We selected: {{ Constants.choice1_RiskyUrns }} vs {{ sure }}.
+        </p>
+        <p>
+            You chose: {{ choice }}.
+        </p>
+        {% if choice_num == 1 %}
+        {% if urn_num == 1 %}
+            {% if payoff > 0 %}
+                <p>The drawn ball is black.</p>
+            {% else %}
+                <p>The drawn ball is red.</p>
+            {% endif %}
+        {% else %}
+            {% if payoff > 0 %}
+                <p>The drawn ball is red.</p>
+            {% else %}
+                <p>The drawn ball is black.</p>
+            {% endif %}
+        {% endif %}
+        {% endif %}
+        <p>
+            As a result, this question gives you {{ payoff }} tokens.
+        </p>
+    {% else %}
+        {% if urn_num == 1 %}
+            <p>
+                В урне {{ lose_balls }} красных шаров и {{ win_balls }} чёрных шаров.
+            </p>
+            <p>
+                Лотерея такова. Мы случайным образом вытянем один шар из урны.
+                Если этот шар оказался чёрного цвета, Вы получаете {{ win_payoff }} жетонов,
+                если же красного - 0 жетонов.
+            </p>
+        {% else %}
+            <p>
+                В урне {{ win_balls }} красных шаров и {{ lose_balls }} чёрных шаров.
+            </p>
+            <p>
+                Лотерея такова. Мы случайным образом вытянем один шар из урны.
+                Если этот шар оказался красного цвета, Вы получаете {{ win_payoff }} жетонов,
+                если же чёрного - 0 жетонов.
+            </p>
+        {% endif %}
+        <p>
+            Мы выбрали: {{ Constants.choice1_RiskyUrns }} или {{ sure }}.
+        </p>
+        <p>
+            Вы выбрали: {{ choice }}.
+        </p>
+        {% if choice_num == 1 %}
+        {% if urn_num == 1 %}
+            {% if payoff > 0 %}
+                <p>Шар оказался чёрного цвета.</p>
+            {% else %}
+                <p>Шар оказался красного цвета.</p>
+            {% endif %}
+        {% else %}
+            {% if payoff > 0 %}
+                <p>Шар оказался красного цвета.</p>
+            {% else %}
+                <p>Шар оказался чёрного цвета.</p>
+            {% endif %}
+        {% endif %}
+        {% endif %}
+        <p>
+            В результате в этом вопросе Вы получаете {{ payoff }} жетонов.
+        </p>
+    {% endif %}
+
+
+</div>

@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Survey. Part 3
+        {% else %}
+            Опрос. Часть 3
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if Constants.language == 1 %}
+        <p>Question 1 gave you {{ payoff_1 }} tokens.</p>
+        <p>Question 2 gave you {{ payoff_2 }} tokens.</p>
+        <p>Question chosen for the payment: question {{ payment_question }}.</p>
+        <p>As a result, this part of the survey gives you {{ payment }}.</p>
+    {% else %}
+        <p>Вопрос 1 дал Вам {{ payoff_1 }} жетонов.</p>
+        <p>Вопрос 2 дал Вам {{ payoff_2 }} жетонов.</p>
+        <p>Вопрос, выбранный для оплаты: вопрос {{ payment_question }}.</p>
+        <p>В результате в этой части опроса Вы получаете {{ payment }}.</p>
+    {% endif %}
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Continue</button>
+        {% else %}
+            <button name="next">Продолжить</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

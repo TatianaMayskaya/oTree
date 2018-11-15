@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Quiz. Question {{ player.round_number }} of {{ Constants.num_rounds }}
+        {% else %}
+            Тест. Вопрос {{ player.round_number }} из {{ Constants.num_rounds }}
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.submitted_answer label=player.question %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Check the answer</button>
+        {% else %}
+            <button name="next">Проверить ответ</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

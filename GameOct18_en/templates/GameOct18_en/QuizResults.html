@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Quiz results
+        {% else %}
+            Результаты теста
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+    {% if Constants.language == 1 %}
+
+        <p>
+            You answered {{ player.number_correct }} out of {{ Constants.quiz_questions_count }} questions correctly.
+        </p>
+
+    {% else %}
+
+        <p>
+            Вы ответили правильно на {{ player.number_correct }} из {{ Constants.quiz_questions_count }} вопросов.
+        </p>
+
+    {% endif %}
+
+        <table class="table">
+            <tr>
+                {% if Constants.language == 1 %}
+                    <th>Question</th>
+                    <th>Your answer</th>
+                    <th>Correct answer</th>
+                    <th>Explanation</th>
+                {% else %}
+                    <th>Вопрос</th>
+                    <th>Ваш ответ</th>
+                    <th>Верный ответ</th>
+                    <th>Объяснение</th>
+                {% endif %}
+            </tr>
+            {% for q, pa, ca, ex in quiz_table %}
+            <tr>
+                <td>{{ q }}</td>
+                <td>{{ pa }}</td>
+                <td>{{ ca }}</td>
+                <td>{{ ex }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Start the experiment</button>
+        {% else %}
+            <button name="next">Начать эксперимент</button>
+        {% endif %}
+    </div>
+
+<!--<p>
+
+</p>
+
+    <h4>
+        {% if Constants.language == 1 %}
+            Instructions
+        {% else %}
+            Инструкция
+        {% endif %}
+    </h4>
+
+    {% include Constants.instructions_template %}-->
+
+{% endblock %}

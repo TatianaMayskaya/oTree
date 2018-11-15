@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey. Part 8.
+        {% else %}
+            Опрос. Часть 8.
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+    {% if language == 1 %}
+        <p>
+            In part 8, each question is a game where you have a counterpart.
+            Therefore, for <strong>each</strong> question you will be randomly paired with another participant.
+            One of you will be selected at random to be participant A;
+            the other will be participant B.
+            You will learn whether you are participant A or B prior to making any
+            decision.
+        </p>
+        <p>
+            You will be paid for one randomly chosen question at the rate 1 token = {{ rate_survey_text }}.
+        </p>
+    {% else %}
+        <p>
+            Вопросы в восьмой части опроса - это игры с двумя участниками.
+            Поэтому перед <strong>каждой</strong> такой игрой всех участников поделят на пары случайным образом.
+            В каждой паре один из участников будет участником A, а другой будет участником B.
+            Вы узнаете, являетесь ли Вы участником A или B перед тем, как принимать какое-либо решение.
+        </p>
+        <p>
+            В результате компьютер выберет случайным образом одну игру, и Вы получите деньги за эту игру по курсу
+            1 жетон = {{ rate_survey_text }}.
+        </p>
+    {% endif %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next</button>
+        {% else %}
+            <button name="next">Дальше</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

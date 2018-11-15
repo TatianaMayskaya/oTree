@@ -1,0 +1,52 @@
+{% load otree static %}
+
+<div>
+
+    {% if Constants.language == 1 %}
+        <p>
+            The urn from which we can draw a ball is composed of {{ Constants.LoseBalls_RiskyUrns1 }} red balls and
+            {{ Constants.WinBalls_RiskyUrns1 }} black balls.
+        </p>
+        <p>
+            The urn gamble pays {{ Constants.WinPayoff_RiskyUrns1 }} tokens if the ball drawn is black
+            (and pays 0 otherwise).
+        </p>
+        <p>
+            For each row below, think about whether you prefer the urn gamble, or the sure amount on the right.
+        </p>
+        <p>
+            Once you make your choice, we will randomly select one row from the list,
+            and you will get whatever you chose on that line.
+            If you specified you prefer a sure amount on that line, you'll get that amount.
+            If you specified you prefer the gamble, then we will draw a ball from the urn and pay you accordingly.
+        </p>
+        <p>
+            What would you rather receive?
+        </p>
+    {% else %}
+        <p>
+            В урне {{ Constants.LoseBalls_RiskyUrns1 }} красных шаров и
+            {{ Constants.WinBalls_RiskyUrns1 }} чёрных шаров.
+        </p>
+        <p>
+            Вам предлагается следующая лотерея. Мы случайным образом вытянем один шар из урны.
+            Если этот шар оказался чёрного цвета, Вы получаете {{ Constants.WinPayoff_RiskyUrns1 }} жетонов,
+            если же красного - 0 жетонов.
+        </p>
+        <p>
+            Для каждой строчки ниже выберите либо лотерею, описанную выше, либо количество жетонов справа.
+        </p>
+        <p>
+            Когда Вы определитесь с выбором, мы случайным образом выберем одну строчку.
+            Если Вы выбрали опцию справа, то Вы получаете указанное там количество жетонов.
+            Если же Вы выбрали лотерею, мы вытягиваем шар из урны,
+            и Вы либо выигрывайте и получаете {{ Constants.WinPayoff_RiskyUrns1 }} жетонов,
+            либо проигрываете и получаете 0.
+        </p>
+        <p>
+            Что бы Вы предпочли получить?
+        </p>
+    {% endif %}
+
+
+</div>

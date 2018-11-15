@@ -1,0 +1,75 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+    $(function () {
+        $('.otree-modal-main-button').on('click',function(){
+            if ($('input[name=game_played]:checked').val()==''){
+                {% if language == 1 %}
+                var msg = 'Please choose the game';
+                {% else %}
+                var msg = 'Пожалуйста, выберите игру';
+                {% endif %}
+            }
+            else if ($('input[name=game_played]:checked').val()==1){
+                {% if language == 1 %}
+                var msg = 'You chose game 1. On the next screen you will be asked to indicate the minimum '
+                           + 'offer you would accept.';
+                {% else %}
+                var msg = 'Вы выбрали игру 1. На следующем экране Вас попросят указать минимально '
+                           + 'приемлемое для Вас предложение.';
+                {% endif %}
+            }
+            else {
+                {% if language == 1 %}
+                var msg = 'You chose game 2. Any offer will be accepted automatically.';
+                {% else %}
+                var msg = 'Вы выбрали игру 2. Любое предложение будет принято автоматичестки.';
+                {% endif %}
+            }
+            $('.otree-modal-message').text(msg);
+        })
+    })
+    </script>
+{% endblock %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Game {{ group.round_number }}
+        {% else %}
+            Игра {{ group.round_number }}
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% if language == 1 %}
+            <p>
+                You are player {{ player.id_in_group }}
+            </p>
+
+        {% else %}
+
+            <p>
+                Вы игрок {{ player.id_in_group }}
+            </p>
+
+        {% endif %}
+
+        {% formfield group.game_played label = game_label%}
+
+
+
+    <div>
+        {% if language == 1 %}
+            {% confirm_button title='' yes_button='Submit' no_button='Change the choice' main_button='Submit' %}
+        {% else %}
+            {% confirm_button title='' yes_button='Подтвердить' no_button='Изменить выбор' main_button='Подтвердить' %}
+        {% endif %}
+    </div>
+
+{% endblock %}

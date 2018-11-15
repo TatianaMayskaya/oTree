@@ -9,4 +9,3 @@ id,question,choice1,choice2,choice3,choice4,choice5,choice6,solution,explanation
 8,How many decisions player 1 has to make in game 3?,,,,,,,2,"First, how much to offer if player 2 chose game 1. Second, how much to offer is player 2 chose game 2"
 9,How many decisions player 2 has to make in game 3?,1,2,3,1 or 2 depending on the first decision,1 or 12 depending on the first decision,I do not know,1 or 12 depending on the first decision,"If player 2 chose game 1, he has to make 11 conditional decisions, for each of 11 possible offers"
 10,"In game 3, can player 1 make an offer conditional on player 2's choice of the game?",Yes,No,I do not know,,,,Yes,The fact that player 1 makes two choices means exactly that
-,,,,,,,,,

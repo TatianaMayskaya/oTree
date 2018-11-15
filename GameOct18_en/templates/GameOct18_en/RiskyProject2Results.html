@@ -1,0 +1,66 @@
+{% load otree static %}
+
+<div>
+
+    {% if Constants.language == 1 %}
+        <p>
+            You invested {{ player.survey2_question_RiskyProject2 }} out of
+            {{ Constants.endowment_RiskyProject2 }} tokens.
+        </p>
+        <p>
+            The risky project has a {{ Constants.prob_success_RiskyProject2 }}% chance of success.
+        </p>
+        <ul>
+            <li>
+                If the project is successful, you will receive
+                {{ Constants.return_RiskyProject2 }} times the amount you chose to invest.
+            </li>
+            <li>
+                If the project is unsuccessful, you will lose the amount invested.
+            </li>
+        </ul>
+        {% if player.survey2_RiskyProject2_success %}
+            <p>
+                The project turned out to be successful and generated {{ player.survey2_RiskyProject2_earned }} tokens.
+            </p>
+        {% else %}
+            <p>
+                The project turned out to be unsuccessful and generated 0 tokens.
+            </p>
+        {% endif %}
+        <p>
+            As a result, this question gives you {{ player.survey2_RiskyProject2_payoff }} tokens.
+        </p>
+    {% else %}
+        <p>
+            Вы проинвестировали {{ player.survey2_question_RiskyProject2 }}
+            из {{ Constants.endowment_RiskyProject2 }} жетонов.
+        </p>
+        <p>
+            Вероятность успеха этого проекта - {{ Constants.prob_success_RiskyProject2 }}%.
+        </p>
+        <ul>
+            <li>
+                В случае успеха Вы получаете в {{ Constants.return_RiskyProject2 }} раза больше того,
+                что Вы проинвестировали.
+            </li>
+            <li>
+                В случае неуспеха Вы всё проинвестированное теряете.
+            </li>
+        </ul>
+        {% if player.survey2_RiskyProject2_success %}
+            <p>
+                Проект оказался успешным и дал {{ player.survey2_RiskyProject2_earned }} жетонов.
+            </p>
+        {% else %}
+            <p>
+                Проект оказался неуспешным и дал 0 жетонов.
+            </p>
+        {% endif %}
+        <p>
+            В результате в этом вопросе Вы получаете {{ player.survey2_RiskyProject2_payoff }} жетонов.
+        </p>
+    {% endif %}
+
+
+</div>

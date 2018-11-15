@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Game {{ group.round_number }}
+        {% else %}
+            Игра {{ group.round_number }}
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% if Constants.language == 1 %}
+            <p>
+                You are player {{ player.id_in_group }}
+            </p>
+        {% else %}
+            <p>
+                Вы игрок {{ player.id_in_group }}
+            </p>
+        {% endif %}
+
+        {% if group.round_number == 3 %}
+
+            {% if Constants.language == 1 %}
+
+                <p>
+                    While player 2 is deciding on which game to play, please choose how many tokens
+                    to give to player 2 for each of two games. Remember that
+                    when we show you at the end of the experiment the game player 2 actually chose,
+                    you will not have a chance to change your response.
+                </p>
+
+            {% else %}
+
+                <p>
+                    Пока игрок 2 думает, какую игру выбрать, пожалуйста, решите, сколько жетонов
+                    Вы хотите предложить игроку 2 в каждой из игр. Помните, что когда Вы увидите,
+                    какую именно игру выбрал игрок 2, - а Вы это увидите уже на следующем экране, -
+                    у Вас не будет возмоности изменить свой ответ.
+                </p>
+
+            {% endif %}
+
+            <table class="table">
+                <td>
+                    {% for field in form %}
+                        {% formfield field %}
+                    {% endfor %}
+                </td>
+            </table>
+
+        {% else %}
+
+            {% formfields %}
+
+        {% endif %}
+
+
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Submit</button>
+        {% else %}
+            <button name="next">Подтвердить</button>
+        {% endif %}
+    </div>
+
+<!--<p>
+
+</p>
+
+    <h4>
+        {% if Constants.language == 1 %}
+            Instructions
+        {% else %}
+            Инструкция
+        {% endif %}
+    </h4>
+
+    {% include Constants.instructions_template %}-->
+
+{% endblock %}

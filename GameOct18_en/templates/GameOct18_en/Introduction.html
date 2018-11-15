@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if Constants.language == 1 %}
+            Instructions
+        {% else %}
+            Инструкция
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% include Constants.instructions_template %}
+
+<!--        {% if Constants.language == 1 %}
+            <p>
+                The instructions will remain on your screen for future reference.
+            </p>
+        {% else %}
+            <p>
+                Эта инструкция останется на экране в течение всего эксперимента.
+            </p>
+        {% endif %}-->
+
+
+
+    <div>
+        {% if Constants.language == 1 %}
+            <button name="next">Start the quiz</button>
+        {% else %}
+            <button name="next">Начать тест</button>
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}
