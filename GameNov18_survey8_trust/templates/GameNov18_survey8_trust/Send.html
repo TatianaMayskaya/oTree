@@ -17,8 +17,6 @@
             How much will you send to participant B?
             Remember that before B receives this amount, it will be multiplied by {{ multiplier }}.
         </p>
-
-        {% formfield group.sent_amount label="Please enter an amount from 0 to {{ endowment }}:" %}
     {% else %}
         <p>
             Вы <strong>участник A</strong>. У Вас есть {{endowment}} жетонов.
@@ -26,9 +24,9 @@
             Помните, что перед тем, как B получит посланную ему сумму, она будет умножена на
             {{ multiplier }}.
         </p>
-
-        {% formfield group.sent_amount label="Пожалуйста, введите число от 0 до {{ endowment }}:" %}
     {% endif %}
+
+    {% formfield group.sent_amount label=question_label %}
 
     <div>
         {% if language == 1 %}

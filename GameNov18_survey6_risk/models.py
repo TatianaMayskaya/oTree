@@ -74,7 +74,6 @@ class Player(BasePlayer):
     def random_questions(self):
         randomized_questions = random.sample(range(1, Constants.num_rounds + 1, 1), Constants.num_rounds)
         self.participant.vars['questions_order'] = randomized_questions
-        print(self.participant.vars['questions_order'])
         if self.session.config['language'] == 1:
             self.participant.vars['question_RiskyProject'] = \
                 'Please choose how many tokens you want to invest in the risky project.'

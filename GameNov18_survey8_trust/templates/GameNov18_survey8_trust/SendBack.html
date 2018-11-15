@@ -19,8 +19,6 @@
             Now you have {{ multiplied_amount_text }}.
             How much will you send to participant A?
         </p>
-
-        {% formfield group.sent_back_amount label="Please enter an amount from 0 to {{ multiplied_amount }}:" %}
     {% else %}
         <p>
             Вы <strong>участник B</strong>.
@@ -29,9 +27,9 @@
             Теперь у Вас есть {{multiplied_amount_text}}.
             Сколько Вы пошлёте участнику A?
         </p>
-
-        {% formfield group.sent_back_amount label="Пожалуйста, введите число от 0 до {{ multiplied_amount }}:" %}
     {% endif %}
+
+    {% formfield group.sent_back_amount label=question_label %}
 
     <div>
         {% if language == 1 %}

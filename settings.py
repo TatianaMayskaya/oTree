@@ -44,7 +44,7 @@ SESSION_CONFIGS = [
                          'GameNov18_survey5_comments',
                          'GameNov18_survey6_risk',
                          'GameNov18_survey7_prisoner',
-                         #'GameNov18_survey8_trust',
+                         'GameNov18_survey8_trust',
                          'GameNov18_survey9_personal',
                          'final_screen'
                          ],

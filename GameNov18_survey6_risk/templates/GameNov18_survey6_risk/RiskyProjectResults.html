@@ -32,7 +32,7 @@
         </ul>
         {% if success %}
             <p>
-                The project turned out to be successful and generated {{ earned }} tokens.
+                The project turned out to be successful and generated {{ earned_text }}.
             </p>
         {% else %}
             <p>
@@ -40,7 +40,7 @@
             </p>
         {% endif %}
         <p>
-            As a result, this question gives you {{ payoff }} tokens.
+            As a result, this question gives you {{ payoff_text }}.
         </p>
     {% else %}
         <p>
@@ -59,7 +59,7 @@
         </ul>
         {% if success %}
             <p>
-                Проект оказался успешным и дал {{ earned }} жетонов.
+                Проект оказался успешным и дал {{ earned_text }}.
             </p>
         {% else %}
             <p>
@@ -67,7 +67,7 @@
             </p>
         {% endif %}
         <p>
-            В результате в этом вопросе Вы получаете {{ payoff }} жетонов.
+            В результате в этом вопросе Вы получаете {{ payoff_text }}.
         </p>
     {% endif %}
 

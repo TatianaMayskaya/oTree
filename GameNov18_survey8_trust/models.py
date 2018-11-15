@@ -81,8 +81,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     payoff_trust = models.IntegerField()
     payment_question = models.IntegerField()
-    payoff_text = models.StringField()
     payoff_trust_text = models.StringField()
+    payoff_text = models.StringField()
 
     def set_payoff(self):
         self.participant.vars['payoffs_trust'] = [p.payoff_trust for p in self.player.in_all_rounds()]

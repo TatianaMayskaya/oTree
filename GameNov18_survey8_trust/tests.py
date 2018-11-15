@@ -7,5 +7,13 @@ from .models import Constants
 class PlayerBot(Bot):
 
     def play_round(self):
-        yield (pages.MyPage)
-        yield (pages.Results)
+        if self.round_number == 1:
+            yield (pages.Introduction)
+        yield (pages.Rules)
+        if self.player.id_in_group == 1:
+            yield (pages.Send, {'sent_amount': 10})
+        if self.player.id_in_group == 2:
+            yield (pages.SendBack, {'sent_back_amount': 10*Constants.multiplier[self.round_number - 1]})
+        yield(pages.TrustResults)
+        if self.round_number == Constants.num_rounds:
+            yield(pages.Results)

@@ -14,7 +14,7 @@
 {% block content %}
 
     {% if language == 1 %}
-        {% for p in player_in_previous_rounds %}
+        {% for p in player_in_all_rounds %}
             <p>Question {{ p.round_number }} gave you {{ p.payoff_trust_text }}.</p>
         {% endfor %}
         <p>Question chosen for the payment: question {{ payment_question }}.</p>

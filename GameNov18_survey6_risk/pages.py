@@ -1,6 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants
+from .models import Constants, add_tokens
 
 
 class Introduction(Page):
@@ -59,12 +59,15 @@ class RiskyProjectResults(Page):
             payoff = self.player.RiskyProject2_payoff
         return {'language': self.session.config['language'],
                 'invested': invested,
+                'invested_text': add_tokens(self.session.config['language'], invested),
                 'endowment': Constants.endowment_RiskyProject[num - 1],
                 'prob': Constants.prob_success_RiskyProject[num - 1],
                 'return': Constants.return_RiskyProject[num - 1],
                 'success': success,
                 'earned': earned,
-                'payoff': payoff
+                'earned_text': add_tokens(self.session.config['language'], earned),
+                'payoff': payoff,
+                'payoff_text': add_tokens(self.session.config['language'], payoff),
                 }
 
 
@@ -245,10 +248,14 @@ class Results(Page):
                   self.participant.vars['RiskyUrns2_payoff']]
         return {
             'language': self.session.config['language'],
-            'payoff_1': payoff[self.participant.vars['questions_order'][0] - 1],
-            'payoff_2': payoff[self.participant.vars['questions_order'][1] - 1],
-            'payoff_3': payoff[self.participant.vars['questions_order'][2] - 1],
-            'payoff_4': payoff[self.participant.vars['questions_order'][3] - 1],
+            'payoff_1_text': add_tokens(self.session.config['language'],
+                                        payoff[self.participant.vars['questions_order'][0] - 1]),
+            'payoff_2_text': add_tokens(self.session.config['language'],
+                                        payoff[self.participant.vars['questions_order'][1] - 1]),
+            'payoff_3_text': add_tokens(self.session.config['language'],
+                                        payoff[self.participant.vars['questions_order'][2] - 1]),
+            'payoff_4_text': add_tokens(self.session.config['language'],
+                                        payoff[self.participant.vars['questions_order'][3] - 1]),
             'payment_question': self.player.payment_question_in_order_for_subject,
             'payment': self.player.payoff_text
         }

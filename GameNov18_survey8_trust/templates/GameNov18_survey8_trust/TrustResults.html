@@ -34,7 +34,7 @@
                 You received {{ multiplied_amount_text }},
                 chose to return {{ sent_back_amount_text }}.
                 Thus you now have:
-                ({{ multiplied_amount }})-({{ sent_back_amount }})=<strong>{{ payoff_text }}</strong>.
+                {{ multiplied_amount }}-{{ sent_back_amount }}=<strong>{{ payoff_text }}</strong>.
             </p>
         {% endif %}
     {% else %}
@@ -60,16 +60,24 @@
                 Вы получили {{ multiplied_amount_text }},
                 возвратили {{ sent_back_amount_text }}.
                 В итоге у Вас теперь:
-                ({{ multiplied_amount }})-({{ sent_back_amount }})=<strong>{{ payoff_text }}</strong>.
+                {{ multiplied_amount }}-{{ sent_back_amount }}=<strong>{{ payoff_text }}</strong>.
             </p>
         {% endif %}
     {% endif %}
 
     <div>
         {% if language == 1 %}
-            <button name="next">Next question</button>
+            {% if player.round_number < Constants.num_rounds %}
+                <button name="next">Next question</button>
+            {% else %}
+                <button name="next">Continue</button>
+            {% endif %}
         {% else %}
-            <button name="next">Следующий вопрос</button>
+            {% if player.round_number < Constants.num_rounds %}
+                <button name="next">Следующий вопрос</button>
+            {% else %}
+                <button name="next">Продолжить</button>
+            {% endif %}
         {% endif %}
     </div>
 
