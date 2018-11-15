@@ -18,19 +18,19 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['my_game'],
     # },
-    {
-        'name': 'GameOct18_ru',
-        'display_name': 'GameOct18_ru',
-        'num_demo_participants': 2,
-        'app_sequence': ['GameOct18'],
-        'use_browser_bots': False
-    },
-    {
-        'name': 'GameOct18_en',
-        'display_name': 'GameOct18_en',
-        'num_demo_participants': 2,
-        'app_sequence': ['GameOct18_en'],
-    },
+    # {
+    #     'name': 'GameOct18_ru',
+    #     'display_name': 'GameOct18_ru',
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['GameOct18'],
+    #     'use_browser_bots': False
+    # },
+    # {
+    #     'name': 'GameOct18_en',
+    #     'display_name': 'GameOct18_en',
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['GameOct18_en'],
+    # },
     {
         'name': 'GameNov18',
         'display_name': 'GameNov18',
@@ -117,75 +117,85 @@ REAL_WORLD_CURRENCY_CODE = 'USD'  # 'USD', 'RUB'
 USE_POINTS = True
 
 ROOMS = [
+    # {
+    #     'name': 'econ101',
+    #     'display_name': 'Econ 101 class',
+    #     'participant_label_file': '_rooms/econ101.txt',
+    # },
+    # {
+    #     'name': 'live_demo',
+    #     'display_name': 'Room for live demo (no participant labels)',
+    # },
+    # {
+    #     'name': 'game_for_two_players',
+    #     'display_name': 'Game for two players',
+    #     'participant_label_file': '_rooms/game_for_two_players.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_en_AM',
+    #     'display_name': 'GameOct18 - test for English version : Alexander Matros',
+    #     'participant_label_file': '_rooms/GameOct18_4.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_AM',
+    #     'display_name': 'GameOct18 - test for Russian version : Alexander Matros',
+    #     'participant_label_file': '_rooms/GameOct18_4.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_16',
+    #     'display_name': 'GameOct18 - for maximum 16 participants',
+    #     'participant_label_file': '_rooms/GameOct18_16.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_20_room1',
+    #     'display_name': 'GameOct18 - for maximum 20 participants : room 1 (labels: Pi)',
+    #     'participant_label_file': '_rooms/GameOct18_20.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_20_room2',
+    #     'display_name': 'GameOct18 - for maximum 20 participants : room 2 (labels: Pi)',
+    #     'participant_label_file': '_rooms/GameOct18_20.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_20_room3',
+    #     'display_name': 'GameOct18 - for maximum 20 participants : room 3 (labels: Pi)',
+    #     'participant_label_file': '_rooms/GameOct18_20.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_20_room4',
+    #     'display_name': 'GameOct18 - for maximum 20 participants : room 4 (labels: Pi)',
+    #     'participant_label_file': '_rooms/GameOct18_20.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_20_room5',
+    #     'display_name': 'GameOct18 - for maximum 20 participants : room 5 (labels: Pi)',
+    #     'participant_label_file': '_rooms/GameOct18_20.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_20_room6',
+    #     'display_name': 'GameOct18 - for maximum 20 participants : room 6 (labels: Pi)',
+    #     'participant_label_file': '_rooms/GameOct18_20.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_30z_room1',
+    #     'display_name': 'GameOct18 - for maximum 30 participants : room 1 (labels: zi)',
+    #     'participant_label_file': '_rooms/GameOct18_30z.txt'
+    # },
+    # {
+    #     'name': 'GameOct18_ru_30z_room2',
+    #     'display_name': 'GameOct18 - for maximum 30 participants : room 2 (labels: zi)',
+    #     'participant_label_file': '_rooms/GameOct18_30z.txt'
+    # },
     {
-        'name': 'econ101',
-        'display_name': 'Econ 101 class',
-        'participant_label_file': '_rooms/econ101.txt',
+        'name': 'GameNov18_room1',
+        'display_name': 'GameNov18 - for maximum 100 participants : room 1 (labels zi)',
+        'participant_label_file': '_rooms/room_100z.txt'
     },
     {
-        'name': 'live_demo',
-        'display_name': 'Room for live demo (no participant labels)',
-    },
-    {
-        'name': 'game_for_two_players',
-        'display_name': 'Game for two players',
-        'participant_label_file': '_rooms/game_for_two_players.txt'
-    },
-    {
-        'name': 'GameOct18_en_AM',
-        'display_name': 'GameOct18 - test for English version : Alexander Matros',
-        'participant_label_file': '_rooms/GameOct18_4.txt'
-    },
-    {
-        'name': 'GameOct18_ru_AM',
-        'display_name': 'GameOct18 - test for Russian version : Alexander Matros',
-        'participant_label_file': '_rooms/GameOct18_4.txt'
-    },
-    {
-        'name': 'GameOct18_ru_16',
-        'display_name': 'GameOct18 - for maximum 16 participants',
-        'participant_label_file': '_rooms/GameOct18_16.txt'
-    },
-    {
-        'name': 'GameOct18_ru_20_room1',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 1 (labels: Pi)',
-        'participant_label_file': '_rooms/GameOct18_20.txt'
-    },
-    {
-        'name': 'GameOct18_ru_20_room2',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 2 (labels: Pi)',
-        'participant_label_file': '_rooms/GameOct18_20.txt'
-    },
-    {
-        'name': 'GameOct18_ru_20_room3',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 3 (labels: Pi)',
-        'participant_label_file': '_rooms/GameOct18_20.txt'
-    },
-    {
-        'name': 'GameOct18_ru_20_room4',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 4 (labels: Pi)',
-        'participant_label_file': '_rooms/GameOct18_20.txt'
-    },
-    {
-        'name': 'GameOct18_ru_20_room5',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 5 (labels: Pi)',
-        'participant_label_file': '_rooms/GameOct18_20.txt'
-    },
-    {
-        'name': 'GameOct18_ru_20_room6',
-        'display_name': 'GameOct18 - for maximum 20 participants : room 6 (labels: Pi)',
-        'participant_label_file': '_rooms/GameOct18_20.txt'
-    },
-    {
-        'name': 'GameOct18_ru_30z_room1',
-        'display_name': 'GameOct18 - for maximum 30 participants : room 1 (labels: zi)',
-        'participant_label_file': '_rooms/GameOct18_30z.txt'
-    },
-    {
-        'name': 'GameOct18_ru_30z_room2',
-        'display_name': 'GameOct18 - for maximum 30 participants : room 2 (labels: zi)',
-        'participant_label_file': '_rooms/GameOct18_30z.txt'
-    },
+        'name': 'GameNov18_room2',
+        'display_name': 'GameNov18 - for maximum 100 participants : room 2 (labels zi)',
+        'participant_label_file': '_rooms/room_100z.txt'
+    }
 ]
 
 
