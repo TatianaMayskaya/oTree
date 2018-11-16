@@ -47,13 +47,20 @@ class Subsession(BaseSubsession):
                 self.session.vars['income2'] = \
                     'We have enough money for food and other daily essentials but we have no capacity to make savings.'
                 self.session.vars['income3'] = \
-                    'Buying cloths requires making savings in advance.'
+                    '''
+                    We can afford vacation every year.
+                    '''
+                    #  'Buying cloths requires making savings in advance.'
                 self.session.vars['income4'] = \
                     '''
-                    We have enough savings to buy cloths but more expensive products 
-                    (like washing machine, TV set, or plane tickets) require advance planning.
+                    We can travel abroad every year.
                     '''
-                self.session.vars['income5'] = 'We can buy quite expensive products without advance planning.'
+                    # '''
+                    # We have enough savings to buy cloths but more expensive products
+                    # (like washing machine, TV set, or plane tickets) require advance planning.
+                    # '''
+                self.session.vars['income5'] = 'We have no financial constraints.'
+                    # 'We can buy quite expensive products without advance planning.'
                 self.session.vars['riskat'] = \
                     'How do you see yourself: Are you generally a person who is fully prepared to take risks ' \
                     'or do you try to avoid taking risks? Please tick a box on the scale, ' \
