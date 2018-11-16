@@ -1,6 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants, add_tokens
+from .models import Constants, add_tokens, add_currency
 from django.conf import settings
 
 
@@ -127,7 +127,8 @@ class Results(Page):
                 'payoff_G2': add_tokens(self.session.config['language'], self.player.payoff_G2),
                 'payoff_G3': add_tokens(self.session.config['language'], self.player.payoff_G3),
                 'amount_offered_G3_G1': add_tokens(self.session.config['language'], self.player.amount_offered_G3_G1),
-                'amount_offered_G3_G2': add_tokens(self.session.config['language'], self.player.amount_offered_G3_G2)}
+                'amount_offered_G3_G2': add_tokens(self.session.config['language'], self.player.amount_offered_G3_G2),
+                'payment': self.participant.vars['payment_formula'] + ' = ' + self.player.payoff_text}
 
 
 page_sequence = [

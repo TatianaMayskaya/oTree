@@ -55,7 +55,7 @@
                 </ul>
             </li>
             <li>Game chosen for the payment: game {{ player.payoff_game }} </li>
-            <li>Your final payment: {{ player.payoff_text }} </li>
+            <li>Your final payment: {{ payment }} </li>
         </ul>
     {% else %}
         <p>
@@ -99,7 +99,7 @@
                 </ul>
             </li>
             <li>Игра, выбранная для оплаты: игра {{ player.payoff_game }} </li>
-            <li>Сколько денег Вы получите: {{ player.payoff_text }} </li>
+            <li>Сколько денег Вы получите: {{ payment }} </li>
         </ul>
     {% endif %}
 

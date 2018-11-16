@@ -3,6 +3,8 @@ from . import pages
 from ._builtin import Bot
 from .models import Constants
 
+import time
+
 
 class PlayerBot(Bot):
 
@@ -23,4 +25,5 @@ class PlayerBot(Bot):
             else:
                 yield (pages.Accept)
         if self.round_number == 3:
+            time.sleep(15)
             yield (pages.Results)

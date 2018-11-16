@@ -6,7 +6,8 @@ from .models import Constants
 class PaymentInfo(Page):
     def vars_for_template(self):
         return {'language': self.session.config['language'],
-                'payment': self.participant.payoff_plus_participation_fee()}
+                'payment': self.participant.vars['payment_formula'] + ' = ' +
+                    str(self.participant.payoff_plus_participation_fee())}
 
 
 page_sequence = [

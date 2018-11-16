@@ -48,6 +48,10 @@ class Results(Page):
             'is_correct': self.player.get_is_correct_display()
         }
 
+    def before_next_page(self):
+        if self.round_number == Constants.num_rounds:
+            self.participant.vars['survey_part'] = 1
+
 
 page_sequence = [
     Introduction,

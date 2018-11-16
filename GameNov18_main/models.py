@@ -121,14 +121,20 @@ class Player(BasePlayer):
     payoff_G2 = models.IntegerField()
     payoff_G3 = models.IntegerField()
     payoff_game = models.IntegerField()
+    payoff_tokens = models.IntegerField()
     payoff_text = models.StringField()
 
     def set_final_payoff(self):
         self.payoff_game = random.choice([1, 2, 3])
         if self.payoff_game == 1:
-            self.payoff = self.session.vars['show_up'] + self.payoff_G1 * self.session.vars['rate']
+            self.payoff_tokens = self.payoff_G1
         elif self.payoff_game == 2:
-            self.payoff = self.session.vars['show_up'] + self.payoff_G2 * self.session.vars['rate']
+            self.payoff_tokens = self.payoff_G2
         else:
-            self.payoff = self.session.vars['show_up'] + self.payoff_G3 * self.session.vars['rate']
+            self.payoff_tokens = self.payoff_G3
+        self.payoff = self.session.vars['show_up'] + self.payoff_tokens * self.session.vars['rate']
         self.payoff_text = add_currency(self.session.config['currency_used'], int(self.payoff))
+        self.participant.vars['payment_formula'] = \
+            add_currency(self.session.config['currency_used'], self.session.vars['show_up']) + \
+            ' + ' + str(self.payoff_tokens) + '*' + \
+            add_currency(self.session.config['currency_used'], self.session.vars['rate'])

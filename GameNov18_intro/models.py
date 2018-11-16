@@ -49,8 +49,8 @@ class Subsession(BaseSubsession):
             self.session.vars['payoff_if_rejected'] = 0
             if self.session.config['currency_used'] == 0:
                 self.session.vars['show_up'] = 5
-                self.session.vars['rate'] = 0.2
-                self.session.vars['rate_survey'] = 0.02
+                self.session.vars['rate'] = 0.1  # 0.2
+                self.session.vars['rate_survey'] = 0.01  # 0.02
             elif self.session.config['currency_used'] == 1:
                 self.session.vars['show_up'] = 3
                 self.session.vars['rate'] = 0.2
@@ -59,7 +59,8 @@ class Subsession(BaseSubsession):
                 self.session.vars['show_up'] = 200
                 self.session.vars['rate'] = 10
                 self.session.vars['rate_survey'] = 1
-            self.session.vars['rate_survey_text'] = add_currency(self.session.config['currency_used'], self.session.vars['rate_survey'])
+            self.session.vars['rate_survey_text'] = add_currency(self.session.config['currency_used'],
+                                                                 self.session.vars['rate_survey'])
 
             if self.session.config['language'] == 1:
                 self.session.vars['wait_page_title'] = 'Please wait'
