@@ -204,15 +204,16 @@ class Player(BasePlayer):
             self.payment_question_in_internal_order = \
                 self.participant.vars['questions_order'][self.payment_question_in_order_for_subject - 1]
             if self.payment_question_in_internal_order == 1:
-                self.payoff = self.participant.vars['RiskyProject1_payoff']
+                payoff_tokens = self.participant.vars['RiskyProject1_payoff']
             elif self.payment_question_in_internal_order == 2:
-                self.payoff = self.participant.vars['RiskyProject2_payoff']
+                payoff_tokens = self.participant.vars['RiskyProject2_payoff']
             elif self.payment_question_in_internal_order == 3:
-                self.payoff = self.participant.vars['RiskyUrns1_payoff']
+                payoff_tokens = self.participant.vars['RiskyUrns1_payoff']
             else:
-                self.payoff = self.participant.vars['RiskyUrns2_payoff']
+                payoff_tokens = self.participant.vars['RiskyUrns2_payoff']
+            self.payoff = payoff_tokens
             self.payoff_text = add_tokens(self.session.config['language'], int(self.payoff))
             self.participant.vars['payment_formula'] = self.participant.vars['payment_formula'] + \
-                ' + ' + str(int(self.payoff)) + '*' + \
+                ' + ' + str(payoff_tokens) + '*' + \
                 add_currency(self.session.config['currency_used'], self.session.vars['rate_survey'])
             self.payoff = self.payoff * self.session.vars['rate_survey']

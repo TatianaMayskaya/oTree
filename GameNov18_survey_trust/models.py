@@ -87,10 +87,11 @@ class Player(BasePlayer):
     def set_final_payoff(self):
         self.participant.vars['payoffs_trust'] = [p.payoff_trust for p in self.in_all_rounds()]
         self.payment_question = random.randint(1, len(self.participant.vars['payoffs_trust']))
+        payoff_tokens = self.participant.vars['payoffs_trust'][self.payment_question - 1]
         self.payoff = int(self.participant.vars['payoffs_trust'][self.payment_question - 1])
         self.payoff_text = add_tokens(self.session.config['language'], int(self.payoff))
         self.participant.vars['payment_formula'] = self.participant.vars['payment_formula'] + \
-            ' + ' + str(int(self.payoff)) + '*' + \
+            ' + ' + str(payoff_tokens) + '*' + \
             add_currency(self.session.config['currency_used'], self.session.vars['rate_survey'])
         self.payoff = self.payoff * self.session.vars['rate_survey']
 

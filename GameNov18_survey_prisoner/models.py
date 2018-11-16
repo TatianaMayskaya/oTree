@@ -95,10 +95,11 @@ class Player(BasePlayer):
 
     def set_final_prisoner_payoff(self):
         self.payment_question = random.randint(1, len(self.participant.vars['prisoner_payoffs']))
+        payoff_tokens = self.participant.vars['prisoner_payoffs'][self.payment_question - 1]
         self.payoff = int(self.participant.vars['prisoner_payoffs'][self.payment_question - 1])
         self.payoff_text = add_tokens(self.session.config['language'], int(self.payoff))
         self.participant.vars['payment_formula'] = self.participant.vars['payment_formula'] + \
-            ' + ' + str(int(self.payoff)) + '*' + \
+            ' + ' + str(payoff_tokens) + '*' + \
             add_currency(self.session.config['currency_used'], self.session.vars['rate_survey'])
         self.payoff = self.payoff * self.session.vars['rate_survey']
 

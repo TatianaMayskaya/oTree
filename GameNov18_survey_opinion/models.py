@@ -3,7 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 
-import csv
+import csv, random
 
 author = 'Tatiana Mayskaya'
 
@@ -27,6 +27,9 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        if self.round_number == 1:
+            for p in self.get_players():
+                p.random_questions()
         for p in self.get_players():
             question_data = p.current_question()
             p.question_id = question_data['id']
@@ -38,6 +41,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    def random_questions(self):
+        randomized_questions = random.sample(range(1, Constants.num_rounds + 1, 1), Constants.num_rounds)
+        self.participant.vars['questions_order'] = randomized_questions
+
     question_id = models.IntegerField()
     question = models.StringField()
     submitted_answer = models.IntegerField(
@@ -45,4 +52,5 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal)
 
     def current_question(self):
-        return self.session.vars['survey3_list'][self.round_number - 1]
+        num = self.participant.vars['questions_order'][self.round_number - 1]
+        return self.session.vars['survey3_list'][num - 1]

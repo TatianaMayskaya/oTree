@@ -1,35 +1,26 @@
 id,question
-1,"Player 2 should always accept any offer, even 0 tokens. Any other behavior is just stupid."
-2,"Player 2 should always accept any positive offer, though she might reasonably decline the offer of 0 tokens. Any other behavior is just stupid."
-3,Player 2 would normally reject low offers. Most people accept an offer of at least 30 tokens.
-4,Player 2 should reject anything below 50 tokens.
-5,"Player 1 should give 50 tokens in any game, aiming for a fair division."
-6,Player 1 has moral right to offer 0 tokens in game 2. There is no shame in doing it.
-7,"In game 3, player 1 should give more to player 2 who chose game 1."
-8,"In game 3, player 1 should give more to player 2 who chose game 2."
-9,"In game 3, the choice of game 1 is a sign of non-cooperative behavior."
-10,"Player 1 should give more to player 2 in game 1 if player 2 chose to play that game (as in game 3), as this indicates that player 2 would more likely reject low offers."
-11,"Player 1 should give less to player 2 in game 1 if player 2 chose to play that game (as in game 3), to punish player 2."
-12,Player 1 should give the same number of tokens to player 2 in games 1 and 3 conditional on player 2 choosing game 1 in game 3.
-13,"Player 1 should give more to player 2 in game 2 if player 2 chose to play that game (as in game 3), to reward player 2 for her cooperative behavior."
-14,"Player 1 should give less to player 2 in game 2 if player 2 chose to play that game (as in game 3), as this indicates that player 2 understands that the power lies with player 1 in this experiment and player 1 has moral right to offer very little (or even nothing)."
-15,Player 1 should give the same number of tokens to player 2 in game 2 and in game 3 conditional on player 2 choosing game 2.
-16,Player 2 should choose game 1 because it makes no sense to voluntarily giving up on the opportunity to reject offers.
-17,Player 2 should choose game 1 because she would receive a higher offer by using this strategy.
-18,Player 2 should choose game 2 because he would receive a higher offer by using this strategy.
-19,Player 2 should choose game 2 to signal her trust to player 1.
-20,Player 2 should choose game 2 because it makes no sense to reject offers and everybody understand it.
-21,Player 2 should be more agreeable (accept more offers) in game 1 if he chose to play that game.
-22,Player 2 should be less agreeable (accept less offers) in game 1 if he chose to play that game.
-23,"Conditional on choosing game 1 in game 3, player 2 should choose exactly the same minimum acceptance offer in games 1 and 3."
-24,Player 2 should be more agreeable (accept more offers) in game 1 if she chose to play that game because she already have exercised some control over the situation.
-25,"Player 2 should be more agreeable (accept more offers) in game 1 if she chose to play that game because low offers are now perceived as not as unfair as before, when game 1 was the computer's choice."
-26,Player 2 should be less agreeable (accept less offers) in game 1 if she chose to play that game because by choosing game 1 she warned player 1 of her intent to reject low offers.
-27,Player 2 should expect to get more in game 3 than in game 1.
-28,Player 2 should expect to get less in game 3 than in game 1.
-29,Player 2 should expect to get the same in games 1 and 3.
-30,Player 2 should expect to get more in game 3 than in game 2.
-31,Player 2 should expect to get less in game 3 than in game 2.
-32,Player 2 should expect to get the same in games 2 and 3.
-33,"When playing game 1, it does not make any difference for player 1 whether player 2 chose to play that game (as in game 3) or it was the computer's choice (as in game 1)."
-34,"When playing game 2, it does not make any difference for player 1 whether player 2 chose to play that game (as in game 3) or it was the computer's choice (as in game 2)."
+1,"In game 3, the choice of game 1 is a sign of non-cooperative behavior."
+2,"Player 1 should give more to player 2 in game 1 if player 2 chose to play that game (as in game 3), as this indicates that player 2 would more likely reject low offers."
+3,"Player 1 should give less to player 2 in game 1 if player 2 chose to play that game (as in game 3), to punish player 2."
+4,Player 1 should give the same number of tokens to player 2 in games 1 and 3 conditional on player 2 choosing game 1 in game 3.
+5,"Player 1 should give more to player 2 in game 2 if player 2 chose to play that game (as in game 3), to reward player 2 for her cooperative behavior."
+6,"Player 1 should give less to player 2 in game 2 if player 2 chose to play that game (as in game 3), as this indicates that player 2 understands that the power lies with player 1 in this experiment and player 1 has moral right to offer very little (or even nothing)."
+7,Player 1 should give the same number of tokens to player 2 in game 2 and in game 3 conditional on player 2 choosing game 2.
+8,Player 2 should choose game 1.
+9,Player 2 should choose game 2.
+10,Player 2 should choose game 1 because it makes no sense to voluntarily giving up on the opportunity to reject offers.
+11,Player 2 should choose game 1 because she would receive a higher offer by using this strategy.
+12,Player 2 should choose game 2 because he would receive a higher offer by using this strategy.
+13,Player 2 should choose game 2 to signal her trust to player 1.
+14,Player 2 should choose game 2 because it makes no sense to reject offers and everybody understand it.
+15,Player 2 should be more agreeable (accept more offers) in game 1 if he chose to play that game.
+16,Player 2 should be less agreeable (accept less offers) in game 1 if he chose to play that game.
+17,"Conditional on choosing game 1 in game 3, player 2 should choose exactly the same minimum acceptance offer in games 1 and 3."
+18,Player 2 should be more agreeable (accept more offers) in game 1 if she chose to play that game because she already have exercised some control over the situation.
+19,"Player 2 should be more agreeable (accept more offers) in game 1 if she chose to play that game because low offers are now perceived as not as unfair as before, when game 1 was the computer's choice."
+20,Player 2 should be less agreeable (accept less offers) in game 1 if she chose to play that game because by choosing game 1 she warned player 1 of her intent to reject low offers.
+21,Player 2 should expect to get more in game 3 than in game 1.
+22,Player 2 should expect to get less in game 3 than in game 1.
+23,Player 2 should expect to get the same in games 1 and 3.
+24,"When playing game 1, it does not make any difference for player 1 whether player 2 chose to play that game (as in game 3) or it was the computer's choice (as in game 1)."
+25,"When playing game 2, it does not make any difference for player 1 whether player 2 chose to play that game (as in game 3) or it was the computer's choice (as in game 2)."
