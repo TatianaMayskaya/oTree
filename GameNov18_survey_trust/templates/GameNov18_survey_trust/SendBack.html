@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+        {% if language == 1 %}
+            Survey. Part {{ part_num }}. Question {{ player.round_number }} of {{ Constants.num_rounds }}
+        {% else %}
+            Опрос. Часть {{ part_num }}. Вопрос {{ player.round_number }} из {{ Constants.num_rounds }}
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% if language == 1 %}
+        <p>
+            You are <strong>participant B</strong>.
+            Participant A sent you {{ sent_amount }} out of {{endowment}} tokens
+            and you received {{ multiplied_amount_text }}.
+            Now you have {{ multiplied_amount_text }}.
+            How much will you send to participant A?
+        </p>
+    {% else %}
+        <p>
+            Вы <strong>участник B</strong>.
+            Участник A послал Вам {{ sent_amount }} из {{endowment}} жетонов,
+            и Вы получили {{ multiplied_amount_text }}.
+            Теперь у Вас есть {{multiplied_amount_text}}.
+            Сколько Вы пошлёте участнику A?
+        </p>
+    {% endif %}
+
+    {% formfield group.sent_back_amount label=question_label %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">See results</button>
+        {% else %}
+            <button name="next">Посмотреть результаты</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

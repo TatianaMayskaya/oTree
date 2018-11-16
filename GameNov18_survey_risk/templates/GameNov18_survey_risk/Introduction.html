@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey. Part {{ part_num }}.
+        {% else %}
+            Опрос. Часть {{ part_num }}.
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+    {% if language == 1 %}
+        <p>
+            Part {{ part_num }} (and all subsequent parts) of the survey contains questions that are
+            unrelated to the experiment. They are all implied some payment (in tokens).
+            You will observe how many tokens you earned after each question.
+            At the end of part {{ part_num }} the computer randomly chooses one question for
+            which you will be paid. The rate is 1 token = {{ rate_survey_text }}.
+        </p>
+    {% else %}
+        <p>
+            Вопросы в части {{ part_num }} (и во всех остальных частях) опроса не связаны с самим экспериментом напрямую.
+            В каждом из них можно выиграть некоторое количество жетонов.
+            После каждого вопроса Вы увидите, сколько жетонов Вы получили за этот вопрос.
+            В конце части {{ part_num }} компьютер выберет случайным образом один вопрос,
+            и Вы получите деньги за этот вопрос по курсу
+            1 жетон = {{ rate_survey_text }}.
+        </p>
+    {% endif %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next</button>
+        {% else %}
+            <button name="next">Дальше</button>
+        {% endif %}
+    </div>
+
+{% endblock %}
