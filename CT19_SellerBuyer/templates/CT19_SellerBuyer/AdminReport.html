@@ -1,0 +1,52 @@
+{% load otree %}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<table class="table">
+    <tr>
+        <th>Parameters</th>
+        <th>Product</th>
+        <th>Times offered</th>
+        <th>Times accepted</th>
+        <th>Seller's payoff</th>
+        {% if n_types == 2 %}
+            <th>Buyer's (LOW) payoff</th>
+            <th>Buyer's (HIGH) payoff</th>
+        {% else %}
+            <th>Buyer's payoff</th>
+        {% endif %}
+    </tr>
+    {% for beta, c, thetaL, thetaH, uL, uH, p_offered, q_offered, n_offered, n_accepted, seller_payoff, buyerL_payoff, buyerH_payoff in results_table %}
+        <tr>
+            {% if n_types == 2 %}
+                {% if diff_default_options == True %}
+                    <td>$$ c={{ c }}, \beta={{ beta }}, \theta_L={{ thetaL }},
+                        \theta_H={{ thetaH }}, u_L={{ uL }}, u_H={{ uH }}$$</td>
+                {% else %}
+                    <td>$$ c={{ c }}, \beta={{ beta }}, \theta_L={{ thetaL }},
+                        \theta_H={{ thetaH }}$$</td>
+                {% endif %}
+            {% else %}
+                {% if beta == 1 %}
+                    <td>$$ c={{ c }}, \theta={{ thetaL }}$$</td>
+                {% else %}
+                    <td>$$ c={{ c }}, \theta={{ thetaH }}$$</td>
+                {% endif %}
+            {% endif %}
+            <td>$$ p={{ p_offered }}, q={{ q_offered }}$$</td>
+            <td>{{ n_offered }}</td>
+            <td>{{ n_accepted }}</td>
+            <td>{{ seller_payoff }}</td>
+            {% if n_types == 2 %}
+                <td>{{ buyerL_payoff }}</td>
+                <td>{{ buyerH_payoff }}</td>
+            {% else %}
+                {% if beta == 1 %}
+                    <td>{{ buyerL_payoff }}</td>
+                {% else %}
+                    <td>{{ buyerH_payoff }}</td>
+                {% endif %}
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>

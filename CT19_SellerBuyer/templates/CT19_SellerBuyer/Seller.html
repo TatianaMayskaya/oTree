@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Round {{ player.round_number }} of {{ Constants.num_rounds }}.
+{% endblock %}
+
+{% block content %}
+
+<p>You are the <strong>Seller</strong>.</p>
+
+<p>Parameters for this round:</p>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<p> $$c={{ cost }}$$</p>
+{% if beta < 1 and beta > 0 %}
+    <p>$$\beta={{ beta }}$$</p>
+    <p>$$\theta_L={{ thetaL }}$$</p>
+    <p>$$\theta_H={{ thetaH }}$$</p>
+    {% if uL != 0 or uH != 0 %}
+        <p>$$u_L={{ uL }}$$</p>
+        <p>$$u_H={{ uH }}$$</p>
+    {% endif %}
+{% elif beta == 1 %}
+    <p>$$\theta={{ thetaL }}$$</p>
+    {% if uL != 0 %}
+        <p>$$u_0={{ uL }}$$</p>
+    {% endif %}
+{% else %}
+    <p>$$\theta={{ thetaH }}$$</p>
+    {% if uH != 0 %}
+        <p>$$u_0={{ uH }}$$</p>
+    {% endif %}
+{% endif %}
+
+
+
+Please choose a product menu:
+<table class="table">
+    <tr>
+        <td>Product 1: </td>
+        <td>{% formfield group.price_1 label = "p:"%}</td>
+        <td>{% formfield group.quality_1 label = "q:"%}</td>
+    </tr>
+    <tr>
+        <td>Product 2: </td>
+        <td>{% formfield group.price_2 label = "p:"%}</td>
+        <td>{% formfield group.quality_2 label = "q:"%}</td>
+    </tr>
+    <tr>
+        <td>Product 3: </td>
+        <td>{% formfield group.price_3 label = "p:"%}</td>
+        <td>{% formfield group.quality_3 label = "q:"%}</td>
+    </tr>
+    <tr>
+        <td>Product 4: </td>
+        <td>{% formfield group.price_4 label = "p:"%}</td>
+        <td>{% formfield group.quality_4 label = "q:"%}</td>
+    </tr>
+    <tr>
+        <td>Product 5: </td>
+        <td>{% formfield group.price_5 label = "p:"%}</td>
+        <td>{% formfield group.quality_5 label = "q:"%}</td>
+    </tr>
+</table>
+
+
+    {% next_button %}
+
+{% endblock %}

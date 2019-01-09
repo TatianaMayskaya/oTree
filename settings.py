@@ -12,6 +12,18 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
+     {
+         'name': 'ContractTheoryICEF2019_Class1',
+         'display_name': "Contract Theory ICEF year 2019. Class 1",
+         'num_demo_participants': 2,
+         'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
+         # 'app_sequence': ['CT19_SellerBuyer'],
+         'Email': 1,
+         'doc': """
+         Edit 'Email' to control whether emails should be collected for 
+         participants in the database (0=no,1=yes)
+         """
+     }
     # {
     #     'name': 'my_game',
     #     'display_name': 'My Game',
@@ -31,31 +43,31 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 2,
     #     'app_sequence': ['GameOct18_en'],
     # },
-    {
-        'name': 'GameNov18',
-        'display_name': 'GameNov18',
-        'num_demo_participants': 2,
-        'app_sequence': ['GameNov18_intro',
-                         'GameNov18_main',
-                         'GameNov18_survey_text_logic',
-                         'GameNov18_survey_roles_reversed',
-                         'GameNov18_survey_opinion',
-                         # 'GameNov18_survey_text_modifications',
-                         'GameNov18_survey_comments',
-                         'GameNov18_survey_risk',
-                         'GameNov18_survey_prisoner',
-                         'GameNov18_survey_trust',
-                         'GameNov18_survey_personal',
-                         'final_screen'
-                         ],
-        'use_browser_bots': True,
-        'language': 1,  # 1=EN, 2=RU
-        'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
-        'doc': """
-        Edit the 'language' and 'currency_used' parameter to change 
-        the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES)
-        """
-    }
+    # {
+    #     'name': 'GameNov18',
+    #     'display_name': 'GameNov18',
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['GameNov18_intro',
+    #                      'GameNov18_main',
+    #                      'GameNov18_survey_text_logic',
+    #                      'GameNov18_survey_roles_reversed',
+    #                      'GameNov18_survey_opinion',
+    #                      # 'GameNov18_survey_text_modifications',
+    #                      'GameNov18_survey_comments',
+    #                      'GameNov18_survey_risk',
+    #                      'GameNov18_survey_prisoner',
+    #                      'GameNov18_survey_trust',
+    #                      'GameNov18_survey_personal',
+    #                      'final_screen'
+    #                      ],
+    #     'use_browser_bots': True,
+    #     'language': 1,  # 1=EN, 2=RU
+    #     'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
+    #     'doc': """
+    #     Edit the 'language' and 'currency_used' parameter to change
+    #     the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES)
+    #     """
+    # },
     # {
     #     'name': 'public_goods',
     #     'display_name': "Public Goods",
@@ -117,6 +129,11 @@ REAL_WORLD_CURRENCY_CODE = 'USD'  # 'USD', 'RUB'
 USE_POINTS = True
 
 ROOMS = [
+    {
+        'name': 'ContractTheoryICEF2019',
+        'display_name': 'Contract Theory ICEF year 2019',
+        'participant_label_file': '_rooms/ContractTheoryICEF2019.txt',
+    }
     # {
     #     'name': 'econ101',
     #     'display_name': 'Econ 101 class',
@@ -186,16 +203,16 @@ ROOMS = [
     #     'display_name': 'GameOct18 - for maximum 30 participants : room 2 (labels: zi)',
     #     'participant_label_file': '_rooms/GameOct18_30z.txt'
     # },
-    {
-        'name': 'GameNov18_room1',
-        'display_name': 'GameNov18 - for maximum 100 participants : room 1 (labels zi)',
-        'participant_label_file': '_rooms/room_100z.txt'
-    },
-    {
-        'name': 'GameNov18_room2',
-        'display_name': 'GameNov18 - for maximum 100 participants : room 2 (labels zi)',
-        'participant_label_file': '_rooms/room_100z.txt'
-    }
+    # {
+    #     'name': 'GameNov18_room1',
+    #     'display_name': 'GameNov18 - for maximum 100 participants : room 1 (labels zi)',
+    #     'participant_label_file': '_rooms/room_100z.txt'
+    # },
+    # {
+    #     'name': 'GameNov18_room2',
+    #     'display_name': 'GameNov18 - for maximum 100 participants : room 2 (labels zi)',
+    #     'participant_label_file': '_rooms/room_100z.txt'
+    # }
 ]
 
 
