@@ -58,10 +58,12 @@ class Buyer(Page):
 
 
 class WaitForBuyer(WaitPage):
-    wait_for_all_groups = True
-
     def after_all_players_arrive(self):
         self.group.set_payoffs()
+
+
+class WaitForAllGroups(WaitPage):
+    wait_for_all_groups = True
 
 
 class Results(Page):
@@ -98,5 +100,6 @@ page_sequence = [
     WaitForSeller,
     Buyer,
     WaitForBuyer,
+    WaitForAllGroups,
     Results
 ]

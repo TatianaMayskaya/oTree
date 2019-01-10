@@ -18,6 +18,7 @@ SESSION_CONFIGS = [
          'num_demo_participants': 2,
          'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
          # 'app_sequence': ['CT19_SellerBuyer'],
+         'use_browser_bots': True,
          'Email': 1,
          'doc': """
          Edit 'Email' to control whether emails should be collected for 
