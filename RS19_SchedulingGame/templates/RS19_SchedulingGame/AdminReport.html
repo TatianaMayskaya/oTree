@@ -1,0 +1,16 @@
+{% load otree %}
+
+<table class="table">
+    <tr>
+        <th>Order</th>
+        <th>Date</th>
+        <th>Assignment</th>
+    </tr>
+    {% for order, date, assignment in results_table %}
+        <tr>
+            <td>{{ order }}</td>
+            <td>{{ date }}</td>
+            <td>{{ assignment }}</td>
+        </tr>
+    {% endfor %}
+</table>

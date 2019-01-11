@@ -24,6 +24,18 @@ SESSION_CONFIGS = [
          Edit 'Email' to control whether emails should be collected for 
          participants in the database (0=no,1=yes)
          """
+     },
+     {
+        'name': 'ResearchSeminar_11Jan19',
+        'display_name': "Research Seminar - order assignment (11 January 2019)",
+        'num_demo_participants': 4,
+        'app_sequence': ['CT19_NameEmail', 'RS19_SchedulingGame'],
+        'use_browser_bots': True,
+        'Email': 1,
+        'doc': """
+         Edit 'Email' to control whether emails should be collected for 
+         participants in the database (0=no,1=yes)
+         """
      }
     # {
     #     'name': 'my_game',
@@ -134,6 +146,11 @@ ROOMS = [
         'name': 'ContractTheoryICEF2019',
         'display_name': 'Contract Theory ICEF year 2019',
         'participant_label_file': '_rooms/ContractTheoryICEF2019.txt',
+    },
+    {
+        'name': 'ResearchSeminar3year2019',
+        'display_name': 'Research Seminar 3 year 2019',
+        'participant_label_file': '_rooms/ResearchSeminar3year2019.txt'
     }
     # {
     #     'name': 'econ101',
