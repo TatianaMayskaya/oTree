@@ -19,16 +19,16 @@ class Constants(BaseConstants):
     name_in_url = 'CT19_SellerBuyer'
     players_per_group = 2
 
-    with open('CT19_SellerBuyer/parameters.csv') as parameters_file:
-        parameters = list(csv.DictReader(parameters_file))
-
-    num_rounds = len(parameters)
+    num_rounds = 30  # maximum number of rounds allowed
 
 
 class Subsession(BaseSubsession):
     def creating_session(self):
         self.group_randomly(fixed_id_in_group=False)
         if self.round_number == 1:
+            with open(self.session.config['file']) as parameters_file:
+                self.session.vars['parameters'] = list(csv.DictReader(parameters_file))
+            self.session.vars['num_rounds'] = len(self.session.vars['parameters'])
             self.session.vars['beta'] = []
             self.session.vars['c'] = []
             self.session.vars['thetaL'] = []
@@ -42,16 +42,17 @@ class Subsession(BaseSubsession):
             self.session.vars['seller_payoff'] = []
             self.session.vars['buyerL_payoff'] = []
             self.session.vars['buyerH_payoff'] = []
-        for p in self.get_groups():
-            parameters_data = Constants.parameters[self.round_number - 1]
-            p.line = int(parameters_data['id'])
-            p.beta = float(parameters_data['beta'])
-            p.cost = float(parameters_data['c'])
-            p.thetaL = float(parameters_data['thetaL'])
-            p.thetaH = float(parameters_data['thetaH'])
-            p.uL = float(parameters_data['uL'])
-            p.uH = float(parameters_data['uH'])
-            p.type = random.random() < p.beta
+        if self.round_number <= self.session.vars['num_rounds']:
+            for p in self.get_groups():
+                parameters_data = self.session.vars['parameters'][self.round_number - 1]
+                p.line = int(parameters_data['id'])
+                p.beta = float(parameters_data['beta'])
+                p.cost = float(parameters_data['c'])
+                p.thetaL = float(parameters_data['thetaL'])
+                p.thetaH = float(parameters_data['thetaH'])
+                p.uL = float(parameters_data['uL'])
+                p.uH = float(parameters_data['uH'])
+                p.type = random.random() < p.beta
 
     def vars_for_admin_report(self):
         results_table = []

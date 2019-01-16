@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Round {{ player.round_number }} of {{ Constants.num_rounds }}.
+    Round {{ player.round_number }} of {{ num_rounds }}.
 {% endblock %}
 
 {% block content %}
@@ -82,7 +82,11 @@
 
 <p>Your total payoff in this game: {{ payoff_total }}.</p>
 
+{% if player.round_number < num_rounds %}
     {% next_button %}
+{% else %}
+ <p>THANK YOU FOR PARTICIPATION</p>
+{% endif %}
 {% endblock %}
 
 

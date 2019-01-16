@@ -17,12 +17,29 @@ SESSION_CONFIGS = [
          'display_name': "Contract Theory ICEF year 2019. Class 1",
          'num_demo_participants': 2,
          'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
-         # 'app_sequence': ['CT19_SellerBuyer'],
          'use_browser_bots': True,
          'Email': 1,
+         'file': 'CT19_SellerBuyer/parameters1.csv',
          'doc': """
          Edit 'Email' to control whether emails should be collected for 
          participants in the database (0=no,1=yes)
+         
+         Edit 'file' for the file containing parameters (in csv format)
+         """
+     },
+    {
+         'name': 'ContractTheoryICEF2019_Class2',
+         'display_name': "Contract Theory ICEF year 2019. Class 2",
+         'num_demo_participants': 2,
+         'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
+         'use_browser_bots': True,
+         'Email': 1,
+         'file': 'CT19_SellerBuyer/parameters2.csv',
+         'doc': """
+         Edit 'Email' to control whether emails should be collected for 
+         participants in the database (0=no,1=yes)
+         
+         Edit 'file' for the file containing parameters (in csv format)
          """
      },
      {
