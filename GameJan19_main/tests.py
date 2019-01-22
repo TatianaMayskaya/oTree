@@ -20,5 +20,5 @@ class PlayerBot(Bot):
             yield (pages.PlayerChoiceAnnouncement)
         if self.player.role() == '2C' or self.player.role() == '2D':
             yield (pages.Accept, {'response': 20})
-        time.sleep(15)
+        # time.sleep(15)
         yield (pages.Results)
