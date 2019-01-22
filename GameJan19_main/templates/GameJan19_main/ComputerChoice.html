@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Round {{ round_number }} out of {{ n_rounds }}.
+        {% else %}
+            Раунд {{ round_number }} из {{ n_rounds }}.
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+{% if language == 1 %}
+
+    <h3><center>Players 1A and 1B have decided on their offers.</center></h3>
+
+    <h1><center>Computer chose {{ computer_choice }}.</center></h1>
+
+{% else %}
+
+    <h3><center>Игроки 1A и 1B сделали свой выбор.</center></h3>
+
+    <h1><center>Компьютер выбрал {{ computer_choice }}.</center></h1>
+
+{% endif %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next</button>
+        {% else %}
+            <button name="next">Дальше</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

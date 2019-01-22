@@ -1,0 +1,115 @@
+{% load otree static %}
+
+<div class="instructions well well-lg">
+
+    <div class="panel-body">
+
+        <p>
+            First, all participants will be randomly divided into groups of four.
+            This will be done anonymously, so that you will not know who else is in your group
+            and your group will not know your identity.
+        </p>
+
+        <p>
+            Participants in a group will have different roles:
+            <strong>Player 1A</strong>, <strong>Player 1B</strong>,
+            <strong>Player 2C</strong>, and <strong>Player 2D</strong>.
+            You will be assigned randomly to a role, and it will be displayed at the beginning of each round of the game.
+        </p>
+
+        <p>
+            There will be {{ n_rounds }} rounds in the game.
+            Groups will be reshuffled after each round. Your role in a group might also change.
+            However, if you were Player 1A or Player 1B in the first round, you will <strong>never</strong>
+            be Player 2C or Player 2D in any subsequent round.
+            Similarly, if you were Player 2C or Player 2D in the first round, you will <strong>never</strong>
+            be Player 1A or Player 1B in any subsequent round.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Round of the game
+        </h4>
+
+        <ol>
+            <li>
+                All participants with roles Player 1A and Player 1B are endowed with {{ endowment }} tokens.
+                Each of them has to choose how much out of {{ endowment }} tokens to propose.
+                This information remains private during the whole game.
+                Denote by <i>OfferA</i> and <i>OfferB</i> Player 1A and Player 1B choices:
+                both <i>OfferA</i> and <i>OfferB</i> are integers between 0 and {{ endowment }}.
+            </li>
+            <li>
+                In each group, computer randomly chooses <strong>C</strong> or <strong>D</strong>.
+                All four players in a group observe this choice.
+                Denote by <i>ComputerChoice</i> the computer's choice: <i>ComputerChoice</i> is either C or D.
+            </li>
+            <li>
+                If <i>ComputerChoice</i>=C, then Player 2C chooses A or B.
+                If <i>ComputerChoice</i>=D, then Player 2D chooses A or B.
+                All four players in a group observe this choice.
+                Denote by <i>PlayerChoice</i> the above choice Player 2C or 2D made:
+                <i>PlayerChoice</i> is either A or B.
+            </li>
+            <li>
+                All participants with roles Player 2C and Player 2D has to decide on
+                the minimum offer each of them would accept.
+                This information remains private during the whole game.
+                Denote by <i>MaoC</i> and <i>MaoD</i> Player 2C and Player 2D choices:
+                both <i>MaoC</i> and <i>MaoD</i> are nonnegative integers.
+            </li>
+            <li>
+                Payoff from a round is defined as follows.
+                Based on <i>ComputerChoice</i> and <i>PlayerChoice</i> players are paired within a group.
+                <ol>
+                    <li>
+                        If <i>ComputerChoice</i>=C and <i>PlayerChoice</i>=A, then
+                        Player 1A is paired with Player 2C, while Player 1B is paired with Player 2D.
+                    </li>
+                    <li>
+                        If <i>ComputerChoice</i>=C and <i>PlayerChoice</i>=B, then
+                        Player 1B is paired with Player 2C, while Player 1A is paired with Player 2D.
+                    </li>
+                    <li>
+                        If <i>ComputerChoice</i>=D and <i>PlayerChoice</i>=A, then
+                        Player 1A is paired with Player 2D, while Player 1B is paired with Player 2C.
+                    </li>
+                    <li>
+                        If <i>ComputerChoice</i>=D and <i>PlayerChoice</i>=B, then
+                        Player 1B is paired with Player 2D, while Player 1A is paired with Player 2C.
+                    </li>
+                </ol>
+                In each pair one participant has the role of Player 1 and the other participant has the role of Player 2.
+                If <i>Offer</i> is greater or equal to <i>Mao</i>, then
+                Player 1 gets {{ endowment }} - <i>Offer</i> tokens, while
+                Player 2 gets <i>Offer</i> tokens. Otherwise, that is,
+                if <i>Offer</i> is less than <i>Mao</i>, then
+                both Player 1 and Player 2 get {{ payoff_if_rejected }} tokens.
+            </li>
+        </ol>
+
+        <p>
+            Once all {{ n_rounds }} rounds are over, you will know your payoff in each round.
+            Exactly one round will be randomly chosen for the actual payment.
+        </p>
+
+        <p>
+            After reading the instructions, each of you receive a small quiz that checks your understanding of
+            these instructions. Your payment does not depend how well you perform on this quiz.
+            However, if you answer a question incorrectly, you will have to answer the same question again.
+        </p>
+            After completing the game, you will be asked to answer a few more questions.
+            You will be paid for some of them as well.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Your final payment:
+        </h4>
+
+        <p>
+            <center> {{ show_up_text }} +
+            (tokens earned in the round chosen for payment) * {{ rate_text }} +
+            (tokens earned after the game) * {{ rate_survey_text }}</center>
+        </p>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Round {{ round_number }} out of {{ n_rounds }}.
+        {% else %}
+            Раунд {{ round_number }} из {{ n_rounds }}.
+        {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+
+        {% if language == 1 %}
+            <h1>
+                <center>You are Player {{ role }}.</center>
+            </h1>
+
+        {% else %}
+
+            <h1>
+                <center>Вы Игрок {{ role }}.</center>
+            </h1>
+
+        {% endif %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next</button>
+        {% else %}
+            <button name="next">Дальше</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

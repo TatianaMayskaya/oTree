@@ -13,6 +13,22 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
      {
+        'name': 'GameJan19',
+        'display_name': 'Experiment: January 2019',
+        'num_demo_participants': 4,
+        'app_sequence': ['GameJan19_intro', 'GameJan19_main'],
+        # 'app_sequence': ['GameJan19_main'],
+        'use_browser_bots': True,
+        'language': 1,  # 1=EN, 2=RU
+        'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
+        'n_rounds': 4,  # make sure it coincides with the number of rounds in GameJan19_main
+        'doc': """
+        Edit the 'language' and 'currency_used' parameter to change
+        the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES).
+        Parameter 'n_rounds' corresponds to the number of rounds in the game (do not change).
+        """
+     },
+     {
          'name': 'ContractTheoryICEF2019_Class1',
          'display_name': "Contract Theory ICEF year 2019. Class 1",
          'num_demo_participants': 2,
@@ -27,7 +43,7 @@ SESSION_CONFIGS = [
          Edit 'file' for the file containing parameters (in csv format)
          """
      },
-    {
+     {
          'name': 'ContractTheoryICEF2019_Class2',
          'display_name': "Contract Theory ICEF year 2019. Class 2",
          'num_demo_participants': 2,
@@ -168,7 +184,12 @@ ROOMS = [
         'name': 'ResearchSeminar3year2019',
         'display_name': 'Research Seminar 3 year 2019',
         'participant_label_file': '_rooms/ResearchSeminar3year2019.txt'
-    }
+    },
+    {
+        'name': 'room_100z',
+        'display_name': 'Room for maximum 100 participants : room 1 (labels zi)',
+        'participant_label_file': '_rooms/room_100z.txt'
+    },
     # {
     #     'name': 'econ101',
     #     'display_name': 'Econ 101 class',
