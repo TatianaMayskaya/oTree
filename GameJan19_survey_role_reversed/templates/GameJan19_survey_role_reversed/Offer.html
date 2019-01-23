@@ -1,0 +1,81 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+    $(function () {
+        $('.otree-modal-main-button').on('click',function(){
+            if ($('#id_offer').val()==''){
+                {% if language == 1 %}
+                var msg = 'Please enter a number';
+                {% else %}
+                var msg = 'Пожалуйста, введите число';
+                {% endif %}
+            }
+            else if ($('#id_offer').val()<0){
+                {% if language == 1 %}
+                var msg = 'Value must be greater than or equal to 0';
+                {% else %}
+                var msg = 'Значение должно быть больше или равно 0';
+                {% endif %}
+            }
+            else if ($('#id_offer').val()>{{ endowment }}){
+                {% if language == 1 %}
+                var msg = 'Value must be less than or equal to {{ endowment }}';
+                {% else %}
+                var msg = 'Значение должно быть меньше или равно {{ endowment }}';
+                {% endif %}
+            }
+            else {
+                var pay = {{ endowment }} - $('#id_offer').val();
+                {% if language == 1 %}
+                var msg = 'You chose to offer ' + $('#id_offer').val() + ' tokens to Player 2. '
+                        + 'If he accepts your offer, you will get ' + pay + ' tokens. '
+                        + 'If he rejects your offer, you will get {{ payoff_if_rejected }} tokens.';
+                {% else %}
+                var msg = 'Вы предложили ' + $('#id_offer').val() + ' жетонов Игроку 2. '
+                        + 'Если он примет Ваше предложение, Вы получите ' + pay + ' жетонов. '
+                        + 'Если он откажется, Вы получите {{ payoff_if_rejected }} жетонов.';
+                {% endif %}
+            }
+            $('.otree-modal-message').text(msg);
+        })
+    })
+    </script>
+{% endblock %}
+
+
+{% block title %}
+
+        {% if language == 1 %}
+            Round {{ round_number }} out of {{ n_rounds }}.
+        {% else %}
+            Раунд {{ round_number }} из {{ n_rounds }}.
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% if language == 1 %}
+            <p>
+                You are Player {{ role }}.
+            </p>
+        {% else %}
+            <p>
+                Вы Игрок {{ role }}.
+            </p>
+        {% endif %}
+
+        {% formfield player.offer label = offer_label %}
+
+    <div>
+        {% if language == 1 %}
+            {% confirm_button title='' yes_button='Submit' no_button='Change the choice' main_button='Submit' %}
+        {% else %}
+            {% confirm_button title='' yes_button='Подтвердить' no_button='Изменить выбор' main_button='Подтвердить' %}
+        {% endif %}
+    </div>
+
+{% endblock %}

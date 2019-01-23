@@ -14,9 +14,8 @@ class Introduction(Page):
             instructions_template = 'GameJan19_intro/InstructionsRus.html'
         return {'language': self.session.config['language'],
                 'instructions_template': instructions_template,
-                'show_up_text': add_currency(self.session.config['currency_used'], self.session.vars['show_up']),
-                'rate_text': add_currency(self.session.config['currency_used'], self.session.vars['rate']),
-                'rate_survey_text': add_currency(self.session.config['currency_used'], self.session.vars['rate_survey']),
+                'show_up_text': add_currency(self.session.config['currency_used'],
+                                             self.session.config['participation_fee']),
                 'endowment': self.session.vars['endowment'],
                 'payoff_if_rejected': self.session.vars['payoff_if_rejected'],
                 'n_rounds': self.session.config['n_rounds']

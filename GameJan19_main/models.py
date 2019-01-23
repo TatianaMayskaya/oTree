@@ -9,7 +9,7 @@ author = 'Tatiana Mayskaya'
 
 doc = """
 Base Game: Ultimatum Game with 4 players in a group and endogenous pairing
-main part - one round
+main part
 """
 
 
@@ -45,29 +45,40 @@ def add_tokens(language, num):
 class Constants(BaseConstants):
     name_in_url = 'GameJan19_main'
     players_per_group = 4
-    num_rounds = 4  # make sure it coincides with self.session.config['n_rounds']
+    num_rounds = 8  # make sure it coincides with self.session.config['n_rounds']
 
 
 class Subsession(BaseSubsession):
     def do_my_shuffle(self):
+        players = self.get_players()
+        group_matrix = []
         if self.round_number < Constants.num_rounds:
-            self.group_randomly(fixed_id_in_group=True)
-            for group in self.get_groups():
-                p1 = group.get_player_by_id(1)
-                p2 = group.get_player_by_id(2)
-                p1.id_in_group = random.choice([1, 2])
-                p2.id_in_group = 3 - p1.id_in_group
-                p3 = group.get_player_by_id(3)
-                p4 = group.get_player_by_id(4)
-                p3.id_in_group = random.choice([3, 4])
-                p4.id_in_group = 7 - p3.id_in_group
+            if self.round_number == 1:
+                random.shuffle(players)
+                while players:
+                    new_group = [players.pop(), players.pop(), players.pop(), players.pop()]
+                    group_matrix.append(new_group)
+            else:
+                players1 = [p for p in players if p.participant.vars['treated'] + p.participant.vars['control'] == 0]
+                players2 = [p for p in players if p.participant.vars['treated'] + p.participant.vars['control'] > 0]
+                random.shuffle(players1)
+                random.shuffle(players2)
+                while players1:
+                    new_group = [players1.pop(), players1.pop(), players2.pop(), players2.pop()]
+                    group_matrix.append(new_group)
         else:
-            players = self.get_players()
-            T_players = [p for p in players if p.participant.vars['treated'] == 1 and p.participant.vars['control'] == 0]
-            C_players = [p for p in players if p.participant.vars['treated'] == 0 and p.participant.vars['control'] == 1]
-            TC_players = [p for p in players if p.participant.vars['treated'] == 1 and p.participant.vars['control'] == 1]
-            N_players = [p for p in players if p.participant.vars['treated'] == 0 and p.participant.vars['control'] == 0]
-            group_matrix = []
+            T_players = [p for p in players if
+                         p.participant.vars['treated'] == 1 and p.participant.vars['control'] == 0]
+            C_players = [p for p in players if
+                         p.participant.vars['treated'] == 0 and p.participant.vars['control'] == 1]
+            TC_players = [p for p in players if
+                          p.participant.vars['treated'] == 1 and p.participant.vars['control'] == 1]
+            N_players = [p for p in players if
+                         p.participant.vars['treated'] == 0 and p.participant.vars['control'] == 0]
+            random.shuffle(T_players)
+            random.shuffle(C_players)
+            random.shuffle(TC_players)
+            random.shuffle(N_players)
             while N_players:
                 if C_players:  # list is not empty
                     p3 = C_players.pop()
@@ -83,8 +94,8 @@ class Subsession(BaseSubsession):
                     p4 = C_players.pop()
                 new_group = [N_players.pop(), N_players.pop(), p3, p4]
                 group_matrix.append(new_group)
-            self.set_group_matrix(group_matrix)
-            self.group_randomly(fixed_id_in_group=True)
+        self.set_group_matrix(group_matrix)
+        self.group_randomly(fixed_id_in_group=True)
 
 
 class Group(BaseGroup):
@@ -137,7 +148,7 @@ class Player(BasePlayer):
                 self.payoff = self.offer
 
         if self.round_number == 1:
-            self.participant.vars['payment_round'] = random.choice(range(1, self.session.config['n_rounds'] + 1))
+            self.participant.vars['payment_round'] = random.choice(range(1, Constants.num_rounds + 1))
             self.participant.vars['payment_formula'] = ''
             self.participant.vars['payoff_text'] = ''
             self.participant.vars['treated'] = 0
@@ -146,15 +157,15 @@ class Player(BasePlayer):
                 self.participant.vars['role'] = 1
             else:
                 self.participant.vars['role'] = 2
-            self.participant.vars['results_table'] = [[1, add_tokens(self.session.config['language'], self.offer),
-                                                       response,
-                                                       add_tokens(self.session.config['language'], int(self.payoff))]]
+            self.participant.vars['results_table'] = \
+                [[1, add_tokens(self.session.config['language'], self.offer), response,
+                  add_tokens(self.session.config['language'], int(self.payoff))]]
         else:
-            self.participant.vars['results_table'].append((self.round_number,
-                                                           add_tokens(self.session.config['language'], self.offer),
-                                                           response,
-                                                           add_tokens(self.session.config['language'], int(self.payoff))))
-        if (self.role() == '2C' and self.group.computer_choice == 'C') or (self.role() == '2D' and self.group.computer_choice == 'D'):
+            self.participant.vars['results_table'].append((
+                self.round_number, add_tokens(self.session.config['language'], self.offer), response,
+                add_tokens(self.session.config['language'], int(self.payoff))))
+        if (self.role() == '2C' and self.group.computer_choice == 'C') or (
+                self.role() == '2D' and self.group.computer_choice == 'D'):
             self.participant.vars['treated'] = 1
         elif self.id_in_group >= 3:
             self.participant.vars['control'] = 1
@@ -164,11 +175,13 @@ class Player(BasePlayer):
             self.payment_round = False
         else:
             self.participant.vars['payment_formula'] = \
-                add_currency(self.session.config['currency_used'], self.session.vars['show_up']) + \
+                add_currency(self.session.config['currency_used'], self.session.config['participation_fee']) + \
                 ' + ' + str(int(self.payoff)) + '*' + \
-                add_currency(self.session.config['currency_used'], self.session.vars['rate'])
-            self.payoff = self.session.vars['show_up'] + self.payoff * self.session.vars['rate']
-            self.participant.vars['payoff_text'] = add_currency(self.session.config['currency_used'], int(self.payoff))
+                add_currency(self.session.config['currency_used'],
+                             self.session.vars['rate'] * self.session.config['real_world_currency_per_point'])
+            self.payoff = self.payoff * self.session.vars['rate']
+            self.participant.vars['payoff_text'] = add_currency(
+                self.session.config['currency_used'], float(self.participant.payoff_plus_participation_fee()))
 
     def role(self):
         if self.id_in_group == 1:

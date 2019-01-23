@@ -15,6 +15,17 @@ class ShuffleWaitPage(WaitPage):
         self.subsession.do_my_shuffle()
 
 
+class Introduction(Page):
+    def vars_for_template(self):
+        return {'language': self.session.config['language'],
+                'rate_text': add_currency(
+                    self.session.config['currency_used'],
+                    self.session.vars['rate'] * self.session.config['real_world_currency_per_point'])}
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+
 class RoleInGame(Page):
     def vars_for_template(self):
         return {'language': self.session.config['language'],
@@ -184,6 +195,7 @@ class Results(Page):
 
 page_sequence = [
     ShuffleWaitPage,
+    Introduction,
     RoleInGame,
     Offer,
     OfferWaitPage,

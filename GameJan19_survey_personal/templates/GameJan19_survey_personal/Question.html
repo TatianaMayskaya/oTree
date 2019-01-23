@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey.
+        {% else %}
+            Опрос.
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% for field in form %}
+        {% formfield field label = question_label %}
+    {% endfor %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Continue</button>
+        {% else %}
+            <button name="next">Продолжить</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

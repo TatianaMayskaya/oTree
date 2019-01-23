@@ -1,0 +1,132 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+    $(function () {
+        $('.otree-modal-main-button').on('click',function(){
+            if ($('#id_response').val()==''){
+                {% if language == 1 %}
+                var msg = 'Please enter a number';
+                {% else %}
+                var msg = 'Пожалуйста, введите число';
+                {% endif %}
+            }
+            else if ($('#id_response').val()<0){
+                {% if language == 1 %}
+                var msg = 'Value must be greater than or equal to 0';
+                {% else %}
+                var msg = 'Значение должно быть больше или равно 0';
+                {% endif %}
+            }
+            else if ($('#id_response').val()==0){
+                {% if language == 1 %}
+                var msg = 'You chose 0 tokens as the minimum offer you would accept. '
+                        + 'That implies you get whatever Player 1{{ partner }} offers you.';
+                {% else %}
+                var msg = 'Вы выбрали 0 жетонов в качестве минимально приемлемого предложения. '
+                        + 'Это означает, что Вы получите столько, сколько Вам предложит Игрок 1{{ partner }}.';
+                {% endif %}
+            }
+            else if ($('#id_response').val()==1){
+                {% if language == 1 %}
+                var msg = 'You chose 1 token as the minimum offer you would accept. '
+                        + 'That implies you get whatever Player 1{{ partner }} offers you.';
+                {% else %}
+                var msg = 'Вы выбрали 1 жетон в качестве минимально приемлемого предложения. '
+                        + 'Это означает, что Вы получите столько, сколько Вам предложит Игрок 1{{ partner }}.';
+                {% endif %}
+            }
+            else if ($('#id_response').val()>= {{ endowment }} + 1){
+                {% if language == 1 %}
+                var msg = 'You chose ' + $('#id_response').val() +' tokens as the minimum offer you would accept.'
+                    + ' That means you get 0 tokens no matter what Player 1{{ partner }} offers you.';
+                {% else %}
+                var msg = 'Вы выбрали ' + $('#id_response').val() +' жетонов в качестве минимально приемлемого предложения.'
+                    + ' Это означает, что Вы получите 0 жетонов вне зависимости от того, сколько Вам предложит Игрок 1{{ partner }}.';
+                {% endif %}
+            }
+            else if ($('#id_response').val()== {{ endowment }} ){
+                {% if language == 1 %}
+                var msg = 'You chose ' + $('#id_response').val() +' tokens as the minimum offer you would accept. '
+                    + 'That means you get 0 tokens unless Player 1{{ partner }} offers you all {{ endowment }} tokens.';
+                {% else %}
+                var msg = 'Вы выбрали ' + $('#id_response').val() +' жетонов в качестве минимально приемлемого предложения. '
+                    + 'Это означает, что Вы получите 0 жетонов, если, конечно, Игрок 1{{ partner }} не предложит Вам '
+                    + 'все {{ endowment }} жетонов.';
+                {% endif %}
+            }
+            else {
+                {% if language == 1 %}
+                var msg = 'You chose ' + $('#id_response').val() +' tokens as the minimum offer you would accept.'
+                    + ' If Player 1{{ partner }} offers you X>=' + $('#id_response').val() +' tokens, you will get X tokens.'
+                    + ' If Player 1{{ partner }} offers you X<' + $('#id_response').val() +' tokens, '
+                    + 'you will get {{ payoff_if_rejected }} tokens.';
+                {% else %}
+                var msg = 'Вы выбрали ' + $('#id_response').val() +' жетонов в качестве минимально приемлемого предложения.'
+                    + ' Если Игрок 1{{ partner }} предложит Вам X>=' + $('#id_response').val() +' жетонов, Вы получите X жетонов.'
+                    + ' Если Игрок 1{{ partner }} предложит Вам X<' + $('#id_response').val() +' жетонов, '
+                    + 'Вы получите {{ payoff_if_rejected }} жетонов.';
+                {% endif %}
+            }
+            $('.otree-modal-message').text(msg);
+        })
+    })
+    </script>
+{% endblock %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Round {{ round_number }} out of {{ n_rounds }}.
+        {% else %}
+            Раунд {{ round_number }} из {{ n_rounds }}.
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+        {% if language == 1 %}
+            <p>
+                You are Player {{ role }}.
+            </p>
+        {% else %}
+            <p>
+                Вы Игрок {{ role }}.
+            </p>
+        {% endif %}
+
+        {% if language == 1 %}
+            <p>
+                Please indicate the minimum number of tokens that you would accept from Player 1{{ partner }}.
+                If Player 1{{ partner }} offers you <strong>the same or more</strong>, the offer will be <strong>accepted</strong>
+                automatically; if Player 1{{ partner }} offers you <strong>less</strong>, the offer will be <strong>rejected</strong>
+                automatically and you both get {{ payoff_if_rejected }} tokens.
+                Remember that when we show you at the end of the game how many tokens Player 1{{ partner }} actually
+                offered to you, you will not have a chance to change your response.
+            </p>
+        {% else %}
+            <p>
+                Пожалуйста, укажите минимальное количество жетонов, которое Вы согласитесь принять от Игрока 1{{ partner }}.
+                Если предложение Игрока 1{{ partner }} окажется <strong>таким же или больше</strong>, то оно будет
+                автоматически <strong>принято</strong> Вами; если оно окажется <strong>меньше</strong>, то оно будет
+                автоматически <strong>отклонено</strong>, и вы оба получите {{ payoff_if_rejected }} жетонов.
+                Помните, что когда Вы увидите, что именно Вам предложил игрок 1, - а Вы это увидите в конце игры, -
+                у Вас не будет возмоности изменить свой ответ.
+            </p>
+        {% endif %}
+
+        {% formfield player.response label = response_label %}
+
+        <div>
+            {% if language == 1 %}
+                {% confirm_button title='' yes_button='Submit' no_button='Change the choice' main_button='Submit' %}
+            {% else %}
+                {% confirm_button title='' yes_button='Подтвердить' no_button='Изменить выбор' main_button='Подтвердить' %}
+            {% endif %}
+        </div>
+
+
+{% endblock %}

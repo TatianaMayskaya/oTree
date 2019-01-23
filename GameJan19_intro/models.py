@@ -47,19 +47,17 @@ class Subsession(BaseSubsession):
             self.session.vars['endowment'] = 100
             self.session.vars['payoff_if_rejected'] = 0
             if self.session.config['currency_used'] == 0:
-                self.session.vars['show_up'] = 5
-                self.session.vars['rate'] = 0.1  # 0.2
-                self.session.vars['rate_survey'] = 0.01  # 0.02
+                self.session.config['real_world_currency_per_point'] = 0.01
+                self.session.config['participation_fee'] = 5
             elif self.session.config['currency_used'] == 1:
-                self.session.vars['show_up'] = 3
-                self.session.vars['rate'] = 0.2
-                self.session.vars['rate_survey'] = 0.02
+                self.session.config['real_world_currency_per_point'] = 0.02
+                self.session.config['participation_fee'] = 3
             else:
-                self.session.vars['show_up'] = 200
-                self.session.vars['rate'] = 10
-                self.session.vars['rate_survey'] = 1
-            self.session.vars['rate_survey_text'] = add_currency(self.session.config['currency_used'],
-                                                                 self.session.vars['rate_survey'])
+                self.session.config['real_world_currency_per_point'] = 1.00
+                self.session.config['participation_fee'] = 200
+            self.session.vars['rate'] = 10
+            self.session.vars['rate_reversed'] = 10
+            self.session.vars['rate_survey'] = 1
 
             if self.session.config['language'] == 1:
                 self.session.vars['wait_page_title'] = 'Please wait'
@@ -71,10 +69,10 @@ class Subsession(BaseSubsession):
                 self.session.vars['player_choice'] = 'Choose your partner'
                 with open('GameJan19_intro/quiz_en.csv') as quiz_file:
                     self.session.vars['quiz_file_list'] = list(csv.DictReader(quiz_file))
-                with open('GameJan19_intro/survey1_en.csv') as survey1_file:
-                    self.session.vars['survey1_list'] = list(csv.DictReader(survey1_file))
-                with open('GameJan19_intro/survey2_en.csv') as survey2_file:
-                    self.session.vars['survey2_list'] = list(csv.DictReader(survey2_file))
+                with open('GameJan19_intro/survey_opinion_en.csv') as survey_opinion_file:
+                    self.session.vars['survey_opinion_list'] = list(csv.DictReader(survey_opinion_file))
+                with open('GameJan19_intro/survey_comment_en.csv') as survey_comment_file:
+                    self.session.vars['survey_comment_list'] = list(csv.DictReader(survey_comment_file))
             else:
                 self.session.vars['wait_page_title'] = 'Пожалуйста, подождите'
                 self.session.vars['wait_page_body'] = 'Не все участники ещё закончили игру'
@@ -85,10 +83,10 @@ class Subsession(BaseSubsession):
                 self.session.vars['player_choice'] = 'Выберите своего партнёра'
                 with open('GameJan19_intro/quiz_ru.csv', encoding='utf-8') as quiz_file:
                     self.session.vars['quiz_file_list'] = list(csv.DictReader(quiz_file))
-                with open('GameJan19_intro/survey1_ru.csv', encoding='utf-8') as survey1_file:
-                    self.session.vars['survey1_list'] = list(csv.DictReader(survey1_file))
-                with open('GameJan19_intro/survey2_ru.csv', encoding='utf-8') as survey2_file:
-                    self.session.vars['survey2_list'] = list(csv.DictReader(survey2_file))
+                with open('GameJan19_intro/survey_opinion_ru.csv', encoding='utf-8') as survey_opinion_file:
+                    self.session.vars['survey_opinion_list'] = list(csv.DictReader(survey_opinion_file))
+                with open('GameJan19_intro/survey_comment_ru.csv', encoding='utf-8') as survey_comment_file:
+                    self.session.vars['survey_comment_list'] = list(csv.DictReader(survey_comment_file))
 
         for p in self.get_players():
             question_data = p.current_question()

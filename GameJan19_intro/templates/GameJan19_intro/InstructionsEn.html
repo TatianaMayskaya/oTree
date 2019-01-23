@@ -39,57 +39,59 @@
                 both <i>OfferA</i> and <i>OfferB</i> are integers between 0 and {{ endowment }}.
             </li>
             <li>
-                In each group, computer randomly chooses <strong>C</strong> or <strong>D</strong>.
+                In each group, computer randomly chooses <strong>Player 2C</strong> or <strong>Player 2D</strong>.
                 All four players in a group observe this choice.
-                Denote by <i>ComputerChoice</i> the computer's choice: <i>ComputerChoice</i> is either C or D.
+                Denote by <i>ComputerChoice</i> the computer's choice:
+                <i>ComputerChoice</i> is either Player 2C or Player 2D.
             </li>
             <li>
-                If <i>ComputerChoice</i>=C, then Player 2C chooses A or B.
-                If <i>ComputerChoice</i>=D, then Player 2D chooses A or B.
+                If <i>ComputerChoice</i>=Player 2C, then Player 2C chooses Player 1A or Player 1B.
+                If <i>ComputerChoice</i>=Player 2D, then Player 2D chooses Player 1A or Player 1B.
                 All four players in a group observe this choice.
                 Denote by <i>PlayerChoice</i> the above choice Player 2C or 2D made:
-                <i>PlayerChoice</i> is either A or B.
+                <i>PlayerChoice</i> is either Player 1A or Player 1B.
             </li>
             <li>
-                All participants with roles Player 2C and Player 2D has to decide on
+                All participants with roles Player 2C and Player 2D have to decide on
                 the minimum offer each of them would accept.
                 This information remains private during the whole game.
-                Denote by <i>MaoC</i> and <i>MaoD</i> Player 2C and Player 2D choices:
-                both <i>MaoC</i> and <i>MaoD</i> are nonnegative integers.
+                Denote by <i>MinOfferC</i> and <i>MinOfferD</i> Player 2C and Player 2D choices:
+                both <i>MinOfferC</i> and <i>MinOfferD</i> are nonnegative integers.
             </li>
             <li>
                 Payoff from a round is defined as follows.
                 Based on <i>ComputerChoice</i> and <i>PlayerChoice</i> players are paired within a group.
                 <ol>
                     <li>
-                        If <i>ComputerChoice</i>=C and <i>PlayerChoice</i>=A, then
+                        If <i>ComputerChoice</i>=Player 2C and <i>PlayerChoice</i>=Player 1A, then
                         Player 1A is paired with Player 2C, while Player 1B is paired with Player 2D.
                     </li>
                     <li>
-                        If <i>ComputerChoice</i>=C and <i>PlayerChoice</i>=B, then
+                        If <i>ComputerChoice</i>=Player 2C and <i>PlayerChoice</i>=Player 1B, then
                         Player 1B is paired with Player 2C, while Player 1A is paired with Player 2D.
                     </li>
                     <li>
-                        If <i>ComputerChoice</i>=D and <i>PlayerChoice</i>=A, then
+                        If <i>ComputerChoice</i>=Player 2D and <i>PlayerChoice</i>=Player 1A, then
                         Player 1A is paired with Player 2D, while Player 1B is paired with Player 2C.
                     </li>
                     <li>
-                        If <i>ComputerChoice</i>=D and <i>PlayerChoice</i>=B, then
+                        If <i>ComputerChoice</i>=Player 2D and <i>PlayerChoice</i>=Player 1B, then
                         Player 1B is paired with Player 2D, while Player 1A is paired with Player 2C.
                     </li>
                 </ol>
                 In each pair one participant has the role of Player 1 and the other participant has the role of Player 2.
-                If <i>Offer</i> is greater or equal to <i>Mao</i>, then
+                If <i>Offer</i> is greater or equal to <i>>MinOffer</i>, then
                 Player 1 gets {{ endowment }} - <i>Offer</i> tokens, while
                 Player 2 gets <i>Offer</i> tokens. Otherwise, that is,
-                if <i>Offer</i> is less than <i>Mao</i>, then
+                if <i>Offer</i> is less than <i>>MinOffer</i>, then
                 both Player 1 and Player 2 get {{ payoff_if_rejected }} tokens.
             </li>
         </ol>
 
         <p>
-            Once all {{ n_rounds }} rounds are over, you will know your payoff in each round.
-            Exactly one round will be randomly chosen for the actual payment.
+            You will know your payoff in each round after the experiment is over.
+            Exactly one round of the game will be randomly chosen for the actual payment
+            (you will learn the conversion rate before the game starts).
         </p>
 
         <p>
@@ -97,18 +99,13 @@
             these instructions. Your payment does not depend how well you perform on this quiz.
             However, if you answer a question incorrectly, you will have to answer the same question again.
         </p>
+        <p>
             After completing the game, you will be asked to answer a few more questions.
             You will be paid for some of them as well.
         </p>
-
-        <h4 class="panel-sub-heading">
-            Your final payment:
-        </h4>
-
         <p>
-            <center> {{ show_up_text }} +
-            (tokens earned in the round chosen for payment) * {{ rate_text }} +
-            (tokens earned after the game) * {{ rate_survey_text }}</center>
+            On the top of what you will earn <i>during</i> the experiment,
+            you will get {{ show_up_text }} for participation.
         </p>
 
     </div>

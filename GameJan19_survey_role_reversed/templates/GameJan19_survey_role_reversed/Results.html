@@ -2,12 +2,185 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+        {% if language == 1 %}
+            Round {{ round_number }} out of {{ n_rounds }}.
+        {% else %}
+            Раунд {{ round_number }} из {{ n_rounds }}.
+        {% endif %}
 {% endblock %}
 
 {% block content %}
 
-    {% next_button %}
+{% if language == 1 %}
+
+    <p>Players 1A and 1B have decided on their offers.</p>
+
+    <p>Computer chose Player 2{{ computer_choice }}.</p>
+
+    <p>
+        Player 2{{ computer_choice }} chose Player 1{{ player_choice }}.
+        That implies that Player 1{{ player_choice }} offers to Player 2{{ computer_choice}}, while
+        Player 1{{ player_choice_opposite }} offers to Player 2{{ computer_choice_opposite }}.
+    </p>
+
+    <p><strong>Players 2C and 2D have decided on the minimum offer each of them would accept.</strong></p>
+
+{% else %}
+
+    <p>Игроки 1A и 1B сделали свой выбор.</p>
+
+    <p>Компьютер выбрал Игрока 2{{ computer_choice }}.</p>
+
+    <p>
+        Игрок 2{{ computer_choice }} выбрал Игрока 1{{ player_choice }}.
+        Это означает, что Игрок 1{{ player_choice }} предлагает Игроку 2{{ computer_choice}}, а
+        Игрок 1{{ player_choice_opposite }} предлагает Игроку 2{{ computer_choice_opposite }}.
+    </p>
+
+    <p><strong>Игроки 2C и 2D выбрали минимально приемлемые предложения.</strong></p>
+
+{% endif %}
+
+{% if round_number < n_rounds %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Next round</button>
+        {% else %}
+            <button name="next">Следующий раунд</button>
+        {% endif %}
+    </div>
+
+{% else %}
+
+{% if language == 1 %}
+
+    <p><strong>This is the last round.</strong></p>
+
+    <h1>Results</h1>
+
+    <h3>Game 1</h3>
+
+    <p>You were Player {{ role }} in the game.</p>
+
+    {% for round, offer, response, payoff in results_table %}
+
+        {% if role == 1 %}
+
+            <p>
+                In <strong>round {{ round }}</strong> you offered {{ offer }},
+                your offer was {{ response }}, your payoff is <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% else %}
+
+            <p>
+                In <strong>round {{ round }}</strong> you were offered {{ offer }},
+                you {{ response }} this offer, your payoff is <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% endif %}
+
+    {% endfor %}
+
+    <p>Round chosen for the payment: round {{ payment_round }}</p>
+
+    <h3>Game 2</h3>
+
+    <p>You were Player {{ role_reversed }} in the game.</p>
+
+    {% for round, offer, response, payoff in results_table_reversed %}
+
+        {% if role == 1 %}
+
+            <p>
+                In <strong>round {{ round }}</strong> you offered {{ offer }},
+                your offer was {{ response }}, your payoff is <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% else %}
+
+            <p>
+                In <strong>round {{ round }}</strong> you were offered {{ offer }},
+                you {{ response }} this offer, your payoff is <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% endif %}
+
+    {% endfor %}
+
+    <p>Round chosen for the payment: round {{ payment_round_reversed }}</p>
+
+    <p>Your final payment: <strong>{{ payment }}</strong></p>
+
+    <button name="next">Start the survey</button>
+
+{% else %}
+
+    <p><strong>Это последний раунд.</strong></p>
+
+    <h1>Результаты</h1>
+
+    <h3>Игра 1</h3>
+
+    <p>Вы были Игроком {{ role }} в этой игре.</p>
+
+    {% for round, offer, response, payoff in results_table %}
+
+        {% if role == 1 %}
+
+            <p>
+                В <strong>раунде {{ round }}</strong> Вы предложили {{ offer }},
+                Ваше предложение было {{ response }}, Ваш выйгрыш составил <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% else %}
+
+            <p>
+                В <strong>раунде {{ round }}</strong> Вам предложили {{ offer }},
+                Вы {{ response }} это предложение, Ваш выйгрыш составил <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% endif %}
+
+    {% endfor %}
+
+    <p>Раунд, выбранный для оплаты: раунд {{ payment_round }}</p>
+
+    <h3>Игра 2</h3>
+
+    <p>Вы были Игроком {{ role_reversed }} в этой игре.</p>
+
+    {% for round, offer, response, payoff in results_table_reversed %}
+
+        {% if role == 1 %}
+
+            <p>
+                В <strong>раунде {{ round }}</strong> Вы предложили {{ offer }},
+                Ваше предложение было {{ response }}, Ваш выйгрыш составил <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% else %}
+
+            <p>
+                В <strong>раунде {{ round }}</strong> Вам предложили {{ offer }},
+                Вы {{ response }} это предложение, Ваш выйгрыш составил <strong>{{ payoff }}</strong>.
+            </p>
+
+        {% endif %}
+
+    {% endfor %}
+
+    <p>Раунд, выбранный для оплаты: раунд {{ payment_round_reversed }}</p>
+
+    <p>Сколько денег Вы получите: <strong>{{ payment }}</strong></p>
+
+    <button name="next">Начать опрос</button>
+
+{% endif %}
+
+{% endif %}
+
 {% endblock %}
 
 

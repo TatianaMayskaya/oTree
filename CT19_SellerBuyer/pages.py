@@ -34,7 +34,7 @@ class Buyer(Page):
     form_model = 'group'
     form_fields = ['offer_accepted']
 
-    timeout_seconds = 60
+    timeout_seconds = 600
     timeout_submission = {'offer_accepted': 0}
 
     def vars_for_template(self):

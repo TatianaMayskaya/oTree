@@ -13,35 +13,31 @@
 
 {% if language == 1 %}
 
-    <h3><center>Players 1A and 1B have decided on their offers.</center></h3>
+    <p>Players 1A and 1B have decided on their offers.</p>
 
-    <h3><center>Computer chose {{ computer_choice }}.</center></h3>
+    <p>Computer chose Player 2{{ computer_choice }}.</p>
 
-    <h3>
-        <center>
-            Player 2{{ computer_choice }} chose {{ player_choice }}.
-            That implies that Player 1{{ player_choice }} offers to Player 2{{ computer_choice}}, while
-            Player 1{{ player_choice_opposite }} offers to Player 2{{ computer_choice_opposite }}.
-        </center>
-    </h3>
+    <p>
+        Player 2{{ computer_choice }} chose Player 1{{ player_choice }}.
+        That implies that Player 1{{ player_choice }} offers to Player 2{{ computer_choice}}, while
+        Player 1{{ player_choice_opposite }} offers to Player 2{{ computer_choice_opposite }}.
+    </p>
 
-    <h3><center>Players 2C and 2D have decided on the minimum offer each of them would accept.</center></h3>
+    <p><strong>Players 2C and 2D have decided on the minimum offer each of them would accept.</strong></p>
 
 {% else %}
 
-    <h3><center>Игроки 1A и 1B сделали свой выбор.</center></h3>
+    <p>Игроки 1A и 1B сделали свой выбор.</p>
 
-    <h3><center>Компьютер выбрал {{ computer_choice }}.</center></h3>
+    <p>Компьютер выбрал Игрока 2{{ computer_choice }}.</p>
 
-    <h3>
-        <center>
-            Игрок 2{{ computer_choice }} выбрал {{ player_choice }}.
-            Это означает, что Игрок 1{{ player_choice }} предлагает Игроку 2{{ computer_choice}}, а
-            Игрок 1{{ player_choice_opposite }} предлагает Игроку 2{{ computer_choice_opposite }}.
-        </center>
-    </h3>
+    <p>
+        Игрок 2{{ computer_choice }} выбрал Игрока 1{{ player_choice }}.
+        Это означает, что Игрок 1{{ player_choice }} предлагает Игроку 2{{ computer_choice}}, а
+        Игрок 1{{ player_choice_opposite }} предлагает Игроку 2{{ computer_choice_opposite }}.
+    </p>
 
-    <h3><center>Игроки 2C и 2D выбрали минимально приемлемые предложения.</center></h3>
+    <p><strong>Игроки 2C и 2D выбрали минимально приемлемые предложения.</strong></p>
 
 {% endif %}
 
@@ -59,71 +55,15 @@
 
 {% if language == 1 %}
 
-    <h3>This is the last round.</h3>
+    <p><strong>This is the last round.</strong></p>
 
-    <h1>Results</h1>
-
-    <h3><center>You were Player {{ role }} in the game.</center></h3>
-
-    {% for round, offer, response, payoff in results_table %}
-
-        {% if role == 1 %}
-
-            <h3>
-                In <strong>round {{ round }}</strong> you offered {{ offer }},
-                your offer was {{ response }}, your payoff is <strong>{{ payoff }}</strong>.
-            </h3>
-
-        {% else %}
-
-            <h3>
-                In <strong>round {{ round }}</strong> you were offered {{ offer }},
-                you {{ response }} this offer, your payoff is <strong>{{ payoff }}</strong>.
-            </h3>
-
-        {% endif %}
-
-    {% endfor %}
-
-    <h3>Round chosen for the payment: round {{ payment_round }}</h3>
-
-    <h3>Your final payment: <strong>{{ payment }}</strong></h3>
-
-    <button name="next">Start the survey</button>
+    <button name="next">Continue the experiment</button>
 
 {% else %}
 
-    <h3>Это последний раунд.</h3>
+    <p><strong>Это последний раунд.</strong></p>
 
-    <h1>Результаты</h1>
-
-    <h3><center>Вы были Игроком {{ role }} в этой игре.</center></h3>
-
-    {% for round, offer, response, payoff in results_table %}
-
-        {% if role == 1 %}
-
-            <h3>
-                В <strong>раунде {{ round }}</strong> Вы предложили {{ offer }},
-                Ваше предложение было {{ response }}, Ваш выйгрыш составил <strong>{{ payoff }}</strong>.
-            </h3>
-
-        {% else %}
-
-            <h3>
-                В <strong>раунде {{ round }}</strong> Вам предложили {{ offer }},
-                Вы {{ response }} это предложение, Ваш выйгрыш составил <strong>{{ payoff }}</strong>.
-            </h3>
-
-        {% endif %}
-
-    {% endfor %}
-
-    <h3>Раунд, выбранный для оплаты: раунд {{ payment_round }}</h3>
-
-    <h3>Сколько денег Вы получите: <strong>{{ payment }}</strong></h3>
-
-    <button name="next">Начать опрос</button>
+    <button name="next">Продолжить эксперимент</button>
 
 {% endif %}
 

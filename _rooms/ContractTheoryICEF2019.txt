@@ -1,5 +1,7 @@
+Ablyatifova_Hatidje
 Arkhipova_Svetlana
 Belugina_Anastasiia
+Brainis_Tatiana
 Dogonadze_Mariami
 Dublenskiy_Ivan
 Fedorova_Elina
@@ -9,9 +11,13 @@ Grebeshok_Iuliia
 Hamilton_Callum
 Khachatryan_Karen
 Kraiushkin_Arkadii
+Kudrov_Roman
 Kurchishvili_Josef
+Makarov_Stanislav
 Miroshnikov_Maksim
+Omelchenko_Vladislav
 Ruszczyk_Anastacia
+Rybakova_Anna
 Shestakova_Alina
 Tsinman_Daniil
 Voit_Artem

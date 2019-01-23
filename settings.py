@@ -16,15 +16,22 @@ SESSION_CONFIGS = [
         'name': 'GameJan19',
         'display_name': 'Experiment: January 2019',
         'num_demo_participants': 4,
-        'app_sequence': ['GameJan19_intro', 'GameJan19_main'],
-        # 'app_sequence': ['GameJan19_main'],
+        'app_sequence': ['GameJan19_intro',
+                         'GameJan19_main',
+                         'GameJan19_survey_role_reversed',
+                         'GameJan19_survey_opinion',
+                         'GameJan19_survey_comment',
+                         'GameJan19_survey_personal',
+                         'final_screen'],
         'use_browser_bots': True,
         'language': 1,  # 1=EN, 2=RU
         'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
-        'n_rounds': 4,  # make sure it coincides with the number of rounds in GameJan19_main
+        'n_rounds': 8,  # make sure it coincides with the number of rounds
+                        # in GameJan19_main and GameJan19_survey_role_reversed
         'doc': """
         Edit the 'language' and 'currency_used' parameter to change
         the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES).
+        
         Parameter 'n_rounds' corresponds to the number of rounds in the game (do not change).
         """
      },
@@ -55,6 +62,21 @@ SESSION_CONFIGS = [
          Edit 'Email' to control whether emails should be collected for 
          participants in the database (0=no,1=yes)
          
+         Edit 'file' for the file containing parameters (in csv format)
+         """
+     },
+     {
+        'name': 'ContractTheoryICEF2019_Class3',
+        'display_name': "Contract Theory ICEF year 2019. Class 3",
+        'num_demo_participants': 2,
+        'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
+        'use_browser_bots': True,
+        'Email': 1,
+        'file': 'CT19_SellerBuyer/parameters3.csv',
+        'doc': """
+         Edit 'Email' to control whether emails should be collected for 
+         participants in the database (0=no,1=yes)
+
          Edit 'file' for the file containing parameters (in csv format)
          """
      },

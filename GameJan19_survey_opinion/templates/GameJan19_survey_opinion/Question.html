@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+        {% if language == 1 %}
+            Survey.
+        {% else %}
+            Опрос.
+        {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if language == 1 %}
+        <p>
+            Indicate to what extent you agree with the statement below
+            (5 – completely agree; 1 – completely disagree):
+        </p>
+    {% else %}
+        <p>
+            В какой мере Вы согласны или не согласны со следующим утверждением
+            (5 - полностью согласен; 1 - совсем не согласен):
+        </p>
+    {% endif %}
+
+    {% formfield player.submitted_answer label=player.question %}
+
+    <div>
+        {% if language == 1 %}
+            <button name="next">Continue</button>
+        {% else %}
+            <button name="next">Продолжить</button>
+        {% endif %}
+    </div>
+
+{% endblock %}
