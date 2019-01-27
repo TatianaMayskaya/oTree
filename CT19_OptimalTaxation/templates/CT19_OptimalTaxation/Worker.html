@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Period 2.
+{% endblock %}
+
+{% block content %}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<p>Your productivity parameter is $\theta={{ theta }}$.</p>
+
+<p>Please choose $q\geq 0$ for each tax scheme.</p>
+
+<p>Tax scheme {{ player.round_number }}: </p>
+<table class="table">
+    <tr>
+        <td> q1 = {{ q1 }}</td>
+        <td> p(q1) = {{ p1 }}%}</td>
+    </tr>
+    <tr>
+        <td> q2 = {{ q2 }}</td>
+        <td> p(q2) = {{ p2 }}%}</td>
+    </tr>
+</table>
+<p>For the rest of $q\geq 0$, tax p(q)=0.</p>
+
+{% formfield player.income label = "Your choice:" %}
+
+{% if player.round_number < num_rounds %}
+
+    <button name="next">Next tax scheme</button>
+
+{% else %}
+
+    <button name="next">See results</button>
+
+{% endif %}
+
+{% endblock %}

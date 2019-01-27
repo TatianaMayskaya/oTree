@@ -81,6 +81,23 @@ SESSION_CONFIGS = [
          """
      },
      {
+        'name': 'ContractTheoryICEF2019_Class4',
+        'display_name': "Contract Theory ICEF year 2019. Class 4",
+        'num_demo_participants': 1,
+        'app_sequence': ['CT19_NameEmail', 'CT19_OptimalTaxation'],
+        'use_browser_bots': True,
+        'Email': 1,
+        'thetaL': 2,
+        'thetaH': 4,
+        'beta': 0.5,
+        'doc': """
+         Edit 'Email' to control whether emails should be collected for 
+         participants in the database (0=no,1=yes)
+    
+         Edit 'thetaL', 'thetaH', 'beta' for parameters in the game
+         """
+     },
+     {
         'name': 'ResearchSeminar_11Jan19',
         'display_name': "Research Seminar - order assignment (11 January 2019)",
         'num_demo_participants': 4,
