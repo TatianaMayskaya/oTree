@@ -2,12 +2,36 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Results.
 {% endblock %}
 
 {% block content %}
 
-    {% next_button %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<p>$$\text{There are {{ n_high }} Workers with }\theta={{ thetaH }}\text{ and {{ n_low }} Workers with }\theta={{ thetaL }}.$$</p>
+
+<p>$$\text{Your productivity parameter is }\theta={{ theta }}.$$</p>
+
+<p>As Government, you chose</p>
+<table class="table">
+    <tr>
+        <td> q1 = {{ q1 }}</td>
+        <td> p(q1) = {{ p1 }}</td>
+    </tr>
+    <tr>
+        <td> q2 = {{ q2 }}</td>
+        <td> p(q2) = {{ p2 }}</td>
+    </tr>
+</table>
+and get {{ government_payoff }}.
+
+<p>As Worker, you earn {{ worker_payoff }}.</p>
+
+<p>Your total payoff in this game: {{ payoff_total }}.</p>
+
+ <p>THANK YOU FOR PARTICIPATION</p>
+
 {% endblock %}
 
 

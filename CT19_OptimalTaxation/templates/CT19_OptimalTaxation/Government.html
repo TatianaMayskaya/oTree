@@ -2,19 +2,18 @@
 {% load otree static %}
 
 {% block title %}
-    Period 1.
+Period 1.
 {% endblock %}
 
 {% block content %}
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<p>There are {{ n_high }} Workers with $\theta={{ thetaH }}$ and {{ n_low }} Workers with $\theta={{ thetaL }}.</p>
+<p>$$\text{There are {{ n_high }} Workers with }\theta={{ thetaH }}\text{ and {{ n_low }} Workers with }\theta={{ thetaL }}.$$</p>
 
 <p>Please choose a tax scheme:</p>
 <table class="table">
     <tr>
-        <td>{% formfield player.income_1 label = "q1:"%}</td>
+        <td>{% formfield player.income_1 label = "q1"%}</td>
         <td>{% formfield player.tax_1 label = "p(q1):"%}</td>
     </tr>
     <tr>
@@ -22,9 +21,9 @@
         <td>{% formfield player.tax_2 label = "p(q2):"%}</td>
     </tr>
 </table>
-<p>For the rest of $q\geq 0$, tax p(q)=0.</p>
+<p>$$\text{For the rest of }q\geq 0\text{, tax }p(q)=q-\frac{q^2}{ {{ twice_thetaH }} }.$$</p>
 
 
-    {% next_button %}
+{% next_button %}
 
 {% endblock %}

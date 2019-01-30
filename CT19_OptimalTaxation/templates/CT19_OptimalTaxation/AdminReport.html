@@ -1,0 +1,22 @@
+{% load otree %}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<table class="table">
+    <tr>
+        <th>Player</th>
+        <th>$$ q_1 $$</th>
+        <th>$$ p(q_1) $$</th>
+        <th>$$ q_2 $$</th>
+        <th>$$ p(q_2) $$</th>
+    </tr>
+    {% for id, q1, p1, q2, p2 in results_table %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>$${{ q1 }}$$</td>
+            <td>$${{ p1 }}$$</td>
+            <td>$${{ q2 }}$$</td>
+            <td>$${{ p2 }}$$</td>
+        </tr>
+    {% endfor %}
+</table>
