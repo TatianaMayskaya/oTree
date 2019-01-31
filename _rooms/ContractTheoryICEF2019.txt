@@ -1,4 +1,5 @@
 Ablyatifova_Hatidje
+Anokhin_Anton
 Arkhipova_Svetlana
 Belugina_Anastasiia
 Brainis_Tatiana
@@ -7,7 +8,9 @@ Dublenskiy_Ivan
 Fedorova_Elina
 Filippov_Filipp
 Gaiduk_Konstantin
+Glazkov_Petr
 Grebeshok_Iuliia
+Gulina_Daria
 Hamilton_Callum
 Khachatryan_Karen
 Kraiushkin_Arkadii
