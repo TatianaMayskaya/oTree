@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Round {{ player.round_number }} of {{ num_rounds }}.
+{% endblock %}
+
+{% block content %}
+
+<p>You are the <strong>Principal</strong>.</p>
+
+<p>Parameters for this round:</p>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<p> $$\alpha_0={{ alpha0 }}$$</p>
+<p> $$\alpha_1={{ alpha1 }}$$</p>
+<p> $$\gamma={{ gamma }}$$</p>
+
+<p>Please choose a contract:</p>
+{% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
