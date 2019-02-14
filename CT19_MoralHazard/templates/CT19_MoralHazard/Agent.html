@@ -7,16 +7,26 @@
 
 {% block content %}
 
-<p>You are the <strong>Principal</strong>.</p>
+<p>You are the <strong>Agent</strong>.</p>
 
 <p>Parameters for this round:</p>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+{% if binary %}
 <p> $$\alpha_0={{ alpha0 }}$$</p>
 <p> $$\alpha_1={{ alpha1 }}$$</p>
+{% else %}
+<p> $$\sigma={{ sigma }}$$</p>
+{% endif %}
 <p> $$\gamma={{ gamma }}$$</p>
 
-<p>Please choose a contract:</p>
+{% if binary %}
+<p>You are offered the following contract: $$w_0={{ w0 }}, \quad w_1={{ w1 }}.$$</p>
+{% else %}
+<p>You are offered the following contract: $$t={{ t }}, \quad s={{ s }}.$$</p>
+{% endif %}
+
 {% formfields %}
+
 
     {% next_button %}
 

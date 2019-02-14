@@ -9,16 +9,33 @@ Round {{ player.round_number }} of {{ num_rounds }}.
 
 <p>Parameters for this round:</p>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+{% if binary %}
 <p> $$\alpha_0={{ alpha0 }}$$</p>
 <p> $$\alpha_1={{ alpha1 }}$$</p>
+{% else %}
+<p> $$\sigma={{ sigma }}$$</p>
+{% endif %}
 <p> $$\gamma={{ gamma }}$$</p>
 
+
+{% if binary %}
 
 {% if player.id_in_group == 1 %}
 <p> The Principal (you) offered the following contract: $$w_0={{ w0 }}, \quad w_1={{ w1 }}.$$</p>
 {% else %}
 <p> The Principal (your partner) offered the following contract: $$w_0={{ w0 }}, \quad w_1={{ w1 }}.$$</p>
 {% endif %}
+
+{% else %}
+
+{% if player.id_in_group == 1 %}
+<p> The Principal (you) offered the following contract: $$t={{ t }}, \quad s={{ s }}.$$</p>
+{% else %}
+<p> The Principal (your partner) offered the following contract: $$t={{ t }}, \quad s={{ s }}.$$</p>
+{% endif %}
+
+{% endif %}
+
 
 {% if not accept %}
 {% if player.id_in_group == 1 %}

@@ -2,6 +2,8 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
+{% if binary %}
+
 <table class="table">
     <tr>
         <th>Parameters</th>
@@ -11,7 +13,7 @@
         <th>Times e=0 chosen</th>
         <th>Times e=1 chosen</th>
         <th>Agent's expected payoff from e=0</th>
-        <th>Buyer's expected payoff from e=1</th>
+        <th>Agent's expected payoff from e=1</th>
         <th>Optimal effort</th>
         <th>Principal's expected payoff</th>
     </tr>
@@ -30,3 +32,28 @@
         </tr>
     {% endfor %}
 </table>
+
+{% else %}
+
+<table class="table">
+    <tr>
+        <th>Parameters</th>
+        <th>Contract</th>
+        <th>Times offered</th>
+        <th>Times accepted</th>
+        <th>Optimal effort</th>
+        <th>Principal's expected payoff</th>
+    </tr>
+    {% for sigma, gamma, t, s, n_offered, n_accepted, opt_effort, principal_payoff in results_table %}
+        <tr>
+            <td>$$ \sigma={{ sigma }}, \gamma={{ gamma }}$$</td>
+            <td>$$ t={{ t }}, s={{ s }}$$</td>
+            <td>{{ n_offered }}</td>
+            <td>{{ n_accepted }}</td>
+            <td>{{ opt_effort }}</td>
+            <td>{{ principal_payoff }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endif %}

@@ -101,15 +101,36 @@ SESSION_CONFIGS = [
         'name': 'ContractTheoryICEF2019_Class5',
         'display_name': "Contract Theory ICEF year 2019. Class 5",
         'num_demo_participants': 2,
-        'app_sequence': ['CT19_NameEmail', 'CT19_MoralHazardDiscrete'],
+        'app_sequence': ['CT19_NameEmail', 'CT19_MoralHazard'],
         'use_browser_bots': True,
+        'binary': True,
         'Email': 1,
-        'file': 'CT19_MoralHazardDiscrete/parameters.csv',
+        'file': 'CT19_MoralHazard/parameters.csv',
         'doc': """
          Edit 'Email' to control whether emails should be collected for 
          participants in the database (0=no,1=yes)
 
          Edit 'file' for the file containing parameters (in csv format)
+         
+         Edit 'binary' to control whether the binary version of the game is played or the continuous one
+         """
+     },
+     {
+        'name': 'ContractTheoryICEF2019_Class6',
+        'display_name': "Contract Theory ICEF year 2019. Class 6",
+        'num_demo_participants': 2,
+        'app_sequence': ['CT19_NameEmail', 'CT19_MoralHazard'],
+        'use_browser_bots': True,
+        'binary': False,
+        'Email': 1,
+        'file': 'CT19_MoralHazard/parameters.csv',
+        'doc': """
+         Edit 'Email' to control whether emails should be collected for 
+         participants in the database (0=no,1=yes)
+
+         Edit 'file' for the file containing parameters (in csv format)
+
+         Edit 'binary' to control whether the binary version of the game is played or the continuous one
          """
      },
      {
