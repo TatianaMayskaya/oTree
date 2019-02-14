@@ -90,7 +90,7 @@ class Subsession(BaseSubsession):
                                        self.session.vars['n_accepted'][i],
                                        self.session.vars['opt_effort'][i],
                                        self.session.vars['principal_payoff'][i])))
-        return {'results_table': results_table}
+        return {'results_table': results_table, 'binary': self.session.config['binary']}
 
 
 def principal_payoff(q, w):
