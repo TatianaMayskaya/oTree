@@ -13,7 +13,6 @@ class Principal(Page):
             return ['t', 's']
 
     timeout_seconds = 600
-    timeout_submission = {'w0': 0, 'w1': 1}
 
     def before_next_page(self):
         if self.timeout_happened:

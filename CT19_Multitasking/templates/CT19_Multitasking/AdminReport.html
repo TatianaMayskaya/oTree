@@ -1,0 +1,26 @@
+{% load otree %}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<table class="table">
+    <tr>
+        <th>Parameters</th>
+        <th>Contract</th>
+        <th>Times offered</th>
+        <th>Times accepted</th>
+        <th>Optimal efforts</th>
+        <th>Principal's expected payoff</th>
+    </tr>
+    {% for sigma1, sigma2, rho, kappa, eta, gamma, k, alpha1, alpha2, beta, n_offered, n_accepted, opt_effort1, opt_effort2, principal_payoff in results_table %}
+    <tr>
+        <td>$$ \sigma_1={{ sigma1 }}, \sigma_2={{ sigma2 }}, \rho={{ rho}}, $$
+            $$ \kappa={{ kappa }}, \eta={{ eta }}, \gamma={{ gamma }}, k={{ k }}$$
+        </td>
+        <td>$$ \alpha_1={{ alpha1 }}, \alpha_2={{ alpha2 }}, \beta={{ beta }}$$</td>
+        <td>{{ n_offered }}</td>
+        <td>{{ n_accepted }}</td>
+        <td>$$ e_1={{ opt_effort1 }}, e_2={{ opt_effort2 }}$$</td>
+        <td>{{ principal_payoff }}</td>
+    </tr>
+    {% endfor %}
+</table>

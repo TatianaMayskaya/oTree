@@ -113,6 +113,11 @@ def opt_cont_effort(t, s, gamma, sigma):
             return 0
 
 
+def expected_agent_payoff(t, s, e, gamma, sigma):
+    eta = 10
+    return eta / gamma * (1 - math.exp(gamma * gamma * s * s * sigma * sigma / 2 - gamma * (t + s * e))) - e
+
+
 class Group(BaseGroup):
     line = models.IntegerField()
     alpha0 = models.FloatField(min=0, max=1)
@@ -205,7 +210,11 @@ class Group(BaseGroup):
                     self.session.vars['n_accepted'].append(0)
                 opt_effort = opt_cont_effort(self.t, self.s, self.gamma, self.sigma)
                 self.session.vars['opt_effort'].append(opt_effort)
-                pi = principal_payoff(opt_effort, self.t + self.s * opt_effort)
+                if expected_agent_payoff(self.t, self.s, opt_effort, self.gamma,
+                                         self.sigma) >= Constants.agent_outside_option:
+                    pi = principal_payoff(opt_effort, self.t + self.s * opt_effort)
+                else:
+                    pi = Constants.principal_outside_option
                 self.session.vars['principal_payoff'].append(pi)
 
     def set_payoffs(self):
@@ -240,6 +249,9 @@ class Group(BaseGroup):
                 p2.payoff = \
                     agent_payoff(self.w, self.effort_cont, self.gamma) \
                     / self.session.config['real_world_currency_per_point']
+        else:
+            p1.payoff = Constants.principal_outside_option / self.session.config['real_world_currency_per_point']
+            p2.payoff = Constants.agent_outside_option / self.session.config['real_world_currency_per_point']
 
         self.include_entry()
 
