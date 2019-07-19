@@ -57,7 +57,7 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'GameFeb19_en',
+        'name': 'GameFeb19_enUSD',
         'display_name': 'Experiment: February 2019 - English & USD',
         'app_sequence': ['GameFeb19_intro',
                          'GameFeb19_main', 'GameFeb19_role_reversed', 'GameFeb19_UG', 'GameFeb19_UG_role_reversed',
@@ -72,7 +72,7 @@ SESSION_CONFIGS = [
         'participation_fee': 5.00,
     },
     {
-        'name': 'GameFeb19_en',
+        'name': 'GameFeb19_enPOUNDS',
         'display_name': 'Experiment: February 2019 - English & Pounds',
         'app_sequence': ['GameFeb19_intro',
                          'GameFeb19_main', 'GameFeb19_role_reversed', 'GameFeb19_UG', 'GameFeb19_UG_role_reversed',
