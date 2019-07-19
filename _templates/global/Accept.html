@@ -1,0 +1,68 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+        $(function () {
+            $('.otree-modal-main-button').on('click', function () {
+                if ($('#id_response').val() == '') {
+                    var msg = {% blocktrans %} 'Please enter a number' {% endblocktrans %};
+                } else if (!((function (x) {
+                    return (x | 0) === x;
+                })(parseFloat($('#id_response').val())))) {
+                    var msg = {% blocktrans %} 'Please enter an INTEGER number' {% endblocktrans %};
+                } else if ($('#id_response').val() < 0) {
+                    var msg = {% blocktrans %} 'Value must be greater than or equal to 0' {% endblocktrans %};
+                } else if ($('#id_response').val() == 0) {
+                    var msg = {% blocktrans %}'You chose 0 tokens as the minimum offer you would accept. '{% endblocktrans %}
+                            + {% blocktrans %}'That implies you get whatever Player 1{{ partner }} offers you.'{% endblocktrans %};
+                } else if ($('#id_response').val() == 1) {
+                    var msg = {% blocktrans %}'You chose 1 token as the minimum offer you would accept. '{% endblocktrans %}
+                            + {% blocktrans %}'That implies you get whatever Player 1{{ partner }} offers you.'{% endblocktrans %};
+                } else if ($('#id_response').val() >= {{ endowment }} +1) {
+                    var msg = {% blocktrans %}'You chose '{% endblocktrans %} + $('#id_response').val()
+                            + {% blocktrans %}' tokens as the minimum offer you would accept.'{% endblocktrans %}
+                            + {% blocktrans %}' That means you get 0 tokens no matter what Player 1{{ partner }} offers you.'{% endblocktrans %};
+                } else if ($('#id_response').val() == {{ endowment }}) {
+                    var msg = {% blocktrans %}'You chose '{% endblocktrans %} + $('#id_response').val()
+                            + {% blocktrans %}' tokens as the minimum offer you would accept.'{% endblocktrans %}
+                            + {% blocktrans %}' That means you get 0 tokens unless Player 1{{ partner }} offers you all {{ endowment }} tokens.'{% endblocktrans %};
+                } else {
+                    var msg = {% blocktrans %}'You chose '{% endblocktrans %} + $('#id_response').val()
+                            + {% blocktrans %}' tokens as the minimum offer you would accept.'{% endblocktrans %}
+                            + {% blocktrans %}' If Player 1{{ partner }} offers you X>='{% endblocktrans %} + $('#id_response').val()
+                            + {% blocktrans %}' tokens, you will get X tokens.'{% endblocktrans %}
+                            + {% blocktrans %}' If Player 1{{ partner }} offers you X<'{% endblocktrans %} + $('#id_response').val()
+                            + {% blocktrans %}' tokens, you will get {{ payoff_if_rejected }} tokens.'{% endblocktrans %};
+                }
+                $('.otree-modal-message').text(msg);
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block title %}
+    {% blocktrans %} Round {{ round_number }} out of {{ n_rounds }}. {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <p>{% blocktrans %} You are Player {{ role }}. {% endblocktrans %}</p>
+
+    <p>{% blocktrans %}
+        Please indicate the minimum number of tokens that you would accept from Player 1{{ partner }}.
+        If Player 1{{ partner }} offers you <strong>the same or more</strong>, the offer will be <strong>accepted</strong>
+        automatically; if Player 1{{ partner }} offers you <strong>less</strong>, the offer will be <strong>rejected</strong>
+        automatically and you both get {{ payoff_if_rejected }} tokens.
+        Remember that when we show you at the end of the game how many tokens Player 1{{ partner }} actually
+        offered to you, you will not have a chance to change your response.
+    {% endblocktrans %}</p>
+
+    {% formfield player.response label = response_label %}
+
+    <div>
+        {% confirm_button title='' yes_button=submit no_button=change main_button=submit %}
+    </div>
+
+{% endblock %}

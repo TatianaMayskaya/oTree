@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %}Question {{ round }} of {{ num_rounds }}{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    {% if n_choices > 0 %}
+        {% formfield player.submitted_answer_options label=player.question %}
+    {% else %}
+        {% formfield player.submitted_answer label=player.question %}
+    {% endif %}
+
+    <div>
+        {% if round < num_rounds %}
+            <button name="next">{% trans 'Next question' %}</button>
+        {% else %}
+            <button name="next">{% trans 'Continue' %}</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

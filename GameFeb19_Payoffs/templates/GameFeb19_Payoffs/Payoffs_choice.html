@@ -1,0 +1,24 @@
+{% load otree i18n %}
+
+<h3>{% blocktrans %}Questions. Part {% endblocktrans %}{{ Q_part }}</h3>
+
+<table class="table">
+<tr>
+    <th>{% trans 'Question' %}</th>
+    <th>{% trans 'Your answer' %}</th>
+    <th>{% trans 'You get' %}</th>
+    <th>{% trans 'Chosen for payment?' %}</th>
+</tr>
+<tbody>
+{% for num, question, submitted_answer, payoff, payment_round in questions_Q %}
+    <tr>
+    <th>{{ num }}. {{ question }}</th>
+    <th>{{ submitted_answer }}</th>
+    <th>{{ payoff }}</th>
+    <th>{{ payment_round }}</th>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+

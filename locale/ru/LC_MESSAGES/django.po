@@ -1,0 +1,906 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-21 18:03+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:5
+msgid "Results"
+msgstr "Результаты"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:10
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:24
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:38
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:52
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:5
+#: .\GameFeb19_UG_role_reversed\templates\GameFeb19_UG_role_reversed\Introduction.html:5
+#: .\GameFeb19_main\templates\GameFeb19_main\Introduction.html:5
+#: .\GameFeb19_role_reversed\templates\GameFeb19_role_reversed\Introduction.html:5
+msgid "Game"
+msgstr "Игра"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:12
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:26
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:40
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:54
+#, python-format
+msgid "You were Player %(role)s in the game"
+msgstr "Вы были Игроком %(role)s в этой игре"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:20
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:34
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:48
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:62
+msgid "Round chosen for the payment: round "
+msgstr "Раунд, выбранный для оплаты: раунд "
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:76
+msgid "Summary"
+msgstr "Итог"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:78
+msgid "Your final payment"
+msgstr "Сколько денег Вы получите"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs.html:80
+msgid "Start the survey"
+msgstr "Начать опрос"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_cognitive.html:3
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Introduction.html:5
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Introduction.html:5
+msgid "Questions. Part "
+msgstr "Вопросы. Часть "
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_cognitive.html:5
+#, python-format
+msgid ""
+"You answered %(questions_correct_CT)s out of %(num_questions_CT)s questions "
+"correctly. "
+msgstr ""
+"Вы ответили правильно на %(questions_correct_CT)s из %(num_questions_CT)s "
+"вопросов. "
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_cognitive.html:9
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:14
+msgid "Question"
+msgstr "Вопрос"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_cognitive.html:10
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:15
+msgid "Your answer"
+msgstr "Ваш ответ"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_cognitive.html:11
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:16
+msgid "Correct answer"
+msgstr "Верный ответ"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_cognitive.html:12
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:17
+msgid "Answered correctly?"
+msgstr "Правильно ли Вы ответили?"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_template.html:5
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_template.html:12
+#, python-format
+msgid "In <strong>round %(round)s</strong>"
+msgstr "В <strong>раунде %(round)s</strong>"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_template.html:6
+#, python-format
+msgid "you offered %(offer)s"
+msgstr "Вы предложили %(offer)s"
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_template.html:8
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_template.html:15
+#, python-format
+msgid "your payoff is <strong>%(payoff)s</strong>."
+msgstr "Ваш выйгрыш составил <strong>%(payoff)s</strong>."
+
+#: .\GameFeb19_Payoffs\templates\GameFeb19_Payoffs\Payoffs_template.html:13
+#, python-format
+msgid "you were offered %(offer)s"
+msgstr "Вам предложили %(offer)s"
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:11
+msgid "Let us reshuffle your roles once again."
+msgstr "Давайте снова случайным образом распределим роли."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:12
+msgid ""
+"Your role (Player 1 or Player 2) in Game 3 will <strong>not</strong> depend "
+"on your role in Game 1 or Game 2."
+msgstr ""
+"Ваша роль (Игрок 1 или Игрок 2) в Игре 3 <strong>не</strong> будет зависить "
+"от Вашей роли в Игре 1 или Игре 2."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:13
+msgid "As before, your role will not change <strong>during</strong> the game."
+msgstr "Как и раньше, Ваша роль не изменится <strong>в течение</strong> игры."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:14
+msgid "And as before, you will be paid for one randomly chosen round."
+msgstr "Как и раньше, оплачиваться будет только один случайно выбранный раунд."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:15
+#: .\GameFeb19_UG_role_reversed\templates\GameFeb19_UG_role_reversed\Introduction.html:13
+#: .\GameFeb19_role_reversed\templates\GameFeb19_role_reversed\Introduction.html:13
+msgid "The conversion rate is"
+msgstr "Курс:"
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:16
+#: .\GameFeb19_UG_role_reversed\templates\GameFeb19_UG_role_reversed\Introduction.html:14
+#: .\GameFeb19_main\templates\GameFeb19_main\Introduction.html:13
+#: .\GameFeb19_role_reversed\templates\GameFeb19_role_reversed\Introduction.html:14
+msgid "1 token"
+msgstr "1 жетон"
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:20
+msgid "What makes Game 3 different from Games 1 and 2 is the following."
+msgstr "Отличие Игры 3 от Игр 1 и 2 состоит в следующем."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:21
+msgid ""
+"So far, the computer was choosing Player 2C or Player 2D to determine who to "
+"be matched with whom."
+msgstr ""
+"До сих пор компьютер выбирал Игрока 2C или Игрока 2D, чтобы уже тот выбрал, "
+"с кем ему играть."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:22
+msgid ""
+"In Game 3, the <strong>computer chooses who to be matched with whom</strong> "
+"in a group."
+msgstr ""
+"Теперь же <strong>компьютер выбирает сам, кого с кем поставить в пару</"
+"strong> в группе."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:26
+msgid "Every round shall consist of four stages."
+msgstr "Каждый раунд состоит из четырёх этапов."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:31
+#, python-format
+msgid ""
+"Participants in roles of Player 1 choose how much out of %(endowment)s "
+"tokens he or\n"
+"                she wants to pass to one of the Players 2."
+msgstr ""
+"Участники, выступающие в роли Игрока 1, выбирают, сколько из %(endowment)s "
+"жетонов\n"
+"                предложить Игроку 2."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:36
+msgid ""
+"The computer chooses at random one of the participants with Player 2 role."
+msgstr ""
+"Компьютер случайным образом выбирает одного из участников с ролью Игрока 2."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:37
+msgid ""
+"Then the <strong>computer chooses at random the partner</strong> for this "
+"participant."
+msgstr ""
+"Потом <strong>компьютер случайным образом выбирает партнёра</strong> для "
+"этого участника."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:38
+msgid ""
+"Thus, at the end of this stage, four players in each group shall be split in "
+"two pairs\n"
+"                    <strong>by the computer</strong>, and shall commonly "
+"observe this matching."
+msgstr ""
+"Таким образом, в конце этого этапа игры четыре игрока в каждой группе будут "
+"поделены на пары\n"
+"                    <strong>компьютером</strong>, и все они будут видеть, "
+"кто чей партнёр в паре."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:44
+msgid ""
+"Participants in roles of Player 2 have to decide on the minimum offer from "
+"their\n"
+"                    partner Player 1 that each of them is willing to accept."
+msgstr ""
+"Участники, выступающие в роли Игрока 2, должны выбрать минимально "
+"предложение от своего\n"
+"                    партнёра Игрока 1, которое каждый из них готов принять."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:50
+msgid "Payoffs are determined separately for each pair in a group."
+msgstr "Выигрыш в каждом раунде определяется для каждой пары в отдельности."
+
+#: .\GameFeb19_UG\templates\GameFeb19_UG\Introduction.html:56
+#: .\GameFeb19_UG_role_reversed\templates\GameFeb19_UG_role_reversed\Introduction.html:18
+#: .\GameFeb19_main\templates\GameFeb19_main\Introduction.html:18
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Introduction.html:17
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Introduction.html:17
+#: .\GameFeb19_role_reversed\templates\GameFeb19_role_reversed\Introduction.html:19
+#: .\_templates\global\ComputerChoice.html:15
+#: .\_templates\global\MatchAnnouncement.html:19
+#: .\_templates\global\PlayerChoiceAnnouncement.html:21
+#: .\_templates\global\RoleInGame.html:13
+msgid "Next"
+msgstr "Дальше"
+
+#: .\GameFeb19_UG_role_reversed\templates\GameFeb19_UG_role_reversed\Introduction.html:11
+msgid ""
+"Let us revert the roles now: if you were Player 1 in Game 3, you'll become "
+"Player 2 now, and vice versa."
+msgstr ""
+"Теперь давайте поменяем роли: если Вы были Игроком 1 в Игре 3, Вы станете "
+"Игроком 2, и наоборот."
+
+#: .\GameFeb19_UG_role_reversed\templates\GameFeb19_UG_role_reversed\Introduction.html:12
+#: .\GameFeb19_role_reversed\templates\GameFeb19_role_reversed\Introduction.html:12
+msgid "As before, you will be paid for one randomly chosen round."
+msgstr "Как и раньше, оплачиваться будет только один случайно выбранный раунд."
+
+#: .\GameFeb19_intro\models.py:126 .\GameFeb19_questions_choice\models.py:75
+#: .\GameFeb19_questions_cognitive\models.py:77
+msgid "Yes"
+msgstr "Да"
+
+#: .\GameFeb19_intro\models.py:126 .\GameFeb19_questions_choice\models.py:75
+#: .\GameFeb19_questions_cognitive\models.py:77
+msgid "No"
+msgstr "Нет"
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Introduction.html:5
+msgid "Instructions"
+msgstr "Инструкция"
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Introduction.html:13
+msgid "Start the quiz"
+msgstr "Начать тест"
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Question.html:5
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:5
+#, python-format
+msgid " Quiz. Question %(round)s of %(num_rounds)s "
+msgstr " Тест. Вопрос %(round)s из %(num_rounds)s "
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Question.html:11
+msgid " Your answer is incorrect. Please try again. "
+msgstr " Вы ответили неверно. Попробуйте ещё раз. "
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Question.html:17
+msgid "Check the answer"
+msgstr "Проверить ответ"
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:10
+#, python-format
+msgid ""
+"You answered %(questions_correct)s out of %(round)s questions correctly. "
+msgstr "Вы ответили правильно на %(questions_correct)s из %(round)s вопросов. "
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:18
+msgid "Explanation"
+msgstr "Объяснение"
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:32
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Question.html:14
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Question.html:14
+#: .\GameFeb19_survey_comment\templates\GameFeb19_survey_comment\Question.html:14
+#: .\GameFeb19_survey_opinion\templates\GameFeb19_survey_opinion\Question.html:19
+#: .\GameFeb19_survey_personal\templates\GameFeb19_survey_personal\Question.html:14
+msgid "Next question"
+msgstr "Следующий вопрос"
+
+#: .\GameFeb19_intro\templates\GameFeb19_intro\Results.html:34
+msgid "Start the experiment"
+msgstr "Начать эксперимент"
+
+#: .\GameFeb19_main\models.py:124
+msgid "Player 1A"
+msgstr "Игрок 1A"
+
+#: .\GameFeb19_main\models.py:124
+msgid "Player 1B"
+msgstr "Игрок 1B"
+
+#: .\GameFeb19_main\models.py:177
+msgid "your offer was rejected"
+msgstr "Ваше предложение было отклонено"
+
+#: .\GameFeb19_main\models.py:179
+msgid "you rejected this offer"
+msgstr "Вы отклонили это предложение"
+
+#: .\GameFeb19_main\models.py:182
+msgid "your offer was accepted"
+msgstr "Ваше предложение было принято"
+
+#: .\GameFeb19_main\models.py:185
+msgid "you accepted this offer"
+msgstr "Вы приняли это предложение"
+
+#: .\GameFeb19_main\pages.py:58
+msgid ""
+"You have {} tokens. Choose how many tokens you want to offer to Player 2"
+msgstr ""
+"Вы получили {} жетонов. Выберите, сколько жетонов Вы хотите предложить "
+"Игроку 2"
+
+#: .\GameFeb19_main\pages.py:60 .\GameFeb19_main\pages.py:105
+#: .\GameFeb19_main\pages.py:185
+msgid "Submit"
+msgstr "Подтвердить"
+
+#: .\GameFeb19_main\pages.py:61 .\GameFeb19_main\pages.py:106
+#: .\GameFeb19_main\pages.py:186
+msgid "Change the choice"
+msgstr "Изменить выбор"
+
+#: .\GameFeb19_main\pages.py:104
+msgid "Choose your partner"
+msgstr "Выберите своего партнёра"
+
+#: .\GameFeb19_main\pages.py:181
+msgid "Choose the minimum offer that you would accept"
+msgstr "Выберите минимальное предложение, от которого Вы не откажитесь"
+
+#: .\GameFeb19_main\templates\GameFeb19_main\Introduction.html:11
+msgid "Now the actual game starts."
+msgstr "Теперь начинается сама игра."
+
+#: .\GameFeb19_main\templates\GameFeb19_main\Introduction.html:12
+msgid ""
+"You will be paid for one randomly chosen round using the conversion rate:"
+msgstr "Оплачиваться будет только один случайно выбранный раунд по курсу:"
+
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Introduction.html:11
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Introduction.html:11
+#, python-format
+msgid "Now you will be asked to answer %(num_rounds)s questions."
+msgstr "Сейчас Вы будете должны ответить на %(num_rounds)s вопросов."
+
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Introduction.html:12
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Introduction.html:12
+#, python-format
+msgid ""
+"You will be paid %(rate_CT)s for each correct answer, and there is no "
+"penalty for incorrect answers."
+msgstr ""
+"Вы получите %(rate_CT)s за каждый правильный ответ (за неправильный ответ "
+"штрафа нет)."
+
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Introduction.html:13
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Introduction.html:13
+msgid "You will know the results at the end of the experiment."
+msgstr "Вы узнаете результаты в конце эксперимента."
+
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Question.html:5
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Question.html:5
+#, python-format
+msgid "Question %(round)s of %(num_rounds)s"
+msgstr "Вопрос %(round)s из %(num_rounds)s "
+
+#: .\GameFeb19_questions_choice\templates\GameFeb19_questions_choice\Question.html:16
+#: .\GameFeb19_questions_cognitive\templates\GameFeb19_questions_cognitive\Question.html:16
+#: .\GameFeb19_survey_personal\templates\GameFeb19_survey_personal\Question.html:16
+msgid "Continue"
+msgstr "Продолжить"
+
+#: .\GameFeb19_role_reversed\templates\GameFeb19_role_reversed\Introduction.html:11
+msgid ""
+"Let us revert the roles now: if you were Player 1, you'll become Player 2 "
+"now, and vice versa."
+msgstr ""
+"Теперь давайте поменяем роли: если Вы были Игроком 1, Вы станете Игроком 2, "
+"и наоборот."
+
+#: .\GameFeb19_survey_comment\templates\GameFeb19_survey_comment\Question.html:5
+#: .\GameFeb19_survey_opinion\templates\GameFeb19_survey_opinion\Question.html:5
+#: .\GameFeb19_survey_personal\templates\GameFeb19_survey_personal\Question.html:5
+#, python-format
+msgid "Survey. Part %(part_num)s. Question %(round)s of %(num_rounds)s"
+msgstr "Опрос. Часть %(part_num)s. Вопрос %(round)s из %(num_rounds)s"
+
+#: .\GameFeb19_survey_comment\templates\GameFeb19_survey_comment\Question.html:16
+#: .\GameFeb19_survey_opinion\templates\GameFeb19_survey_opinion\Question.html:21
+msgid "Next part"
+msgstr "Следующая часть"
+
+#: .\GameFeb19_survey_opinion\templates\GameFeb19_survey_opinion\Question.html:11
+msgid "Indicate to what extent you agree with the statement below"
+msgstr "В какой мере Вы согласны или не согласны со следующим утверждением"
+
+#: .\GameFeb19_survey_opinion\templates\GameFeb19_survey_opinion\Question.html:12
+msgid "(5 – completely agree; 1 – completely disagree):"
+msgstr "(5 - полностью согласен; 1 - совсем не согласен):"
+
+#: .\GameFeb19_survey_personal\models.py:93
+msgid "Age"
+msgstr "Ваш возраст (полных лет)"
+
+#: .\GameFeb19_survey_personal\models.py:94
+msgid "Gender"
+msgstr "Ваш пол"
+
+#: .\GameFeb19_survey_personal\models.py:95
+msgid "Female"
+msgstr "Женский"
+
+#: .\GameFeb19_survey_personal\models.py:95
+msgid "Male"
+msgstr "Мужской"
+
+#: .\GameFeb19_survey_personal\models.py:95
+msgid "Other"
+msgstr "Другой"
+
+#: .\GameFeb19_survey_personal\models.py:96
+msgid "Field of expertise"
+msgstr "Ваша специализация"
+
+#: .\GameFeb19_survey_personal\models.py:97
+msgid "Economics, finance, management"
+msgstr "Экономика, финансы, менеджмент"
+
+#: .\GameFeb19_survey_personal\models.py:98
+msgid "Social sciences, psychology, political science"
+msgstr "Социальные науки, психология, политология"
+
+#: .\GameFeb19_survey_personal\models.py:99
+msgid "Law"
+msgstr "Право"
+
+#: .\GameFeb19_survey_personal\models.py:100
+msgid "International relations"
+msgstr "Международные отношения"
+
+#: .\GameFeb19_survey_personal\models.py:101
+msgid "Mathematics, physics, computer science"
+msgstr "Математика, физика, компьютерные науки"
+
+#: .\GameFeb19_survey_personal\models.py:102
+msgid "Biology, chemistry"
+msgstr "Биология, химия"
+
+#: .\GameFeb19_survey_personal\models.py:103
+msgid "Humanities"
+msgstr "Гуманитарные науки"
+
+#: .\GameFeb19_survey_personal\models.py:104
+msgid "Media"
+msgstr "Медиа"
+
+#: .\GameFeb19_survey_personal\models.py:105
+msgid "Other field"
+msgstr "Другая специализация"
+
+#: .\GameFeb19_survey_personal\models.py:106
+msgid "What is(are) your native language(s)?"
+msgstr "Какой Ваш родной язык? (укажите все, если их больше одного)"
+
+#: .\GameFeb19_survey_personal\models.py:108
+msgid ""
+"\n"
+"                                         Which statement best describes the "
+"financial situation in your family?\n"
+"                                         "
+msgstr ""
+"\n"
+"Какое высказывание наиболее точно описывает финансовое положение Вашей семьи?"
+
+#: .\GameFeb19_survey_personal\models.py:111
+msgid "Barely enough to survive."
+msgstr "Едва сводим концы с концами, денег не хватает на выживание."
+
+#: .\GameFeb19_survey_personal\models.py:112
+msgid ""
+"\n"
+"                                                  We have enough money for "
+"food and other daily essentials but we have \n"
+"                                                  no capacity to make "
+"savings.\n"
+"                                                  "
+msgstr ""
+"\n"
+"Живем от зарплаты до зарплаты, денег хватает только на неотложные нужды."
+
+#: .\GameFeb19_survey_personal\models.py:116
+msgid "We can afford vacation every year."
+msgstr ""
+"На ежедневные расходы хватает денег, но уже покупка одежды требует "
+"накоплений."
+
+#: .\GameFeb19_survey_personal\models.py:117
+msgid "We can travel abroad every year."
+msgstr ""
+"Вполне хватает денег, даже имеются некоторые накопления, но крупные покупки "
+"требуется планировать заранее."
+
+#: .\GameFeb19_survey_personal\models.py:118
+msgid "We have no financial constraints."
+msgstr "Можем позволить себе крупные траты при первой необходимости."
+
+#: .\GameFeb19_survey_personal\models.py:119
+msgid ""
+"\n"
+"    How do you see yourself: Are you generally a person who is fully "
+"prepared to take risks \n"
+"    or do you try to avoid taking risks? Please tick a box on the scale, \n"
+"    where the value 0 means: 'Not at all willing to take risks' and \n"
+"    the value 10 means: 'Very willing to take risks'.\n"
+"    "
+msgstr ""
+"\n"
+"По шкале от 0 до 10, как сильно Вы любите риск / боитесь риска (0 означает "
+"'Очень боюсь рисковать', 10 означает 'Очень люблю рисковать')?"
+
+#: .\GameFeb19_survey_personal\models.py:125
+msgid ""
+"\n"
+"    Please imagine a ladder, with steps numbered from 0 at the bottom to 10 "
+"at the top. \n"
+"    The top of the ladder represents the best possible life for you and the "
+"bottom of the ladder \n"
+"    represents the worst possible life for you. On which step of the ladder "
+"would you say \n"
+"    you personally feel you stand at this time?\n"
+"    "
+msgstr ""
+"\n"
+"Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 "
+"(самая нижняя) до 10. Самая верхняя ступенька символизирует самую лучшую "
+"жизнь, а самая нижняя - самую худшую. На какой ступеньке Вы сейчас "
+"находитесь?"
+
+#: .\GameFeb19_survey_personal\models.py:131
+msgid ""
+"\n"
+"    Please imagine a ladder, with steps numbered from 0 at the bottom to 10 "
+"at the top. \n"
+"    The top of the ladder represents the best possible life for you and the "
+"bottom of the ladder \n"
+"    represents the worst possible life for you. Just your best guess, on "
+"which step fo you think \n"
+"    you will stand in the future, say about five years from now?\n"
+"    "
+msgstr ""
+"\n"
+"Представьте себе лестницу, у которой 11 ступенек, пронумерованных от 0 "
+"(самая нижняя) до 10. Самая верхняя ступенька символизирует самую лучшую "
+"жизнь, а самая нижняя - самую худшую. Как Вы думаете, на какой ступеньке Вы "
+"будете находиться через, скажем, пять лет?"
+
+#: .\GameFeb19_survey_personal\models.py:137
+msgid ""
+"\n"
+"    Do you think you could trust most people or they are generally not "
+"trustworthy? Please tick \n"
+"    a box on the scale, where the value 0 means: 'I never trust people' "
+"and \n"
+"    the value 10 means: 'I always trust people'.\n"
+"    "
+msgstr ""
+"\n"
+"Как Вы считаете, в целом большинству людей можно доверять, или же при "
+"общении с другими людьми осторожность никогда не повредит? Пожалуйста, "
+"отметьте позицию на шкале, где 0 означает 'Нужно быть очень осторожным с "
+"другими людьми' и 10 означает 'Большинству людей можно вполне доверять'."
+
+#: .\GameFeb19_survey_personal\models.py:142
+msgid ""
+"\n"
+"    Some people feel like they have complete freedom of choice and control "
+"of their lives, \n"
+"    whereas others believe their actions have no effect on their fate. What "
+"about you? \n"
+"    Please tick a box on the scale, where the value 0 means: 'I have no "
+"control of my fate' and \n"
+"    the value 10 means: 'I have complete control of my life'.\n"
+"    "
+msgstr ""
+"\n"
+"Некоторые люди чувствуют, что они обладают полной свободой выбора и "
+"контролируют свою жизнь, в то время как другие люди чувствуют, что то, что "
+"они делают, не имеет реального влияния на происходящее с ними. До какой "
+"степени эти характеристики применимы к Вам и Вашей жизни? Пожалуйста, "
+"отметьте позицию на шкале, где 0 означает 'у меня нет свободы выбора' и 10 "
+"означает 'у меня полная свобода выбора'."
+
+#: .\GameFeb19_survey_personal\models.py:148
+msgid ""
+"\n"
+"    How important is it for you to live in a country that is governed based "
+"on democracy principals, \n"
+"    that is, where the citizens exercise power by voting? \n"
+"    Please tick a box on the scale, where the value 0 means: 'It does not "
+"matter' and \n"
+"    the value 10 means: 'It is very important'.\n"
+"    "
+msgstr ""
+"\n"
+"Насколько важно для Вас жить в стране, которая управляется по принципам "
+"демократии, т.е. в соответствии с волей народа? Пожалуйста, отметьте позицию "
+"на шкале, где 0 означает 'Не важно' и 10 означает 'Очень важно'."
+
+#: .\GameFeb19_survey_personal\models.py:154
+msgid ""
+"\n"
+"    Do you think the country of your citizenship is democratic? \n"
+"    Please tick a box on the scale, where the value 0 means: 'It is not "
+"democratic at all' and \n"
+"    the value 10 means: 'It is governed strictly based on democracy "
+"principals'.\n"
+"    "
+msgstr ""
+"\n"
+"Как Вы считаете, Вы являетесь гражданином демократической страны? "
+"Пожалуйста, отметьте позицию на шкале, где 0 означает 'Страна, гражданоном "
+"которой я являюсь, абсолютно не является демократией' и 10 означает 'Страна, "
+"гражданином которой я являюсь, полностью управляется в соответствии с "
+"демократическими принципами'."
+
+#: .\_templates\global\Accept.html:10 .\_templates\global\Offer.html:10
+msgid " 'Please enter a number' "
+msgstr " 'Пожалуйста, введите число' "
+
+#: .\_templates\global\Accept.html:14 .\_templates\global\Offer.html:13
+msgid " 'Please enter an INTEGER number' "
+msgstr " 'Пожалуйста, введите ЦЕЛОЕ число' "
+
+#: .\_templates\global\Accept.html:16 .\_templates\global\Offer.html:16
+msgid " 'Value must be greater than or equal to 0' "
+msgstr " 'Значение должно быть больше или равно 0' "
+
+#: .\_templates\global\Accept.html:18
+msgid "'You chose 0 tokens as the minimum offer you would accept. '"
+msgstr "'Вы выбрали 0 жетонов в качестве минимально приемлемого предложения. '"
+
+#: .\_templates\global\Accept.html:19 .\_templates\global\Accept.html:22
+#, python-format
+msgid "'That implies you get whatever Player 1%(partner)s offers you.'"
+msgstr ""
+"'Это означает, что Вы получите столько, сколько Вам предложит Игрок "
+"1%(partner)s.'"
+
+#: .\_templates\global\Accept.html:21
+msgid "'You chose 1 token as the minimum offer you would accept. '"
+msgstr "'Вы выбрали 1 жетон в качестве минимально приемлемого предложения. '"
+
+#: .\_templates\global\Accept.html:24 .\_templates\global\Accept.html:28
+#: .\_templates\global\Accept.html:32
+msgid "'You chose '"
+msgstr "'Вы выбрали '"
+
+#: .\_templates\global\Accept.html:25 .\_templates\global\Accept.html:29
+#: .\_templates\global\Accept.html:33
+msgid "' tokens as the minimum offer you would accept.'"
+msgstr "' жетонов в качестве минимально приемлемого предложения.'"
+
+#: .\_templates\global\Accept.html:26
+#, python-format
+msgid ""
+"' That means you get 0 tokens no matter what Player 1%(partner)s offers you.'"
+msgstr ""
+"' Это означает, что Вы получите 0 жетонов вне зависимости от того, сколько "
+"Вам предложит Игрок 1%(partner)s.'"
+
+#: .\_templates\global\Accept.html:30
+#, python-format
+msgid ""
+"' That means you get 0 tokens unless Player 1%(partner)s offers you all "
+"%(endowment)s tokens.'"
+msgstr ""
+"' Это означает, что Вы получите 0 жетонов, если, конечно, Игрок 1%(partner)s "
+"не предложит Вам все %(endowment)s жетонов.'"
+
+#: .\_templates\global\Accept.html:34
+#, python-format
+msgid "' If Player 1%(partner)s offers you X>='"
+msgstr "' Если Игрок 1%(partner)s предложит Вам X>='"
+
+#: .\_templates\global\Accept.html:35
+msgid "' tokens, you will get X tokens.'"
+msgstr "' жетонов, Вы получите X жетонов.'"
+
+#: .\_templates\global\Accept.html:36
+#, python-format
+msgid "' If Player 1%(partner)s offers you X<'"
+msgstr "' Если Игрок 1%(partner)s предложит Вам X<'"
+
+#: .\_templates\global\Accept.html:37
+#, python-format
+msgid "' tokens, you will get %(payoff_if_rejected)s tokens.'"
+msgstr "' жетонов, Вы получите %(payoff_if_rejected)s жетонов.'"
+
+#: .\_templates\global\Accept.html:46 .\_templates\global\ComputerChoice.html:5
+#: .\_templates\global\MatchAnnouncement.html:5
+#: .\_templates\global\Offer.html:37 .\_templates\global\PlayerChoice.html:32
+#: .\_templates\global\PlayerChoiceAnnouncement.html:5
+#: .\_templates\global\Results.html:5 .\_templates\global\RoleInGame.html:5
+#, python-format
+msgid " Round %(round_number)s out of %(n_rounds)s. "
+msgstr " Раунд %(round_number)s из %(n_rounds)s. "
+
+#: .\_templates\global\Accept.html:51 .\_templates\global\Offer.html:42
+#: .\_templates\global\PlayerChoice.html:37
+#: .\_templates\global\RoleInGame.html:10
+#, python-format
+msgid " You are Player %(role)s. "
+msgstr " Вы Игрок %(role)s. "
+
+#: .\_templates\global\Accept.html:53
+#, python-format
+msgid ""
+"\n"
+"        Please indicate the minimum number of tokens that you would accept "
+"from Player 1%(partner)s.\n"
+"        If Player 1%(partner)s offers you <strong>the same or more</strong>, "
+"the offer will be <strong>accepted</strong>\n"
+"        automatically; if Player 1%(partner)s offers you <strong>less</"
+"strong>, the offer will be <strong>rejected</strong>\n"
+"        automatically and you both get %(payoff_if_rejected)s tokens.\n"
+"        Remember that when we show you at the end of the game how many "
+"tokens Player 1%(partner)s actually\n"
+"        offered to you, you will not have a chance to change your response.\n"
+"    "
+msgstr ""
+"\n"
+"Пожалуйста, укажите минимальное количество жетонов, которое Вы согласитесь "
+"принять от Игрока 1%(partner)s. Если предложение Игрока 1%(partner)s "
+"окажется <strong>таким же или больше</strong>, то оно будет автоматически "
+"<strong>принято</strong> Вами; если оно окажется <strong>меньше</strong>, то "
+"оно будет автоматически <strong>отклонено</strong>, и вы оба получите "
+"%(payoff_if_rejected)s жетонов. Помните, что когда Вы увидите, что именно "
+"Вам предложил Игрок 1%(partner)s, - а Вы это увидите в конце игры, - у Вас "
+"не будет возмоности изменить свой ответ."
+
+#: .\_templates\global\ComputerChoice.html:10
+#: .\_templates\global\MatchAnnouncement.html:10
+#: .\_templates\global\PlayerChoiceAnnouncement.html:10
+#: .\_templates\global\Results.html:10
+msgid "Players 1A and 1B have decided on their offers."
+msgstr "Игроки 1A и 1B сделали свой выбор."
+
+#: .\_templates\global\ComputerChoice.html:12
+#: .\_templates\global\PlayerChoiceAnnouncement.html:12
+#: .\_templates\global\Results.html:14
+#, python-format
+msgid "Computer chose Player 2%(computer_choice)s."
+msgstr "Компьютер выбрал Игрока 2%(computer_choice)s."
+
+#: .\_templates\global\MatchAnnouncement.html:13
+#: .\_templates\global\Results.html:25
+#, python-format
+msgid ""
+"Computer chose to match Player 2%(computer_choice)s with Player "
+"1%(player_choice)s."
+msgstr ""
+"Компьютер поставил Игрока 2%(computer_choice)s в пару с Игроком "
+"1%(player_choice)s."
+
+#: .\_templates\global\MatchAnnouncement.html:14
+#: .\_templates\global\PlayerChoiceAnnouncement.html:16
+#: .\_templates\global\Results.html:18 .\_templates\global\Results.html:26
+#, python-format
+msgid ""
+"That implies that Player 1%(player_choice)s offers to Player "
+"2%(computer_choice)s, while\n"
+"            Player 1%(player_choice_opposite)s offers to Player "
+"2%(computer_choice_opposite)s."
+msgstr ""
+"Это означает, что Игрок 1%(player_choice)s предлагает Игроку "
+"2%(computer_choice)s, а \n"
+"            Игрок 1%(player_choice_opposite)s предлагает Игроку "
+"2%(computer_choice_opposite)s."
+
+#: .\_templates\global\Offer.html:19
+#, python-format
+msgid " 'Value must be less than or equal to %(endowment)s' "
+msgstr " 'Значение должно быть меньше или равно %(endowment)s' "
+
+#: .\_templates\global\Offer.html:23
+msgid "'You chose to offer '"
+msgstr "'Вы предложили '"
+
+#: .\_templates\global\Offer.html:24
+msgid "' tokens to Player 2.'"
+msgstr "' жетонов Игроку 2.'"
+
+#: .\_templates\global\Offer.html:25
+msgid "' If he accepts your offer, you will get '"
+msgstr "' Если он примет Ваше предложение, Вы получите '"
+
+#: .\_templates\global\Offer.html:26
+msgid "' tokens.'"
+msgstr "' жетонов.'"
+
+#: .\_templates\global\Offer.html:27
+#, python-format
+msgid ""
+" ' If he rejects your offer, you will get %(payoff_if_rejected)s tokens.'"
+msgstr " ' Если он откажется, Вы получите %(payoff_if_rejected)s жетонов.'"
+
+#: .\_templates\global\PlayerChoice.html:10
+msgid " 'Please choose your partner' "
+msgstr " 'Пожалуйста, выберите своего партнёра' "
+
+#: .\_templates\global\PlayerChoice.html:18
+msgid "'You chose Player 1'"
+msgstr "'Вы выбрали Игрока 1'"
+
+#: .\_templates\global\PlayerChoice.html:19
+msgid "'. That means Player 1'"
+msgstr "'. Это означает, что Игрок 1'"
+
+#: .\_templates\global\PlayerChoice.html:20
+msgid "' offers to you and Player 1'"
+msgstr "' предлагает Вам, а Игрок 1'"
+
+#: .\_templates\global\PlayerChoice.html:21
+#, python-format
+msgid ""
+"' offers to Player 2%(computer_choice_opposite)s. '\n"
+"                            + 'On the next screen you will be asked to "
+"indicate the minimum '\n"
+"                            + 'offer you would accept.'"
+msgstr ""
+"' предлагает Игроку 2%(computer_choice_opposite)s. На следующем экране Вас "
+"попросят указать минимально приемлемое для Вас предложение.'"
+
+#: .\_templates\global\PlayerChoiceAnnouncement.html:15
+#: .\_templates\global\Results.html:17
+#, python-format
+msgid "Player 2%(computer_choice)s chose Player 1%(player_choice)s."
+msgstr "Игрок 2%(computer_choice)s выбрал Игрока 1%(player_choice)s."
+
+#: .\_templates\global\Results.html:32
+msgid ""
+"\n"
+"        Players 2C and 2D have decided on the minimum offer each of them "
+"would accept.\n"
+"    "
+msgstr ""
+"\n"
+"Игроки 2C и 2D выбрали минимально приемлемые предложения."
+
+#: .\_templates\global\Results.html:39
+msgid "Next round"
+msgstr "Следующий раунд"
+
+#: .\_templates\global\Results.html:44
+msgid "This is the last round."
+msgstr "Это последний раунд."
+
+#: .\_templates\global\Results.html:46
+msgid "Continue the experiment"
+msgstr "Продолжить эксперимент"
+
+#: .\final_screen\templates\final_screen\PaymentInfo.html:5
+msgid "Thank you"
+msgstr "Спасибо"
+
+#: .\final_screen\templates\final_screen\PaymentInfo.html:12
+#, python-format
+msgid "Your payment is %(payment)s."
+msgstr "Ваш выигрыш %(payment)s."
+
+#: .\final_screen\templates\final_screen\PaymentInfo.html:13
+msgid "Please remain seated until we pay you."
+msgstr "Пожалуйста, оставайтесь на месте и дождитесь оплаты."
+
+#~ msgid "Waiting for the other participants"
+#~ msgstr "Не все участники ещё закончили игру"
+
+#~ msgid "Please wait"
+#~ msgstr "Пожалуйста, подождите"

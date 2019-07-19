@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %}Survey. Part {{ part_num }}. Question {{ round }} of {{ num_rounds }}{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.submitted_answer label=player.question %}
+
+    <div>
+        {% if round < num_rounds %}
+            <button name="next">{% trans 'Next question' %}</button>
+        {% else %}
+            <button name="next">{% trans 'Next part' %}</button>
+        {% endif %}
+    </div>
+
+{% endblock %}

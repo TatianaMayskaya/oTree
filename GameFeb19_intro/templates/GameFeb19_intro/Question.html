@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+{% blocktrans %} Quiz. Question {{ round }} of {{ num_rounds }} {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+{% if try > 1 %}
+<p>{% blocktrans %} Your answer is incorrect. Please try again. {% endblocktrans %}</p>
+{% endif %}
+
+{% formfield player.submitted_answer label=player.question %}
+
+<div>
+    <button name="next">{% trans 'Check the answer' %}</button>
+</div>
+
+{% endblock %}

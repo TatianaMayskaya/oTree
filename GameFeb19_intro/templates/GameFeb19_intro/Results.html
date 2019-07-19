@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+{% blocktrans %} Quiz. Question {{ round }} of {{ num_rounds }} {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+<p>{% blocktrans %}You answered {{ questions_correct }} out of {{ round }} questions correctly. {% endblocktrans %} </p>
+
+<table class="table">
+    <tr>
+        <th>{% trans 'Question' %}</th>
+        <th>{% trans 'Your answer' %}</th>
+        <th>{% trans 'Correct answer' %}</th>
+        <th>{% trans 'Answered correctly?' %}</th>
+        <th>{% trans 'Explanation' %}</th>
+    </tr>
+    <tr>
+        <td>{{ player.question }}</td>
+        <td>{{ player.submitted_answer_text }}</td>
+        <td>{{ player.solution_text }}</td>
+        <td>{{ is_correct }}</td>
+        <td>{{ player.explanation }}</td>
+    </tr>
+</table>
+
+
+<div>
+    {% if round < num_rounds %}
+    <button name="next">{% trans 'Next question' %}</button>
+    {% else %}
+    <button name="next">{% trans 'Start the experiment' %}</button>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+

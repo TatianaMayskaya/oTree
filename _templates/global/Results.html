@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %} Round {{ round_number }} out of {{ n_rounds }}. {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <p>{% blocktrans %}Players 1A and 1B have decided on their offers.{% endblocktrans %}</p>
+
+    {% if not UG %}
+
+        <p>{% blocktrans %}Computer chose Player 2{{ computer_choice }}.{% endblocktrans %}</p>
+
+        <p>
+            {% blocktrans %}Player 2{{ computer_choice }} chose Player 1{{ player_choice }}.{% endblocktrans %}
+            {% blocktrans %}That implies that Player 1{{ player_choice }} offers to Player 2{{ computer_choice }}, while
+            Player 1{{ player_choice_opposite }} offers to Player 2{{ computer_choice_opposite }}.{% endblocktrans %}
+        </p>
+
+    {% else %}
+
+        <p>
+            {% blocktrans %}Computer chose to match Player 2{{ computer_choice }} with Player 1{{ player_choice }}.{% endblocktrans %}
+            {% blocktrans %}That implies that Player 1{{ player_choice }} offers to Player 2{{ computer_choice }}, while
+            Player 1{{ player_choice_opposite }} offers to Player 2{{ computer_choice_opposite }}.{% endblocktrans %}
+        </p>
+
+    {% endif %}
+
+    <p><strong>{% blocktrans %}
+        Players 2C and 2D have decided on the minimum offer each of them would accept.
+    {% endblocktrans %}</strong></p>
+
+    {% if round_number < n_rounds %}
+
+        <div>
+            <button name="next">{% trans 'Next round' %}</button>
+        </div>
+
+    {% else %}
+
+        <p><strong>{% blocktrans %}This is the last round.{% endblocktrans %}</strong></p>
+
+        <button name="next">{% trans 'Continue the experiment' %}</button>
+
+    {% endif %}
+
+{% endblock %}
+
+

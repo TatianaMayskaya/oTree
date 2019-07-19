@@ -1,260 +1,109 @@
 from os import environ
+import docutils.core
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
 # the session config can be accessed from methods in your apps as self.session.config,
 # e.g. self.session.config['participation_fee']
 
+docutils.core.publish_file(
+    source_path="README.rst",
+    destination_path="README.html",
+    writer_name="html")
+
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 1.00,
-    'participation_fee': 0.00,
-    'doc': "",
-}
+    'endowment': 100,
+    'payoff_if_rejected': 0,
+    'rate': 10,
+    'rate_reversed': 10,
+    'rate_UG': 10,
+    'rate_UG_reversed': 10,
+    'rate_CT': 10,
+    'rate_Q': 1,
+    'n_questions': 3,
+    'total_questions': 2,  # number of parts where subjects have to answer paid questions
+    'num_demo_participants': 4,
+    'n_rounds': 8,
+    'min_n_rounds': 2,
+    'test_mode': True,
+    'skip_test': True,
+    'skip_CognitiveTest': False,
+    'skip_ChoiceQuestions': False,
+    'skip_survey': False,
+    'doc': open('README.html').read()}
+# 'doc': """
+#     - Edit the 'language' and 'currency_used' parameter to change
+#     the language ('en' or 'ru') and the currency (0=USD, 1=POUNDS, 2=RUBLES).\r\n
+#
+#     - Parameter 'n_rounds' corresponds to the number of rounds in the game.\n
+#
+#     Parameter 'skip_test' indicates whether the questionnaire should be skipped or not
+#     (set OFF for the actual experiment)\n
+#
+#     Parameter 'skip_CognitiveTest' indicates whether the cognitive test should be skipped or not
+#     (set OFF for the actual experiment)\n
+#
+#     Parameter 'skip_ChoiceQuestions' indicates whether the choice questions should be skipped or not
+#     (set OFF for the actual experiment)\n
+#
+#     Parameter 'skip_survey' indicates whether the survey should be skipped or not
+#     (set OFF for the actual experiment)\n
+#
+#     Parameter 'min_n_rounds' corresponds to the minimum number of rounds needed to test application\n
+#
+#     Parameter 'test_mode' indicates whether we want to run the experiment in a test regime
+#     (set OFF for the actual experiment)
+#     """}
 
 SESSION_CONFIGS = [
-     {
-        'name': 'GameJan19',
-        'display_name': 'Experiment: January 2019',
-        'num_demo_participants': 4,
-        'app_sequence': ['GameJan19_intro',
-                         'GameJan19_main',
-                         'GameJan19_survey_role_reversed',
-                         'GameJan19_survey_opinion',
-                         'GameJan19_survey_comment',
-                         'GameJan19_survey_personal',
+    {
+        'name': 'GameFeb19_en',
+        'display_name': 'Experiment: February 2019 - English & USD',
+        'app_sequence': ['GameFeb19_intro',
+                         'GameFeb19_main', 'GameFeb19_role_reversed', 'GameFeb19_UG', 'GameFeb19_UG_role_reversed',
+                         'GameFeb19_questions_cognitive', 'GameFeb19_questions_choice',
+                         'GameFeb19_Payoffs',
+                         'GameFeb19_survey_opinion', 'GameFeb19_survey_comment', 'GameFeb19_survey_personal',
                          'final_screen'],
         'use_browser_bots': True,
-        'language': 1,  # 1=EN, 2=RU
+        'language': 'en',  # 'en' or 'ru'
         'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
-        'n_rounds': 8,  # make sure it coincides with the number of rounds
-                        # in GameJan19_main and GameJan19_survey_role_reversed
-        'doc': """
-        Edit the 'language' and 'currency_used' parameter to change
-        the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES).
-        
-        Parameter 'n_rounds' corresponds to the number of rounds in the game (do not change).
-        """
-     },
-     {
-         'name': 'ContractTheoryICEF2019_Class1',
-         'display_name': "Contract Theory ICEF year 2019. Class 1",
-         'num_demo_participants': 2,
-         'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
-         'use_browser_bots': True,
-         'Email': 1,
-         'file': 'CT19_SellerBuyer/parameters1.csv',
-         'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-         
-         Edit 'file' for the file containing parameters (in csv format)
-         """
-     },
-     {
-         'name': 'ContractTheoryICEF2019_Class2',
-         'display_name': "Contract Theory ICEF year 2019. Class 2",
-         'num_demo_participants': 2,
-         'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
-         'use_browser_bots': True,
-         'Email': 1,
-         'file': 'CT19_SellerBuyer/parameters2.csv',
-         'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-         
-         Edit 'file' for the file containing parameters (in csv format)
-         """
-     },
-     {
-        'name': 'ContractTheoryICEF2019_Class3',
-        'display_name': "Contract Theory ICEF year 2019. Class 3",
-        'num_demo_participants': 2,
-        'app_sequence': ['CT19_NameEmail', 'CT19_SellerBuyer'],
+        'real_world_currency_per_point': 0.05,
+        'participation_fee': 5.00,
+    },
+    {
+        'name': 'GameFeb19_en',
+        'display_name': 'Experiment: February 2019 - English & Pounds',
+        'app_sequence': ['GameFeb19_intro',
+                         'GameFeb19_main', 'GameFeb19_role_reversed', 'GameFeb19_UG', 'GameFeb19_UG_role_reversed',
+                         'GameFeb19_questions_cognitive', 'GameFeb19_questions_choice',
+                         'GameFeb19_Payoffs',
+                         'GameFeb19_survey_opinion', 'GameFeb19_survey_comment', 'GameFeb19_survey_personal',
+                         'final_screen'],
         'use_browser_bots': True,
-        'Email': 1,
-        'file': 'CT19_SellerBuyer/parameters3.csv',
-        'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-
-         Edit 'file' for the file containing parameters (in csv format)
-         """
-     },
-     {
-        'name': 'ContractTheoryICEF2019_Class4',
-        'display_name': "Contract Theory ICEF year 2019. Class 4",
-        'num_demo_participants': 1,
-        'app_sequence': ['CT19_NameEmail', 'CT19_OptimalTaxation'],
+        'language': 'en',  # 'en' or 'ru'
+        'currency_used': 1,  # 0=USD, 1=POUNDS, 2=RUBLES
+        'real_world_currency_per_point': 0.02,
+        'participation_fee': 3.00,
+    },
+    {
+        'name': 'GameFeb19_ru',
+        'display_name': 'Experiment: February 2019 - Russian',
+        'app_sequence': ['GameFeb19_intro',
+                         'GameFeb19_main', 'GameFeb19_role_reversed', 'GameFeb19_UG', 'GameFeb19_UG_role_reversed',
+                         'GameFeb19_questions_cognitive', 'GameFeb19_questions_choice',
+                         'GameFeb19_Payoffs',
+                         'GameFeb19_survey_opinion', 'GameFeb19_survey_comment', 'GameFeb19_survey_personal',
+                         'final_screen'],
         'use_browser_bots': True,
-        'Email': 1,
-        'thetaL': 2,
-        'thetaH': 4,
-        'beta': 0.5,
-        'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-    
-         Edit 'thetaL', 'thetaH', 'beta' for parameters in the game
-         """
-     },
-     {
-        'name': 'ContractTheoryICEF2019_Class5',
-        'display_name': "Contract Theory ICEF year 2019. Class 5",
-        'num_demo_participants': 2,
-        'app_sequence': ['CT19_NameEmail', 'CT19_MoralHazard'],
-        'use_browser_bots': True,
-        'binary': True,
-        'Email': 1,
-        'file': 'CT19_MoralHazard/parameters.csv',
-        'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-
-         Edit 'file' for the file containing parameters (in csv format)
-         
-         Edit 'binary' to control whether the binary version of the game is played or the continuous one
-         """
-     },
-     {
-        'name': 'ContractTheoryICEF2019_Class6',
-        'display_name': "Contract Theory ICEF year 2019. Class 6",
-        'num_demo_participants': 2,
-        'app_sequence': ['CT19_NameEmail', 'CT19_MoralHazard'],
-        'use_browser_bots': True,
-        'binary': False,
-        'Email': 0,
-        'file': 'CT19_MoralHazard/parameters.csv',
-        'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-
-         Edit 'file' for the file containing parameters (in csv format)
-
-         Edit 'binary' to control whether the binary version of the game is played or the continuous one
-         """
-     },
-     {
-        'name': 'ContractTheoryICEF2019_Class7',
-        'display_name': "Contract Theory ICEF year 2019. Class 7",
-        'num_demo_participants': 2,
-        'app_sequence': ['CT19_NameEmail', 'CT19_Multitasking'],
-        'use_browser_bots': True,
-        'Email': 0,
-        'file': 'CT19_Multitasking/parameters.csv',
-        'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-
-         Edit 'file' for the file containing parameters (in csv format)
-         """
-     },
-     {
-        'name': 'ResearchSeminar_11Jan19',
-        'display_name': "Research Seminar - order assignment (11 January 2019)",
-        'num_demo_participants': 4,
-        'app_sequence': ['CT19_NameEmail', 'RS19_SchedulingGame'],
-        'use_browser_bots': True,
-        'Email': 1,
-        'doc': """
-         Edit 'Email' to control whether emails should be collected for 
-         participants in the database (0=no,1=yes)
-         """
-     }
-    # {
-    #     'name': 'my_game',
-    #     'display_name': 'My Game',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['my_game'],
-    # },
-    # {
-    #     'name': 'GameOct18_ru',
-    #     'display_name': 'GameOct18_ru',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['GameOct18'],
-    #     'use_browser_bots': False
-    # },
-    # {
-    #     'name': 'GameOct18_en',
-    #     'display_name': 'GameOct18_en',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['GameOct18_en'],
-    # },
-    # {
-    #     'name': 'GameNov18',
-    #     'display_name': 'GameNov18',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['GameNov18_intro',
-    #                      'GameNov18_main',
-    #                      'GameNov18_survey_text_logic',
-    #                      'GameNov18_survey_roles_reversed',
-    #                      'GameNov18_survey_opinion',
-    #                      # 'GameNov18_survey_text_modifications',
-    #                      'GameNov18_survey_comments',
-    #                      'GameNov18_survey_risk',
-    #                      'GameNov18_survey_prisoner',
-    #                      'GameNov18_survey_trust',
-    #                      'GameNov18_survey_personal',
-    #                      'final_screen'
-    #                      ],
-    #     'use_browser_bots': True,
-    #     'language': 1,  # 1=EN, 2=RU
-    #     'currency_used': 0,  # 0=USD, 1=POUNDS, 2=RUBLES
-    #     'doc': """
-    #     Edit the 'language' and 'currency_used' parameter to change
-    #     the language (1=EN, 2=RU) and the currency (0=USD, 1=POUNDS, 2=RUBLES)
-    #     """
-    # },
-    # {
-    #     'name': 'public_goods',
-    #     'display_name': "Public Goods",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['public_goods', 'payment_info'],
-    # },
-    # {
-    #     'name': 'guess_two_thirds',
-    #     'display_name': "Guess 2/3 of the Average",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['guess_two_thirds', 'payment_info'],
-    # },
-    # {
-    #     'name': 'survey',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['survey', 'payment_info'],
-    # },
-    # {
-    #     'name': 'quiz',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['quiz'],
-    # },
-    # {
-    #     'name': 'prisoner',
-    #     'display_name': "Prisoner's Dilemma",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['prisoner', 'payment_info'],
-    # },
-    # {
-    #     'name': 'ultimatum',
-    #     'display_name': "Ultimatum (randomized: strategy vs. direct response)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
-    # },
-    # {
-    #     'name': 'ultimatum_strategy',
-    #     'display_name': "Ultimatum (strategy method treatment)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
-    #     'use_strategy_method': True,
-    # },
-    # {
-    #     'name': 'ultimatum_non_strategy',
-    #     'display_name': "Ultimatum (direct response treatment)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
-    #     'use_strategy_method': False,
-    # },
+        'language': 'ru',  # 'en' or 'ru'
+        'currency_used': 2,  # 0=USD, 1=POUNDS, 2=RUBLES
+        'real_world_currency_per_point': 1.00,
+        'participation_fee': 200,
+    }
 ]
-# see the end of this file for the inactive session configs
 
+LANGUAGE_SESSION_KEY = '_language'
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
@@ -266,101 +115,11 @@ USE_POINTS = True
 
 ROOMS = [
     {
-        'name': 'ContractTheoryICEF2019',
-        'display_name': 'Contract Theory ICEF year 2019',
-        'participant_label_file': '_rooms/ContractTheoryICEF2019.txt',
-    },
-    {
-        'name': 'ResearchSeminar3year2019',
-        'display_name': 'Research Seminar 3 year 2019',
-        'participant_label_file': '_rooms/ResearchSeminar3year2019.txt'
-    },
-    {
         'name': 'room_100z',
         'display_name': 'Room for maximum 100 participants : room 1 (labels zi)',
         'participant_label_file': '_rooms/room_100z.txt'
     },
-    # {
-    #     'name': 'econ101',
-    #     'display_name': 'Econ 101 class',
-    #     'participant_label_file': '_rooms/econ101.txt',
-    # },
-    # {
-    #     'name': 'live_demo',
-    #     'display_name': 'Room for live demo (no participant labels)',
-    # },
-    # {
-    #     'name': 'game_for_two_players',
-    #     'display_name': 'Game for two players',
-    #     'participant_label_file': '_rooms/game_for_two_players.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_en_AM',
-    #     'display_name': 'GameOct18 - test for English version : Alexander Matros',
-    #     'participant_label_file': '_rooms/GameOct18_4.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_AM',
-    #     'display_name': 'GameOct18 - test for Russian version : Alexander Matros',
-    #     'participant_label_file': '_rooms/GameOct18_4.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_16',
-    #     'display_name': 'GameOct18 - for maximum 16 participants',
-    #     'participant_label_file': '_rooms/GameOct18_16.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_20_room1',
-    #     'display_name': 'GameOct18 - for maximum 20 participants : room 1 (labels: Pi)',
-    #     'participant_label_file': '_rooms/GameOct18_20.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_20_room2',
-    #     'display_name': 'GameOct18 - for maximum 20 participants : room 2 (labels: Pi)',
-    #     'participant_label_file': '_rooms/GameOct18_20.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_20_room3',
-    #     'display_name': 'GameOct18 - for maximum 20 participants : room 3 (labels: Pi)',
-    #     'participant_label_file': '_rooms/GameOct18_20.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_20_room4',
-    #     'display_name': 'GameOct18 - for maximum 20 participants : room 4 (labels: Pi)',
-    #     'participant_label_file': '_rooms/GameOct18_20.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_20_room5',
-    #     'display_name': 'GameOct18 - for maximum 20 participants : room 5 (labels: Pi)',
-    #     'participant_label_file': '_rooms/GameOct18_20.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_20_room6',
-    #     'display_name': 'GameOct18 - for maximum 20 participants : room 6 (labels: Pi)',
-    #     'participant_label_file': '_rooms/GameOct18_20.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_30z_room1',
-    #     'display_name': 'GameOct18 - for maximum 30 participants : room 1 (labels: zi)',
-    #     'participant_label_file': '_rooms/GameOct18_30z.txt'
-    # },
-    # {
-    #     'name': 'GameOct18_ru_30z_room2',
-    #     'display_name': 'GameOct18 - for maximum 30 participants : room 2 (labels: zi)',
-    #     'participant_label_file': '_rooms/GameOct18_30z.txt'
-    # },
-    # {
-    #     'name': 'GameNov18_room1',
-    #     'display_name': 'GameNov18 - for maximum 100 participants : room 1 (labels zi)',
-    #     'participant_label_file': '_rooms/room_100z.txt'
-    # },
-    # {
-    #     'name': 'GameNov18_room2',
-    #     'display_name': 'GameNov18 - for maximum 100 participants : room 2 (labels zi)',
-    #     'participant_label_file': '_rooms/room_100z.txt'
-    # }
 ]
-
 
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,
@@ -379,14 +138,11 @@ ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
-
 # Consider '', None, and '0' to be empty/false
 DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
 
 DEMO_PAGE_INTRO_HTML = """
-Here are various games implemented with 
-oTree. These games are open
-source, and you can modify them as you wish.
+Experiment for Ultimatum Game
 """
 
 # don't share this with anybody.
@@ -394,131 +150,3 @@ SECRET_KEY = '-zix68refu)(#smaxr$n%3hz$4an1%=m_=8th@l7&2@*3-(xrd'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree', 'otree_tools']
-
-# inactive session configs
-### {
-###     'name': 'trust',
-###     'display_name': "Trust Game",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['trust', 'payment_info'],
-### },
-### {
-###     'name': 'prisoner',
-###     'display_name': "Prisoner's Dilemma",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['prisoner', 'payment_info'],
-### },
-### {
-###     'name': 'ultimatum',
-###     'display_name': "Ultimatum (randomized: strategy vs. direct response)",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['ultimatum', 'payment_info'],
-### },
-### {
-###     'name': 'ultimatum_strategy',
-###     'display_name': "Ultimatum (strategy method treatment)",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['ultimatum', 'payment_info'],
-###     'use_strategy_method': True,
-### },
-### {
-###     'name': 'ultimatum_non_strategy',
-###     'display_name': "Ultimatum (direct response treatment)",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['ultimatum', 'payment_info'],
-###     'use_strategy_method': False,
-### },
-### {
-###     'name': 'vickrey_auction',
-###     'display_name': "Vickrey Auction",
-###     'num_demo_participants': 3,
-###     'app_sequence': ['vickrey_auction', 'payment_info'],
-### },
-### {
-###     'name': 'volunteer_dilemma',
-###     'display_name': "Volunteer's Dilemma",
-###     'num_demo_participants': 3,
-###     'app_sequence': ['volunteer_dilemma', 'payment_info'],
-### },
-### {
-###     'name': 'cournot',
-###     'display_name': "Cournot Competition",
-###     'num_demo_participants': 2,
-###     'app_sequence': [
-###         'cournot', 'payment_info'
-###     ],
-### },
-### {
-###     'name': 'principal_agent',
-###     'display_name': "Principal Agent",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['principal_agent', 'payment_info'],
-### },
-### {
-###     'name': 'dictator',
-###     'display_name': "Dictator Game",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['dictator', 'payment_info'],
-### },
-### {
-###     'name': 'matching_pennies',
-###     'display_name': "Matching Pennies",
-###     'num_demo_participants': 2,
-###     'app_sequence': [
-###         'matching_pennies',
-###     ],
-### },
-### {
-###     'name': 'traveler_dilemma',
-###     'display_name': "Traveler's Dilemma",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['traveler_dilemma', 'payment_info'],
-### },
-### {
-###     'name': 'bargaining',
-###     'display_name': "Bargaining Game",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['bargaining', 'payment_info'],
-### },
-### {
-###     'name': 'common_value_auction',
-###     'display_name': "Common Value Auction",
-###     'num_demo_participants': 3,
-###     'app_sequence': ['common_value_auction', 'payment_info'],
-### },
-### {
-###     'name': 'bertrand',
-###     'display_name': "Bertrand Competition",
-###     'num_demo_participants': 2,
-###     'app_sequence': [
-###         'bertrand', 'payment_info'
-###     ],
-### },
-### {
-###     'name': 'real_effort',
-###     'display_name': "Real-effort transcription task",
-###     'num_demo_participants': 1,
-###     'app_sequence': [
-###         'real_effort',
-###     ],
-### },
-### {
-###     'name': 'lemon_market',
-###     'display_name': "Lemon Market Game",
-###     'num_demo_participants': 3,
-###     'app_sequence': [
-###         'lemon_market', 'payment_info'
-###     ],
-### },
-### {
-###     'name': 'public_goods_simple',
-###     'display_name': "Public Goods (simple version from tutorial)",
-###     'num_demo_participants': 3,
-###     'app_sequence': ['public_goods_simple', 'payment_info'],
-### },
-### {
-###     'name': 'trust_simple',
-###     'display_name': "Trust Game (simple version from tutorial)",
-###     'num_demo_participants': 2,
-###     'app_sequence': ['trust_simple'],
-### },

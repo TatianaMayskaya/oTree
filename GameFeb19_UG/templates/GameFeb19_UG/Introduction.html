@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %}Game{% endblocktrans %} 3
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% blocktrans %}Let us reshuffle your roles once again.{% endblocktrans %}
+        {% blocktrans %}Your role (Player 1 or Player 2) in Game 3 will <strong>not</strong> depend on your role in Game 1 or Game 2.{% endblocktrans %}
+        {% blocktrans %}As before, your role will not change <strong>during</strong> the game.{% endblocktrans %}
+        {% blocktrans %}And as before, you will be paid for one randomly chosen round.{% endblocktrans %}
+        {% blocktrans %}The conversion rate is{% endblocktrans %}
+        {% blocktrans %}1 token{% endblocktrans %} = {{ rate_text }}.
+    </p>
+
+    <p>
+        {% blocktrans %}What makes Game 3 different from Games 1 and 2 is the following.{% endblocktrans %}
+        {% blocktrans %}So far, the computer was choosing Player 2C or Player 2D to determine who to be matched with whom.{% endblocktrans %}
+        {% blocktrans %}In Game 3, the <strong>computer chooses who to be matched with whom</strong> in a group.{% endblocktrans %}
+    </p>
+
+    <p>
+        {% blocktrans %}Every round shall consist of four stages.{% endblocktrans %}
+    </p>
+
+    <ol>
+        <li>
+            <p>{% blocktrans %}Participants in roles of Player 1 choose how much out of {{ endowment }} tokens he or
+                she wants to pass to one of the Players 2.{% endblocktrans %}</p>
+        </li>
+        <li>
+            <p>
+                {% blocktrans %}The computer chooses at random one of the participants with Player 2 role.{% endblocktrans %}
+                {% blocktrans %}Then the <strong>computer chooses at random the partner</strong> for this participant.{% endblocktrans %}
+                {% blocktrans %}Thus, at the end of this stage, four players in each group shall be split in two pairs
+                    <strong>by the computer</strong>, and shall commonly observe this matching.{% endblocktrans %}
+            </p>
+        </li>
+        <li>
+            <p>
+                {% blocktrans %}Participants in roles of Player 2 have to decide on the minimum offer from their
+                    partner Player 1 that each of them is willing to accept.{% endblocktrans %}
+            </p>
+        </li>
+        <li>
+            <p>
+                {% blocktrans %}Payoffs are determined separately for each pair in a group.{% endblocktrans %}
+            </p>
+        </li>
+    </ol>
+
+    <div>
+        <button name="next">{% trans 'Next' %}</button>
+    </div>
+
+{% endblock %}

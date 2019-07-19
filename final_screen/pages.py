@@ -2,25 +2,14 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+from GameFeb19_intro.pages import Page, WaitPage
 
-def add_currency(currency_used, num):
-    if currency_used == 0:
-        return '$' + str(num)
-    elif currency_used == 1:
-        return '£' + str(num)
-    else:
-        if num % 10 == 1:
-            return str(num) + ' рубль'
-        elif (num % 10 == 2) | (num % 10 == 3) | (num % 10 == 4):
-            return str(num) + ' рубля'
-        else:
-            return str(num) + ' рублей'
+from GameFeb19_intro.models import add_currency
 
 
 class PaymentInfo(Page):
     def vars_for_template(self):
-        return {'language': self.session.config['language'],
-                'payment': self.participant.vars['payment_formula'] + ' = ' +
+        return {'payment': self.participant.vars['payment_formula'] + ' = ' +
                            add_currency(self.session.config['currency_used'],
                                         float(self.participant.payoff_plus_participation_fee()))}
 

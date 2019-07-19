@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+        $(function () {
+            $('.otree-modal-main-button').on('click', function () {
+                if (typeof $('input[name=player_choice]:checked').val() === "undefined") {
+                    var msg = {% blocktrans %} 'Please choose your partner' {% endblocktrans %};
+                } else {
+                    var choice = $('input[name=player_choice]:checked').val();
+                    if (choice == 'A') {
+                        var not_choice = 'B';
+                    } else {
+                        var not_choice = 'A';
+                    }
+                    var msg = {% blocktrans %}'You chose Player 1'{% endblocktrans %} + choice
+                        + {% blocktrans %}'. That means Player 1'{% endblocktrans %} + choice
+                        + {% blocktrans %}' offers to you and Player 1'{% endblocktrans %} + not_choice
+                        + {% blocktrans %}' offers to Player 2{{ computer_choice_opposite }}. '
+                            + 'On the next screen you will be asked to indicate the minimum '
+                            + 'offer you would accept.'{% endblocktrans %};
+                }
+                $('.otree-modal-message').text(msg);
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block title %}
+    {% blocktrans %} Round {{ round_number }} out of {{ n_rounds }}. {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <p>{% blocktrans %} You are Player {{ role }}. {% endblocktrans %}</p>
+
+    {% formfield group.player_choice label = player_choice_label %}
+
+    <div>
+        {% confirm_button title='' yes_button=submit no_button=change main_button=submit %}
+    </div>
+
+{% endblock %}

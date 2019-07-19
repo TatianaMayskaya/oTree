@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %} Round {{ round_number }} out of {{ n_rounds }}. {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <h1>{% blocktrans %} You are Player {{ role }}. {% endblocktrans %}</h1>
+
+    <div>
+        <button name="next">{% trans 'Next' %}</button>
+    </div>
+
+{% endblock %}

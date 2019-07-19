@@ -1,0 +1,88 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %}Results{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <h3>{% blocktrans %}Game{% endblocktrans %} 1</h3>
+
+    <p>{% blocktrans %}You were Player {{ role }} in the game{% endblocktrans %}</p>
+
+    {% for round, offer, response, payoff in results_table %}
+
+        {% include 'GameFeb19_Payoffs/Payoffs_template.html' %}
+
+    {% endfor %}
+
+    <p>{% blocktrans %}Round chosen for the payment: round {% endblocktrans %}{{ payment_round }}</p>
+
+
+
+    <h3>{% blocktrans %}Game{% endblocktrans %} 2</h3>
+
+    <p>{% blocktrans with role=role_reversed %}You were Player {{ role }} in the game{% endblocktrans %}</p>
+
+    {% for round, offer, response, payoff in results_table_reversed %}
+
+        {% include 'GameFeb19_Payoffs/Payoffs_template.html' %}
+
+    {% endfor %}
+
+    <p>{% blocktrans %}Round chosen for the payment: round {% endblocktrans %}{{ payment_round_reversed }}</p>
+
+
+
+    <h3>{% blocktrans %}Game{% endblocktrans %} 3</h3>
+
+    <p>{% blocktrans with role=roleUG %}You were Player {{ role }} in the game{% endblocktrans %}</p>
+
+    {% for round, offer, response, payoff in results_tableUG %}
+
+        {% include 'GameFeb19_Payoffs/Payoffs_template.html' %}
+
+    {% endfor %}
+
+    <p>{% blocktrans %}Round chosen for the payment: round {% endblocktrans %}{{ payment_roundUG }}</p>
+
+
+
+    <h3>{% blocktrans %}Game{% endblocktrans %} 4</h3>
+
+    <p>{% blocktrans with role=roleUG_reversed %}You were Player {{ role }} in the game{% endblocktrans %}</p>
+
+    {% for round, offer, response, payoff in results_tableUG_reversed %}
+
+        {% include 'GameFeb19_Payoffs/Payoffs_template.html' %}
+
+    {% endfor %}
+
+    <p>{% blocktrans %}Round chosen for the payment: round {% endblocktrans %}{{ payment_roundUG_reversed }}</p>
+
+
+    {% for num in total_questions %}
+
+        {% if CT_part == num %}
+
+            {% include 'GameFeb19_Payoffs/Payoffs_cognitive.html' %}
+
+        {% elif Q_part == num %}
+
+            {% include 'GameFeb19_Payoffs/Payoffs_choice.html' %}
+
+        {% endif %}
+
+    {% endfor %}
+
+
+    <h3>{% blocktrans %}Summary{% endblocktrans %}</h3>
+
+    <p>{% blocktrans %}Your final payment{% endblocktrans %}: <strong>{{ payment }}</strong></p>
+
+    <button name="next">{% trans 'Start the survey' %}</button>
+
+{% endblock %}
+
+

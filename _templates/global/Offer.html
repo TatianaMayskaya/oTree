@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+{% load otree otree_tools %}
+
+{% block scripts %}
+    <script>
+    $(function () {
+        $('.otree-modal-main-button').on('click',function(){
+            if ($('#id_offer').val()==''){
+                var msg = {% blocktrans %} 'Please enter a number' {% endblocktrans %};
+            }
+            else if (!((function(x) { return (x | 0) === x; })(parseFloat($('#id_offer').val())))){
+                var msg = {% blocktrans %} 'Please enter an INTEGER number' {% endblocktrans %};
+            }
+            else if ($('#id_offer').val()<0){
+                var msg = {% blocktrans %} 'Value must be greater than or equal to 0' {% endblocktrans %};
+            }
+            else if ($('#id_offer').val()>{{ endowment }}){
+                var msg = {% blocktrans %} 'Value must be less than or equal to {{ endowment }}' {% endblocktrans %};
+            }
+            else {
+                var pay = {{ endowment }} - $('#id_offer').val();
+                var msg = {% blocktrans %}'You chose to offer '{% endblocktrans %}
+                        + $('#id_offer').val() + {% blocktrans %}' tokens to Player 2.'{% endblocktrans %}
+                        + {% blocktrans %}' If he accepts your offer, you will get '{% endblocktrans %}
+                        + pay + {% blocktrans %}' tokens.'{% endblocktrans %}
+                        + {% blocktrans %} ' If he rejects your offer, you will get {{ payoff_if_rejected }} tokens.'{% endblocktrans %};
+            }
+            $('.otree-modal-message').text(msg);
+        })
+    })
+    </script>
+{% endblock %}
+
+
+{% block title %}
+    {% blocktrans %} Round {{ round_number }} out of {{ n_rounds }}. {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <p>{% blocktrans %} You are Player {{ role }}. {% endblocktrans %}</p>
+
+    {% formfield player.offer label = offer_label %}
+
+    <div>
+        {% confirm_button title='' yes_button=submit no_button=change main_button=submit %}
+    </div>
+
+{% endblock %}

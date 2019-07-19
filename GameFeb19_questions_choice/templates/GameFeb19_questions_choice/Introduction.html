@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %}Questions. Part {% endblocktrans %}{{ part_num }}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% blocktrans %}Now you will be asked to answer {{ num_rounds }} questions.{% endblocktrans %}
+        {% blocktrans %}There will be no correct or incorrect answers but each question implies some gain in tokens.{% endblocktrans %}
+        {% blocktrans %}Some questions are games with more than one participant.{% endblocktrans %}
+        {% blocktrans %}If you are facing such game, you will be randomly matched with other participants in the room, who would play that game with you.{% endblocktrans %}
+    </p>
+    <p>
+        {% blocktrans %}Exactly {{ n_questions }} will be randomly chosen for payment.{% endblocktrans %}
+        {% blocktrans %}You will be paid at the conversion rate {% endblocktrans %}
+        {% blocktrans %}1 token{% endblocktrans %} = {{ rate_text }}.
+        {% blocktrans %}You will know the results at the end of the experiment.{% endblocktrans %}
+    </p>
+
+    <div>
+        <button name="next">{% trans 'Next' %}</button>
+    </div>
+
+{% endblock %}

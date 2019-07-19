@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %}Questions. Part {% endblocktrans %}{{ part_num }}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% blocktrans %}Now you will be asked to answer {{ num_rounds }} questions.{% endblocktrans %}
+        {% blocktrans %}You will be paid {{ rate_CT }} for each correct answer, and there is no penalty for incorrect answers.{% endblocktrans %}
+        {% blocktrans %}You will know the results at the end of the experiment.{% endblocktrans %}
+    </p>
+
+    <div>
+        <button name="next">{% trans 'Next' %}</button>
+    </div>
+
+{% endblock %}

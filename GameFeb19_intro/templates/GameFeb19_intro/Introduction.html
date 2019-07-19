@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+        {% blocktrans %}Instructions{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+        {% include instructions_template %}
+
+    <div>
+        <button name="next">{% trans 'Start the quiz' %}</button>
+    </div>
+
+{% endblock %}

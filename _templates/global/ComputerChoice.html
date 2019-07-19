@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+    {% blocktrans %} Round {{ round_number }} out of {{ n_rounds }}. {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+    <p>{% blocktrans %}Players 1A and 1B have decided on their offers.{% endblocktrans %}</p>
+
+    <p><strong>{% blocktrans %}Computer chose Player 2{{ computer_choice }}.{% endblocktrans %}</strong></p>
+
+    <div>
+        <button name="next">{% trans 'Next' %}</button>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+{% blocktrans %}Game{% endblocktrans %} 2
+{% endblock %}
+
+{% block content %}
+
+<p>
+    {% blocktrans %}Let us revert the roles now: if you were Player 1, you'll become Player 2 now, and vice versa.{% endblocktrans %}
+    {% blocktrans %}As before, you will be paid for one randomly chosen round.{% endblocktrans %}
+    {% blocktrans %}The conversion rate is{% endblocktrans %}
+    {% blocktrans %}1 token{% endblocktrans %} = {{ rate_text }}.
+</p>
+
+
+<div>
+     <button name="next">{% trans 'Next' %}</button>
+</div>
+
+{% endblock %}

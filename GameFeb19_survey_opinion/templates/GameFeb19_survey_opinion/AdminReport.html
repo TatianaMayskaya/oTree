@@ -1,0 +1,18 @@
+{% load otree %}
+
+<h3>Question {{ subsession.round_number }}.</h3>
+
+<table class="table">
+    <tr>
+        <th>Participant</th>
+        <th>Statement</th>
+        <th>To what extent the participant agrees with the statement (from 1 to 5)</th>
+    </tr>
+    {% for label, question, submitted_answer in players %}
+        <tr>
+            <th>{{ label }}</th>
+            <th>{{ question }}</th>
+            <th>{{ submitted_answer }}</th>
+        </tr>
+    {% endfor %}
+</table>

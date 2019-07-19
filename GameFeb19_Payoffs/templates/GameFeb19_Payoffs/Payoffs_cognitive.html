@@ -1,0 +1,26 @@
+{% load otree i18n %}
+
+<h3>{% blocktrans %}Questions. Part {% endblocktrans %}{{ CT_part }}</h3>
+
+<p>{% blocktrans %}You answered {{ questions_correct_CT }} out of {{ num_questions_CT }} questions correctly. {% endblocktrans %} </p>
+
+<table class="table">
+<tr>
+    <th>{% trans 'Question' %}</th>
+    <th>{% trans 'Your answer' %}</th>
+    <th>{% trans 'Correct answer' %}</th>
+    <th>{% trans 'Answered correctly?' %}</th>
+</tr>
+<tbody>
+{% for num, question, submitted_answer, solution, is_correct in questions_CT %}
+    <tr>
+    <th>{{ num }}. {{ question }}</th>
+    <th>{{ submitted_answer }}</th>
+    <th>{{ solution }}</th>
+    <th>{{ is_correct }}</th>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+

@@ -1,0 +1,22 @@
+{% load otree %}
+
+<h3>Question {{ subsession.round_number }}.</h3>
+
+<table class="table">
+    <tr>
+        <th>Participant</th>
+        <th>Question</th>
+        <th>Submitted answer</th>
+        <th>Solution</th>
+        <th>Is correct?</th>
+    </tr>
+    {% for label, question, submitted_answer, solution, is_correct in players %}
+        <tr>
+            <th>{{ label }}</th>
+            <th>{{ question }}</th>
+            <th>{{ submitted_answer }}</th>
+            <th>{{ solution }}</th>
+            <th>{{ is_correct }}</th>
+        </tr>
+    {% endfor %}
+</table>

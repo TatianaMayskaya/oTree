@@ -1,0 +1,20 @@
+{% load otree i18n %}
+
+{% if role == 1 %}
+    <p>
+        {% blocktrans %}In <strong>round {{ round }}</strong>{% endblocktrans %}
+        {% blocktrans %}you offered {{ offer }}{% endblocktrans %},
+        {{ response }},
+        {% blocktrans %}your payoff is <strong>{{ payoff }}</strong>.{% endblocktrans %}
+    </p>
+{% else %}
+    <p>
+        {% blocktrans %}In <strong>round {{ round }}</strong>{% endblocktrans %}
+        {% blocktrans %}you were offered {{ offer }}{% endblocktrans %},
+        {{ response }},
+        {% blocktrans %}your payoff is <strong>{{ payoff }}</strong>.{% endblocktrans %}
+    </p>
+{% endif %}
+
+
+

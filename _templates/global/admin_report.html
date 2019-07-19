@@ -1,0 +1,22 @@
+{% load otree %}
+
+<h3>Round {{ subsession.round_number }}.</h3>
+
+<table class="table">
+<tr>
+    <th>Participant</th>
+    <th>Role</th>
+    <th>Offer / MAO</th>
+</tr>
+{% for label, role, choice in players %}
+    <tr>
+    <th>{{ label }}</th>
+    <th>{{ role }}</th>
+    <th>{{ choice }}</th>
+    </tr>
+{% endfor %}
+</table>
+
+<p>Player 2T: Player 2 chosen by the computer to choose the partner</p>
+<p>Player 2C: Player 2 <strong>not</strong> chosen by the computer</p>
+<p>Player 2: Player 2 from pure ultimatum game</p>

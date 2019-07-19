@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree i18n %}
+
+{% block title %}
+{% blocktrans %}Game{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+
+<p>
+    {% blocktrans %}Now the actual game starts.{% endblocktrans %}
+    {% blocktrans %}You will be paid for one randomly chosen round using the conversion rate:{% endblocktrans %}
+    {% blocktrans %}1 token{% endblocktrans %} = {{ rate_text }}.
+</p>
+
+
+<div>
+     <button name="next">{% trans 'Next' %}</button>
+</div>
+
+{% endblock %}

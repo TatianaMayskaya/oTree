@@ -1,0 +1,146 @@
+{% load otree static %}
+
+<div class="instructions well well-lg">
+
+    <div class="panel-body">
+
+        <p>
+            Welcome to the experimental session!
+            There will be {{ n_rounds }} rounds in the game, all conducted according to the same rules.
+            In each round of the game, all participants in this session will be randomly divided into groups of four.
+            This will be done anonymously, so that you will not know who else is in your group,
+            and other group members will not know your identity either.
+        </p>
+
+        <p>
+            Participants in every group will have four different roles, denoted as:
+            <strong>Player 1A</strong>, <strong>Player 1B</strong>,
+            <strong>Player 2C</strong>, and <strong>Player 2D</strong>.
+            In what follows, we refer to roles of Player 1A and Player 1B as to Player 1 roles,
+            and to roles Player 2C and Player 2D as to Player 2 roles.
+            You will be assigned randomly to one of these role,
+            which will be displayed to you at the beginning of each round of the game.
+        </p>
+
+        <p>
+            Groups will be reshuffled after each round.
+            That is, in each round you will be playing with different partners, and
+            your role in a group might also change.
+            However, if you were Player 1A or Player 1B in the first round, you will remain in the role of Player 1 (A
+            or B), and will <strong>never</strong> be Player 2C or Player 2D in any subsequent round.
+            Similarly, if you were Player 2C or Player 2D in the first round, you will remain in the role of Player 2 (C
+            or D), and will <strong>never</strong> be Player 1A or Player 1B in any subsequent round.
+        </p>
+        <p>
+            We now describe to you the rules of the game, which are the same in every round.
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Rules of the game.
+        </h4>
+
+        <p>
+            Every round shall consist of four stages.
+        </p>
+
+
+        <ol>
+            <li>
+                <p>
+                    At the first stage of every round, participants in roles of Player 1 (A and B) are endowed
+                    with {{ endowment }} tokens. Each of them has to choose how much out of {{ endowment }} tokens he or
+                    she wants to pass to one of the Players 2 (C or D, to be determined later) in their group
+                    (in nonnegative integer numbers, but no larger than {{ endowment }}). The rest each Player 1 keeps
+                    for him- or herself. These decisions of Players 1 will remain private during the whole game.
+                    Participants in roles of Player 2 (C and D) have to wait for these decisions.
+                </p>
+            </li>
+            <li>
+                <p>
+                    At the second stage of every round, the computer chooses at random one of the participants with
+                    Player 2 role (either Player 2C or Player 2D) who will be given the right to choose Player 1
+                    (Player 1A or Player 1B) to be matched with. The other Player 2 will be automatically matched as
+                    partner with the other Player 1.
+                </p>
+                <p>
+                    If the computer has chosen Player 2C to make the decision, then
+                    Player 2C chooses either Player 1A or Player 1B to be matched with.
+                    Player 2D is then automatically matched with the other Player 1.
+                    That is, if Player 2C chooses to be matched with Player 1A, Player 2D
+                    shall be automatically matched with Player 1B.
+                    If Player 2C chooses to be matched with Player 1B, Player 2D
+                    shall be automatically matched with Player 1A.
+                </p>
+                <p>
+                    If the computer has chosen Player 2D to make the decision, then
+                    Player 2D chooses Player 1A or Player 1B to be matched with.
+                    Player 2C is then automatically matched with the other Player 1.
+                    That is, if Player 2D chooses to be matched with Player 1A, Player 2C
+                    shall be automatically matched with Player 1B.
+                    If Player 2D chooses to be matched with Player 1B, Player 2C
+                    shall be automatically matched with Player 1A.
+                </p>
+                <p>
+                    None of the Players 2 will know the decision of either Player 1A or Player 1B at this stage.
+                </p>
+                <p>
+                    Based on the procedure described above, at the end of this stage
+                    four players in each group shall be split in two pairs,
+                    and shall commonly observe this matching.
+                </p>
+
+            </li>
+            <li>
+                <p>
+                    At the third stage, all participants in roles of Player 2 (C and D) have to decide on
+                    the minimum offer from their partner Player 1 that each of them is willing to accept
+                    (in nonnegative integer numbers, but no larger than {{ endowment_plus_1 }}).
+                </p>
+                <p>
+                    As before, none of the Players 2 will know the decision of either Player 1A or Player 1B at this
+                    stage.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Payoff from each round shall be determined separately for each matched pair as follows.
+                    Denote by <i>Offer</i> the amount passed by the Player 1.
+                    Denote by <i>MinOffer</i> the minimum acceptable offer chosen by the Player 2.
+                </p>
+                <p>
+                    If <i>Offer</i> of the Player 1 in the matched pair is <b>greater or equal</b> to
+                    <i>MinOffer</i> of the Player 2 in that pair, then the decision of the Player 1 is realised:
+                    the Player 2 in this pair gets <i>Offer</i> tokens,
+                    and the Player 1 gets {{ endowment }} - <i>Offer</i> tokens.
+                </p>
+                <p>
+                    If <i>Offer</i> of the Player 1 in the matched pair is <b>less</b> than
+                    <i>MinOffer</i> of the Player 2 in that pair, then the decision of the Player 1 is not realised,
+                    and both players in that pair get {{ payoff_if_rejected }} tokens.
+                </p>
+            </li>
+        </ol>
+
+        <p>
+            After the whole experiment is over, all players shall be informed in private about the amount of tokens
+            they have earned in each round.
+            Exactly one round of the game will be randomly chosen for the actual payment.
+            Each participant shall be paid in private the amount equivalent to their earning in that round
+            according to the announced exchange rate of tokens to fiat money.
+        </p>
+
+        <p>
+            After reading the instructions, each of you receive a small quiz that checks your understanding of
+            these instructions. Your payment does not depend on your performance in this quiz.
+            However, if you answer a question incorrectly, you will have to answer the same question again.
+        </p>
+        <p>
+            After completing the game, you will be asked to answer a few more questions.
+        </p>
+        <p>
+            On the top of what you will earn <i>during</i> the experiment,
+            you will get {{ show_up_text }} for participation.
+        </p>
+
+    </div>
+</div>

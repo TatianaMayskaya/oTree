@@ -1,25 +1,16 @@
 {% extends "global/Page.html" %}
-{% load otree static %}
+{% load otree i18n %}
 
 {% block title %}
-        {% if language == 1 %}
-            Thank you
-        {% else %}
-            Спасибо
-        {% endif %}
+    {% blocktrans %}Thank you{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
 
     <div class="panel panel-default" style="margin-bottom:10px">
         <div class="panel-body">
-            {% if language == 1 %}
-                <p>Your payment is {{ payment }}</p>
-                <p>Please remain seated until we pay you.</p>
-            {% else %}
-                <p>Ваш выигрыш {{ payment }}</p>
-                <p>Пожалуйста, оставайтесь на месте и дождитесь оплаты.</p>
-            {% endif %}
+            <p>{% blocktrans %}Your payment is {{ payment }}.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Please remain seated until we pay you.{% endblocktrans %}</p>
         </div>
     </div>
 
